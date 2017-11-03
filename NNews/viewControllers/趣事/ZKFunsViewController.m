@@ -166,7 +166,7 @@ static NSString * const cellIdentifider = @"ZKFunsTableViewCellID";
             [self.fullWindow.view addSubview:self.videoPlayView];
         }];
     }else{
-        [self dismissViewControllerAnimated:YES completion:^{
+        [self.fullWindow dismissViewControllerAnimated:YES completion:^{
             self.videoPlayView.frame = self.currentSelectCell.videnPlayFrame;
             [self.currentSelectCell addSubview:self.videoPlayView];
             self.isFullWindow = full;
@@ -176,7 +176,7 @@ static NSString * const cellIdentifider = @"ZKFunsTableViewCellID";
 
 - (void)videoPlayFinish{
     if (self.isFullWindow) {
-        [self dismissViewControllerAnimated:YES completion:^{
+        [self.fullWindow dismissViewControllerAnimated:YES completion:^{
             self.isFullWindow = NO;
         }];
     }
