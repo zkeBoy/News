@@ -32,6 +32,7 @@
 		E24440601FA9D2F600E84C65 /* ZKFunsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E244405F1FA9D2F600E84C65 /* ZKFunsTableViewCell.m */; };
 		E24440751FAAE95700E84C65 /* ZKVideoPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = E24440741FAAE95700E84C65 /* ZKVideoPlayView.m */; };
 		E244407B1FAC090B00E84C65 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E244407A1FAC090B00E84C65 /* NSString+Extension.m */; };
+		E2A88A161FAC5DF500410CBA /* ZKFullViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A88A151FAC5DF500410CBA /* ZKFullViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,8 @@
 		E24440741FAAE95700E84C65 /* ZKVideoPlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKVideoPlayView.m; sourceTree = "<group>"; };
 		E24440791FAC090B00E84C65 /* NSString+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		E244407A1FAC090B00E84C65 /* NSString+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		E2A88A141FAC5DF500410CBA /* ZKFullViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKFullViewController.h; sourceTree = "<group>"; };
+		E2A88A151FAC5DF500410CBA /* ZKFullViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKFullViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +208,8 @@
 			children = (
 				E2443FF41FA8701300E84C65 /* ZKFunsViewController.h */,
 				E2443FF51FA8701300E84C65 /* ZKFunsViewController.m */,
+				E2A88A141FAC5DF500410CBA /* ZKFullViewController.h */,
+				E2A88A151FAC5DF500410CBA /* ZKFullViewController.m */,
 				E24440531FA9C5F600E84C65 /* View */,
 				E24440541FA9C5F600E84C65 /* Model */,
 			);
@@ -444,6 +449,7 @@
 				E2443FB71FA86C6E00E84C65 /* AppDelegate.m in Sources */,
 				E2443FFF1FA8706F00E84C65 /* ZKPersonViewController.m in Sources */,
 				E244407B1FAC090B00E84C65 /* NSString+Extension.m in Sources */,
+				E2A88A161FAC5DF500410CBA /* ZKFullViewController.m in Sources */,
 				E2443FEA1FA86D4400E84C65 /* ZKTabBarViewController.m in Sources */,
 				E2443FFC1FA8705300E84C65 /* ZKGameViewController.m in Sources */,
 				E24440601FA9D2F600E84C65 /* ZKFunsTableViewCell.m in Sources */,

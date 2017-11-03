@@ -32,5 +32,5 @@
 
 @property (nonatomic, strong) ZKTTVideoComment *top_cmt; //热评
 @property (nonatomic, assign) CGFloat cellHeight;
-@property (nonatomic, assign) CGRect videoFrame;
+@property (nonatomic, assign) CGRect  videoFrame;
 @end

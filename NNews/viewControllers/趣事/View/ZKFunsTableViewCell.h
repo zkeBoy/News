@@ -20,4 +20,5 @@
 @property (nonatomic, strong) NSIndexPath                    * indexPath;
 @property (nonatomic,   weak) id <ZKFunsTableViewCellDelegate> delegate;
 @property (nonatomic, strong) ZKTTVideo                      * videoModel;
+
 @end

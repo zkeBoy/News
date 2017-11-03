@@ -194,7 +194,7 @@ static NSString * const videoPlayerStatus = @"status";
 }
 
 #pragma mark - Out Action
-- (void)resumeVideoPlayWhenScroll{
+- (void)resetVideoPlay{
     [self finishPlay];
     [self removeFromSuperview];
 }
