@@ -1,0 +1,24 @@
+//
+//  ZKCommandFile.h
+//  NNews
+//
+//  Created by Tom on 2017/11/1.
+//  Copyright © 2017年 Tom. All rights reserved.
+//
+
+#ifndef ZKCommandFile_h
+#define ZKCommandFile_h
+
+#define D_WIDTH  [UISCreen mainScreen].bounds.size.width
+#define D_HEIGHT [UISCreen mainScreen].bounds.size.height
+
+#define NavBarH  64
+#define TabBarH  49
+
+#define Scale(s) (D_HEIGHT/736*s)
+
+#define N_Cell   60
+
+#define MainColor [[UIColor blackColor] colorWithAlphaComponent:0.2]
+
+#endif /* ZKCommandFile_h */
