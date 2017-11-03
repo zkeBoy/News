@@ -9,8 +9,8 @@
 #ifndef ZKCommandFile_h
 #define ZKCommandFile_h
 
-#define D_WIDTH  [UISCreen mainScreen].bounds.size.width
-#define D_HEIGHT [UISCreen mainScreen].bounds.size.height
+#define D_WIDTH  [UIScreen mainScreen].bounds.size.width
+#define D_HEIGHT [UIScreen mainScreen].bounds.size.height
 
 #define NavBarH  64
 #define TabBarH  49

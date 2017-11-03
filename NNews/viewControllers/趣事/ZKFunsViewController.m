@@ -8,12 +8,14 @@
 
 #import "ZKFunsViewController.h"
 #import "ZKFunsTableViewCell.h"
+#import "ZKVideoPlayView.h" //
 #import "ZKTTVideo.h"
 
-@interface ZKFunsViewController ()<UITableViewDelegate, UITableViewDataSource, ZKFunsTableViewCellDelegate>
-@property (nonatomic, strong) UITableView    * tableView;
-@property (nonatomic, strong) NSMutableArray * listArray;
-@property (nonatomic, assign) NSInteger        page;
+@interface ZKFunsViewController ()<UITableViewDelegate, UITableViewDataSource, ZKFunsTableViewCellDelegate, ZKVideoPlayViewDelegate>
+@property (nonatomic, strong) UITableView     * tableView;
+@property (nonatomic, strong) NSMutableArray  * listArray;
+@property (nonatomic, assign) NSInteger         page;
+@property (nonatomic, strong) ZKVideoPlayView * videoPlayView; //视频播放视图
 @end
 
 static NSString * const cellIdentifider = @"ZKFunsTableViewCellID";
@@ -97,7 +99,6 @@ static NSString * const cellIdentifider = @"ZKFunsTableViewCellID";
     return height;
 }
 
-
 //section 之间的间距
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section==0) {
@@ -131,7 +132,31 @@ static NSString * const cellIdentifider = @"ZKFunsTableViewCellID";
 
 #pragma mark - ZKFunsTableViewCellDelegate
 - (void)clickVideoPlay:(NSIndexPath *)indexPath{
-    ZKTTVideo * video = self.listArray[indexPath.row];
+    ZKFunsTableViewCell * cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifider forIndexPath:indexPath];
+    
+    ZKTTVideo * video = self.listArray[indexPath.section];
+    NSString * videoLink = video.videouri;
+    AVPlayerItem *item = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:videoLink]];
+    
+    ZKVideoPlayView * videoPlayView = [[ZKVideoPlayView alloc] init];
+    self.videoPlayView = videoPlayView;
+    self.videoPlayView.frame = CGRectMake(0, NavBarH, D_WIDTH, CGRectGetHeight(cell.bounds));
+    self.videoPlayView.delegate = self;
+    self.videoPlayView.playerItem = item;
+    
+    [self.view addSubview:self.videoPlayView];
+}
+
+#pragma mark - ZKVideoPlayViewDelegate
+- (void)openFullPlayWindow:(BOOL)open{ //是否全屏
+    
+}
+
+- (void)videoPlayFinish {
+    if (self.videoPlayView) {
+        [self.videoPlayView removeFromSuperview];
+        self.videoPlayView = nil;
+    }
 }
 
 #pragma mark -
