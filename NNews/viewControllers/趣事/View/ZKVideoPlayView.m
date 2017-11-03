@@ -28,10 +28,11 @@ static NSString * const videoPlayerStatus = @"status";
 
 - (void)addTapGestureRecognizer{
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] init];
+    [tap addTarget:self action:@selector(changeBottomBarHiddenStatus)];
     [self addGestureRecognizer:tap];
 }
 
-- (void)setBottomBarHidden:(BOOL)hidden{
+- (void)changeBottomBarHiddenStatus{
     self.bottomBar.hidden = !self.bottomBar.hidden;
 }
 
@@ -40,8 +41,11 @@ static NSString * const videoPlayerStatus = @"status";
     if (self) {
         [self setUI];
         [self addPlayLayer];
-        [self startloadAnimation]; //开始loadView Animation
+        [self startloadAnimation];      //开始loadView Animation
         [self addTapGestureRecognizer];
+        self.bottomBar.hidden = YES;
+        self.playButton.selected = YES;
+        self.fullButton.selected = YES;
     }
     return self;
 }
@@ -55,13 +59,20 @@ static NSString * const videoPlayerStatus = @"status";
 - (void)layoutSubviews{
     [super layoutSubviews];
     self.videoPlayerLayer.frame = self.bounds;
-    self.bottomBar.hidden = YES;
 }
 
 - (void)fireTimer{
     if (!self.playTimer) {
         self.playTimer = [NSTimer scheduledTimerWithTimeInterval:1.f target:self selector:@selector(updateVideoPlaySpeed) userInfo:nil repeats:YES];
         [[NSRunLoop mainRunLoop] addTimer:self.playTimer forMode:NSRunLoopCommonModes];
+    }else{//继续
+        [self.playTimer setFireDate:[NSDate date]];
+    }
+}
+
+- (void)stopTimer{//暂停
+    if (self.playTimer) {
+        [self.playTimer setFireDate:[NSDate distantFuture]];
     }
 }
 
@@ -105,6 +116,78 @@ static NSString * const videoPlayerStatus = @"status";
     }
 }
 
+
+#pragma mark - Private Method
+- (void)startloadAnimation{
+    if (!self.loadingView.isAnimating) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.loadingView startAnimating];
+        });
+    }
+}
+
+- (void)stoploadAnimation{
+    if (self.loadingView.isAnimating) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.loadingView stopAnimating];
+        });
+    }
+}
+
+//播放与暂停
+- (void)clickPlayBtn:(UIButton *)btn{
+    if (btn.selected) {
+        NSLog(@"pause");
+        [self stopTimer];
+        [self.videoPlayer pause];
+    }else{
+        NSLog(@"play");
+        [self fireTimer];
+        [self.videoPlayer play];
+    }
+}
+
+//点击全屏
+- (void)clickFullBtn:(UIButton *)btn{
+    if (btn.selected) {//max
+        [self.delegate openFullPlayWindow:YES];
+    }else{//min
+        [self.delegate openFullPlayWindow:NO];
+    }
+}
+
+//播放进度改变,快进 快退
+- (void)exchangePlaySpeed:(UISlider *)slider{
+    NSTimeInterval currentTime = CMTimeGetSeconds(self.videoPlayer.currentItem.duration) * self.progressView.value;
+    NSTimeInterval duration = CMTimeGetSeconds(self.videoPlayer.currentItem.duration);
+    self.timeLabel.text = [NSString stringWithCurrentTime:currentTime duration:duration];
+}
+
+- (void)finishPlay{
+    [self invalidateTimer];
+    [self resumePlayer];
+}
+
+- (void)resumePlayer{
+    if (self.videoPlayer&&self.videoPlayerLayer) {
+        [self.videoPlayer removeObserver:self forKeyPath:videoPlayerStatus]; //移除KVO
+        [self.videoPlayerLayer removeFromSuperlayer];
+        [self.videoPlayer replaceCurrentItemWithPlayerItem:nil];
+        self.videoPlayer = nil;
+    }
+}
+
+#pragma mark - Out Action
+- (void)resumeVideoPlayWhenScroll{
+    [self finishPlay];
+    [self removeFromSuperview];
+}
+
+#pragma mark - dealloc
+- (void)dealloc {
+    NSLog(@"ZKVideoPlayView dealloc !!!");
+}
+
 #pragma mark -
 #pragma mark lazy init
 - (UIImageView *)backgroundView {
@@ -136,9 +219,8 @@ static NSString * const videoPlayerStatus = @"status";
 - (UIButton *)playButton {
     if (!_playButton) {
         _playButton = [[UIButton alloc] initWithFrame:CGRectZero];
-        _playButton.backgroundColor = [UIColor clearColor];
-        [_playButton setBackgroundImage:[UIImage imageNamed:@"paly_play_btn"] forState:UIControlStateNormal];
-        [_playButton setBackgroundImage:[UIImage imageNamed:@"paly_pause_btn"] forState:UIControlStateSelected];
+        [_playButton setBackgroundImage:[UIImage imageNamed:@"play_play_btn"] forState:UIControlStateNormal];
+        [_playButton setBackgroundImage:[UIImage imageNamed:@"play_pause_btn"] forState:UIControlStateSelected];
         [_playButton addTarget:self action:@selector(clickPlayBtn:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _playButton;
@@ -151,15 +233,15 @@ static NSString * const videoPlayerStatus = @"status";
         _progressView.maximumValue = 1;//设置最大值
         _progressView.value = 0.0;     //设置默认值
         [_progressView addTarget:self action:@selector(exchangePlaySpeed:) forControlEvents:UIControlEventValueChanged];
-        [_progressView setThumbImage:[UIImage imageNamed:@"thumbImage"] forState:UIControlStateNormal];
+        [_progressView setThumbImage:[UIImage imageNamed:@"video_thumb_Image"] forState:UIControlStateNormal];
         _progressView.minimumTrackTintColor = [UIColor whiteColor]; //走过的颜色
         _progressView.maximumTrackTintColor = [UIColor redColor]; //剩余的颜色
         //[_progressView setMaximumTrackImage:[UIImage imageNamed:@"MaximumTrackImage"] forState:UIControlStateNormal];
         //[_progressView setMinimumTrackImage:[UIImage imageNamed:@"MinimumTrackImage"] forState:UIControlStateNormal];
         /*
-        _progressView.minimumTrackTintColor = [UIColor redColor]; //走过的颜色
-        _progressView.maximumTrackTintColor = [UIColor yellowColor]; //剩余的颜色
-        _progressView.thumbTintColor = [UIColor purpleColor]; //圆形颜色
+         _progressView.minimumTrackTintColor = [UIColor redColor]; //走过的颜色
+         _progressView.maximumTrackTintColor = [UIColor yellowColor]; //剩余的颜色
+         _progressView.thumbTintColor = [UIColor purpleColor]; //圆形颜色
          */
     }
     return _progressView;
@@ -168,9 +250,8 @@ static NSString * const videoPlayerStatus = @"status";
 - (UIButton *)fullButton {
     if (!_fullButton) {
         _fullButton = [[UIButton alloc] initWithFrame:CGRectZero];
-        _fullButton.backgroundColor = [UIColor redColor];
-        //[_fullButton setBackgroundImage:[UIImage imageNamed:@"paly_full_btn"] forState:UIControlStateNormal];
-        //[_fullButton setBackgroundImage:[UIImage imageNamed:@"paly_min_btn"] forState:UIControlStateSelected];
+        [_fullButton setBackgroundImage:[UIImage imageNamed:@"player_full_btn"] forState:UIControlStateNormal];
+        [_fullButton setBackgroundImage:[UIImage imageNamed:@"player_min_btn"] forState:UIControlStateSelected];
         [_playButton addTarget:self action:@selector(clickFullBtn:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _fullButton;
@@ -180,7 +261,7 @@ static NSString * const videoPlayerStatus = @"status";
     if (!_timeLabel) {
         _timeLabel = [[UILabel alloc] init];
         _timeLabel.textColor = [UIColor whiteColor];
-        _timeLabel.textAlignment = NSTextAlignmentLeft;
+        _timeLabel.textAlignment = NSTextAlignmentCenter;
         _timeLabel.backgroundColor = [UIColor clearColor];
         _timeLabel.font = [UIFont systemFontOfSize:14];
         _timeLabel.text = [NSString stringWithCurrentTime:0.f duration:0.f];
@@ -217,7 +298,7 @@ static NSString * const videoPlayerStatus = @"status";
     [self.progressView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.playButton.mas_right).offset(4);
         make.centerY.equalTo(self.playButton);
-        make.width.equalTo(@120);
+        make.width.mas_equalTo(Scale(156));
         make.height.equalTo(self.progressView);
     }];
     
@@ -226,7 +307,7 @@ static NSString * const videoPlayerStatus = @"status";
         make.top.bottom.right.equalTo(self.bottomBar);
         make.width.equalTo(self.fullButton.mas_height);
     }];
-
+    
     [self.bottomBar addSubview:self.timeLabel];
     [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.bottomBar);
@@ -236,72 +317,7 @@ static NSString * const videoPlayerStatus = @"status";
     }];
 }
 
-#pragma mark - Private Method
-- (void)startloadAnimation{
-    if (!self.loadingView.isAnimating) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.loadingView startAnimating];
-        });
-    }
-}
 
-- (void)stoploadAnimation{
-    if (self.loadingView.isAnimating) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.loadingView stopAnimating];
-        });
-    }
-}
-
-//播放与暂停
-- (void)clickPlayBtn:(UIButton *)btn{
-    BOOL select = self.playButton.selected = !btn.isSelected;
-    if (select) {//play
-        
-    }else{//pause
-        
-    }
-}
-
-//点击全屏
-- (void)clickFullBtn:(UIButton *)btn{
-    BOOL isFull = self.playButton.selected = !btn.isSelected;
-    if (isFull) {//max
-        
-    }else{//min
-        
-    }
-}
-
-//播放进度改变,快进 快退
-- (void)exchangePlaySpeed:(UISlider *)slider{
-    
-}
-
-- (void)finishPlay{
-    [self invalidateTimer];
-    [self resumePlayer];
-}
-
-- (void)resumePlayer{
-    if (self.videoPlayer&&self.videoPlayerLayer) {
-        [self.videoPlayer removeObserver:self forKeyPath:videoPlayerStatus]; //移除KVO
-        [self.videoPlayerLayer removeFromSuperlayer];
-        [self.videoPlayer replaceCurrentItemWithPlayerItem:nil];
-        self.videoPlayer = nil;
-    }
-}
-
-#pragma mark - Out Action
-- (void)resumeVideoPlayWhenScroll{
-    [self finishPlay];
-    [self removeFromSuperview];
-}
-
-#pragma mark - dealloc
-- (void)dealloc {
-    NSLog(@"ZKVideoPlayView dealloc !!!");
-}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

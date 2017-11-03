@@ -11,7 +11,7 @@
 
 @protocol ZKVideoPlayViewDelegate <NSObject>
 @optional
-- (void)openFullPlayWindow:(BOOL)open;
+- (void)openFullPlayWindow:(BOOL)full;
 
 - (void)videoPlayFinish; //播放结束
 @end

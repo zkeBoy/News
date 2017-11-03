@@ -148,8 +148,12 @@ static NSString * const cellIdentifider = @"ZKFunsTableViewCellID";
 }
 
 #pragma mark - ZKVideoPlayViewDelegate
-- (void)openFullPlayWindow:(BOOL)open{ //是否全屏
-    
+- (void)openFullPlayWindow:(BOOL)full{ //是否全屏
+    if(full){
+        
+    }else{
+        
+    }
 }
 
 - (void)videoPlayFinish {
