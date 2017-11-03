@@ -140,20 +140,27 @@ static NSString * const videoPlayerStatus = @"status";
         NSLog(@"pause");
         [self stopTimer];
         [self.videoPlayer pause];
-    }else{
+    }else {
         NSLog(@"play");
         [self fireTimer];
         [self.videoPlayer play];
     }
+    self.playButton.selected = !btn.selected;
 }
 
 //点击全屏
 - (void)clickFullBtn:(UIButton *)btn{
     if (btn.selected) {//max
         [self.delegate openFullPlayWindow:YES];
-    }else{//min
+    }else {//min
         [self.delegate openFullPlayWindow:NO];
     }
+    self.fullButton.selected = !btn.selected;
+}
+
+//开始滑动
+- (void)startExchangePlaySpeed:(UISlider *)slider{
+    [self invalidateTimer];
 }
 
 //播放进度改变,快进 快退
@@ -161,6 +168,15 @@ static NSString * const videoPlayerStatus = @"status";
     NSTimeInterval currentTime = CMTimeGetSeconds(self.videoPlayer.currentItem.duration) * self.progressView.value;
     NSTimeInterval duration = CMTimeGetSeconds(self.videoPlayer.currentItem.duration);
     self.timeLabel.text = [NSString stringWithCurrentTime:currentTime duration:duration];
+}
+
+//停止滑动
+- (void)endExchangePlaySpeed:(UISlider *)slider{
+    [self fireTimer];
+    NSTimeInterval currentTime = CMTimeGetSeconds(self.videoPlayer.currentItem.duration) * self.progressView.value;
+    // 设置当前播放时间
+    [self.videoPlayer seekToTime:CMTimeMakeWithSeconds(currentTime, NSEC_PER_SEC) toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
+    [self.videoPlayer play];
 }
 
 - (void)finishPlay{
@@ -232,17 +248,14 @@ static NSString * const videoPlayerStatus = @"status";
         _progressView.minimumValue = 0;//设置最小值
         _progressView.maximumValue = 1;//设置最大值
         _progressView.value = 0.0;     //设置默认值
+        [_progressView addTarget:self action:@selector(startExchangePlaySpeed:) forControlEvents:UIControlEventTouchDown];
         [_progressView addTarget:self action:@selector(exchangePlaySpeed:) forControlEvents:UIControlEventValueChanged];
+        [_progressView addTarget:self action:@selector(endExchangePlaySpeed:) forControlEvents:UIControlEventTouchUpInside];
         [_progressView setThumbImage:[UIImage imageNamed:@"video_thumb_Image"] forState:UIControlStateNormal];
         _progressView.minimumTrackTintColor = [UIColor whiteColor]; //走过的颜色
         _progressView.maximumTrackTintColor = [UIColor redColor]; //剩余的颜色
         //[_progressView setMaximumTrackImage:[UIImage imageNamed:@"MaximumTrackImage"] forState:UIControlStateNormal];
         //[_progressView setMinimumTrackImage:[UIImage imageNamed:@"MinimumTrackImage"] forState:UIControlStateNormal];
-        /*
-         _progressView.minimumTrackTintColor = [UIColor redColor]; //走过的颜色
-         _progressView.maximumTrackTintColor = [UIColor yellowColor]; //剩余的颜色
-         _progressView.thumbTintColor = [UIColor purpleColor]; //圆形颜色
-         */
     }
     return _progressView;
 }
@@ -252,7 +265,7 @@ static NSString * const videoPlayerStatus = @"status";
         _fullButton = [[UIButton alloc] initWithFrame:CGRectZero];
         [_fullButton setBackgroundImage:[UIImage imageNamed:@"player_full_btn"] forState:UIControlStateNormal];
         [_fullButton setBackgroundImage:[UIImage imageNamed:@"player_min_btn"] forState:UIControlStateSelected];
-        [_playButton addTarget:self action:@selector(clickFullBtn:) forControlEvents:UIControlEventTouchUpInside];
+        [_fullButton addTarget:self action:@selector(clickFullBtn:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _fullButton;
 }
@@ -304,8 +317,9 @@ static NSString * const videoPlayerStatus = @"status";
     
     [self.bottomBar addSubview:self.fullButton];
     [self.fullButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.right.equalTo(self.bottomBar);
-        make.width.equalTo(self.fullButton.mas_height);
+        make.right.equalTo(self.bottomBar);
+        make.width.height.mas_equalTo(40);
+        make.centerY.equalTo(self.bottomBar);
     }];
     
     [self.bottomBar addSubview:self.timeLabel];
