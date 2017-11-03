@@ -87,8 +87,8 @@ static NSString * const videoPlayerStatus = @"status";
     NSTimeInterval currentTime = CMTimeGetSeconds(self.videoPlayer.currentTime);
     NSTimeInterval duration = CMTimeGetSeconds(self.videoPlayer.currentItem.duration);
     if (currentTime>=duration) {//播放结束
-        [self.delegate videoPlayFinish];
         [self finishPlay];
+        [self.delegate videoPlayFinish];
     }else{ //更新进度
         NSString * text = [NSString stringWithCurrentTime:currentTime duration:duration];
         self.timeLabel.text = text;
@@ -111,7 +111,7 @@ static NSString * const videoPlayerStatus = @"status";
         AVPlayerItem *item = (AVPlayerItem *)object;
         if (item.status == AVPlayerItemStatusReadyToPlay) { //开始播放
             [self stoploadAnimation]; //隐藏 loadView
-            [self fireTimer]; //开启视频进度计时器
+            [self fireTimer];         //开启视频进度计时器
         }
     }
 }
@@ -158,9 +158,12 @@ static NSString * const videoPlayerStatus = @"status";
     self.fullButton.selected = !btn.selected;
 }
 
+#pragma mark - 快进与快退
 //开始滑动
 - (void)startExchangePlaySpeed:(UISlider *)slider{
     [self invalidateTimer];
+    self.playButton.selected = NO;
+    [self.videoPlayer pause];
 }
 
 //播放进度改变,快进 快退
@@ -177,14 +180,18 @@ static NSString * const videoPlayerStatus = @"status";
     // 设置当前播放时间
     [self.videoPlayer seekToTime:CMTimeMakeWithSeconds(currentTime, NSEC_PER_SEC) toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
     [self.videoPlayer play];
+    self.playButton.selected = YES;
 }
 
+#pragma mark - 完成播放
 - (void)finishPlay{
-    [self invalidateTimer];
-    [self resumePlayer];
+    [self invalidateTimer]; //关闭Timer
+    [self clearPlayer];     //清理播放器相关的属性与代理
+    [self removeFromSuperview];
 }
 
-- (void)resumePlayer{
+#pragma mark - 清理播放的相关属性
+- (void)clearPlayer{
     if (self.videoPlayer&&self.videoPlayerLayer) {
         [self.videoPlayer removeObserver:self forKeyPath:videoPlayerStatus]; //移除KVO
         [self.videoPlayerLayer removeFromSuperlayer];
@@ -194,9 +201,8 @@ static NSString * const videoPlayerStatus = @"status";
 }
 
 #pragma mark - Out Action
-- (void)resetVideoPlay{
+- (void)resetVideoPlay{ //重置播放器
     [self finishPlay];
-    [self removeFromSuperview];
 }
 
 #pragma mark - dealloc
@@ -219,7 +225,6 @@ static NSString * const videoPlayerStatus = @"status";
     if (!_loadingView) {
         _loadingView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
         _loadingView.hidesWhenStopped = YES;
-        
     }
     return _loadingView;
 }
@@ -248,6 +253,7 @@ static NSString * const videoPlayerStatus = @"status";
         _progressView.minimumValue = 0;//设置最小值
         _progressView.maximumValue = 1;//设置最大值
         _progressView.value = 0.0;     //设置默认值
+        //_progressView.continuous = NO;
         [_progressView addTarget:self action:@selector(startExchangePlaySpeed:) forControlEvents:UIControlEventTouchDown];
         [_progressView addTarget:self action:@selector(exchangePlaySpeed:) forControlEvents:UIControlEventValueChanged];
         [_progressView addTarget:self action:@selector(endExchangePlaySpeed:) forControlEvents:UIControlEventTouchUpInside];
@@ -263,8 +269,8 @@ static NSString * const videoPlayerStatus = @"status";
 - (UIButton *)fullButton {
     if (!_fullButton) {
         _fullButton = [[UIButton alloc] initWithFrame:CGRectZero];
-        [_fullButton setBackgroundImage:[UIImage imageNamed:@"player_full_btn"] forState:UIControlStateNormal];
-        [_fullButton setBackgroundImage:[UIImage imageNamed:@"player_min_btn"] forState:UIControlStateSelected];
+        [_fullButton setBackgroundImage:[UIImage imageNamed:@"player_min_btn"] forState:UIControlStateNormal];
+        [_fullButton setBackgroundImage:[UIImage imageNamed:@"player_full_btn"] forState:UIControlStateSelected];
         [_fullButton addTarget:self action:@selector(clickFullBtn:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _fullButton;
@@ -307,27 +313,26 @@ static NSString * const videoPlayerStatus = @"status";
         make.width.equalTo(self.playButton.mas_height);
     }];
     
-    [self.bottomBar addSubview:self.progressView];
-    [self.progressView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.playButton.mas_right).offset(4);
-        make.centerY.equalTo(self.playButton);
-        make.width.mas_equalTo(Scale(156));
-        make.height.equalTo(self.progressView);
-    }];
-    
     [self.bottomBar addSubview:self.fullButton];
     [self.fullButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.bottomBar);
-        make.width.height.mas_equalTo(40);
+        make.width.height.mas_equalTo(30);
         make.centerY.equalTo(self.bottomBar);
     }];
     
     [self.bottomBar addSubview:self.timeLabel];
     [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.bottomBar);
-        make.left.equalTo(self.progressView.mas_right).offset(4);
         make.right.equalTo(self.fullButton.mas_left).offset(-4);
-        make.height.equalTo(self.timeLabel);
+        make.height.width.equalTo(self.timeLabel);
+    }];
+    
+    [self.bottomBar addSubview:self.progressView];
+    [self.progressView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.playButton.mas_right).offset(4);
+        make.centerY.equalTo(self.playButton);
+        make.right.equalTo(self.timeLabel.mas_left).offset(-4);
+        make.height.equalTo(self.progressView);
     }];
 }
 

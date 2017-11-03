@@ -8,8 +8,9 @@
 
 #import "ZKFunsViewController.h"
 #import "ZKFunsTableViewCell.h"
-#import "ZKVideoPlayView.h" //
+#import "ZKVideoPlayView.h" // 视频播放界面
 #import "ZKFullViewController.h"
+#import "ZKFunsDetailViewController.h" // 视频详情界面
 #import "ZKTTVideo.h"
 
 @interface ZKFunsViewController ()<UITableViewDelegate, UITableViewDataSource, ZKFunsTableViewCellDelegate, ZKVideoPlayViewDelegate>
@@ -19,6 +20,7 @@
 @property (nonatomic, strong) ZKVideoPlayView      * videoPlayView; //视频播放视图
 @property (nonatomic, strong) ZKFullViewController * fullWindow; //全屏
 @property (nonatomic, strong) ZKFunsTableViewCell  * currentSelectCell; //当前选中的cell
+@property (nonatomic, assign) BOOL                   isFullWindow;
 @end
 
 static NSString * const cellIdentifider = @"ZKFunsTableViewCellID";
@@ -94,6 +96,8 @@ static NSString * const cellIdentifider = @"ZKFunsTableViewCellID";
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    ZKFunsDetailViewController * detailVC = [[ZKFunsDetailViewController alloc] init];
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -137,7 +141,7 @@ static NSString * const cellIdentifider = @"ZKFunsTableViewCellID";
 - (void)clickVideoPlay:(NSIndexPath *)indexPath{
     [self.videoPlayView resetVideoPlay];
     
-    ZKFunsTableViewCell * cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifider forIndexPath:indexPath];
+    ZKFunsTableViewCell * cell = [self.tableView cellForRowAtIndexPath:indexPath];
     self.currentSelectCell = cell;
     
     ZKTTVideo * videoModel = self.listArray[indexPath.section];
@@ -146,7 +150,7 @@ static NSString * const cellIdentifider = @"ZKFunsTableViewCellID";
     
     ZKVideoPlayView * videoPlayView = [[ZKVideoPlayView alloc] init];
     self.videoPlayView = videoPlayView;
-    self.videoPlayView.frame = videoModel.videoFrame;
+    self.videoPlayView.frame = cell.videnPlayFrame;
     self.videoPlayView.delegate = self;
     self.videoPlayView.playerItem = item;
     
@@ -156,21 +160,37 @@ static NSString * const cellIdentifider = @"ZKFunsTableViewCellID";
 #pragma mark - ZKVideoPlayViewDelegate
 - (void)openFullPlayWindow:(BOOL)full{ //是否全屏
     if(full){
+        self.isFullWindow = full;
         [self presentViewController:self.fullWindow animated:YES completion:^{
             self.videoPlayView.frame = self.fullWindow.view.bounds;
             [self.fullWindow.view addSubview:self.videoPlayView];
         }];
     }else{
         [self dismissViewControllerAnimated:YES completion:^{
-            
+            self.videoPlayView.frame = self.currentSelectCell.videnPlayFrame;
+            [self.currentSelectCell addSubview:self.videoPlayView];
+            self.isFullWindow = full;
         }];
     }
 }
 
-- (void)videoPlayFinish {
-    if (self.videoPlayView) {
-        [self.videoPlayView removeFromSuperview];
-        self.videoPlayView = nil;
+- (void)videoPlayFinish{
+    if (self.isFullWindow) {
+        [self dismissViewControllerAnimated:YES completion:^{
+            self.isFullWindow = NO;
+        }];
+    }
+}
+
+#pragma mark - 当播放的Cell隐藏了 要停止播放
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    //判断播放的Cell是否还在 可见的cell列表中
+    if (!self.isFullWindow) {
+        NSIndexPath * indexPath = [self.tableView indexPathForCell:self.currentSelectCell];
+        if (![self.tableView.indexPathsForVisibleRows containsObject:indexPath]) {
+            [self.videoPlayView resetVideoPlay]; //移除
+            self.videoPlayView = nil;
+        }
     }
 }
 

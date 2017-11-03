@@ -20,7 +20,7 @@
 @property (nonatomic, strong) id <ZKVideoPlayViewDelegate> delegate;
 @property (nonatomic, strong) AVPlayerItem * playerItem;
 
-
+//重置播放器
 - (void)resetVideoPlay;
 
 @end

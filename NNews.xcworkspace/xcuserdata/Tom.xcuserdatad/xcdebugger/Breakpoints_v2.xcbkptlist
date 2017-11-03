@@ -2,4 +2,70 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NNews/viewControllers/&#x8da3;&#x4e8b;/ZKFunsViewController.m"
+            timestampString = "531395276.526708"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
+            landmarkName = "-videoPlayFinish"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ZKFunsViewController videoPlayFinish]"
+                  moduleName = "NNews"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Tom/Desktop/GitHub/News/NNews/viewControllers/%E8%B6%A3%E4%BA%8B/ZKFunsViewController.m"
+                  timestampString = "531395276.568506"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "179"
+                  endingLineNumber = "179"
+                  offsetFromSymbolStart = "90">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__39-[ZKFunsViewController videoPlayFinish]_block_invoke"
+                  moduleName = "NNews"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Tom/Desktop/GitHub/News/NNews/viewControllers/%E8%B6%A3%E4%BA%8B/ZKFunsViewController.m"
+                  timestampString = "531395276.569992"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "179"
+                  endingLineNumber = "179"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NNews/viewControllers/&#x8da3;&#x4e8b;/ZKFunsViewController.m"
+            timestampString = "531395276.526782"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
+            landmarkName = "-videoPlayFinish"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
