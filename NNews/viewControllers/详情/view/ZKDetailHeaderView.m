@@ -26,6 +26,29 @@
 
 @implementation ZKDetailHeaderView
 
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        
+    }
+    return self;
+}
+
+- (void)setType:(detailType)type {
+    _type = type;
+}
+
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    
+}
+
+#pragma mark -
+#pragma mark setUI
+- (void)setUI{
+    
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

@@ -10,6 +10,7 @@
 #import "ZKFunsTableViewCell.h"
 #import "ZKVideoPlayView.h" // 视频播放界面
 #import "ZKFullViewController.h"
+#import "ZKDetailViewController.h"
 #import "ZKTTVideo.h"
 
 @interface ZKFunsViewController ()<UITableViewDelegate, UITableViewDataSource, ZKFunsTableViewCellDelegate, ZKVideoPlayViewDelegate>
@@ -95,7 +96,11 @@ static NSString * const cellIdentifider = @"ZKFunsTableViewCellID";
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    ZKDetailViewController * detailVC = [[ZKDetailViewController alloc] init];
+    detailVC.hidesBottomBarWhenPushed = YES;
+    detailVC.type = typeVideo;
+    detailVC.videoModel = self.listArray[indexPath.section];
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

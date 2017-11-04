@@ -10,6 +10,7 @@
 #import "ZKDetailHeaderView.h"
 
 @interface ZKDetailViewController : UIViewController
-@property (nonatomic, assign) detailType type;
+@property (nonatomic, assign) detailType   type;
+@property (nonatomic, strong) ZKTTVideo  * videoModel;
 
 @end
