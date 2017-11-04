@@ -11,6 +11,7 @@
 		E2257EDE1FAD61D6006C14C4 /* ZKDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2257EDD1FAD61D6006C14C4 /* ZKDetailViewController.m */; };
 		E2257EE31FAD6308006C14C4 /* ZKDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2257EE21FAD6308006C14C4 /* ZKDetailHeaderView.m */; };
 		E2257EE61FAD6980006C14C4 /* ZKDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2257EE51FAD6980006C14C4 /* ZKDetailTableViewCell.m */; };
+		E2257EEC1FAD71CB006C14C4 /* ZKNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2257EEB1FAD71CB006C14C4 /* ZKNavigationController.m */; };
 		E2443FB71FA86C6E00E84C65 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2443FB61FA86C6E00E84C65 /* AppDelegate.m */; };
 		E2443FBA1FA86C6E00E84C65 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2443FB91FA86C6E00E84C65 /* ViewController.m */; };
 		E2443FBD1FA86C6E00E84C65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2443FBB1FA86C6E00E84C65 /* Main.storyboard */; };
@@ -48,6 +49,8 @@
 		E2257EE21FAD6308006C14C4 /* ZKDetailHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKDetailHeaderView.m; sourceTree = "<group>"; };
 		E2257EE41FAD6980006C14C4 /* ZKDetailTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKDetailTableViewCell.h; sourceTree = "<group>"; };
 		E2257EE51FAD6980006C14C4 /* ZKDetailTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKDetailTableViewCell.m; sourceTree = "<group>"; };
+		E2257EEA1FAD71CB006C14C4 /* ZKNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKNavigationController.h; sourceTree = "<group>"; };
+		E2257EEB1FAD71CB006C14C4 /* ZKNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKNavigationController.m; sourceTree = "<group>"; };
 		E2443FB21FA86C6E00E84C65 /* NNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2443FB51FA86C6E00E84C65 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E2443FB61FA86C6E00E84C65 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -204,6 +207,8 @@
 			children = (
 				E2443FE81FA86D4400E84C65 /* ZKTabBarViewController.h */,
 				E2443FE91FA86D4400E84C65 /* ZKTabBarViewController.m */,
+				E2257EEA1FAD71CB006C14C4 /* ZKNavigationController.h */,
+				E2257EEB1FAD71CB006C14C4 /* ZKNavigationController.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -489,6 +494,7 @@
 				E24440091FA95E2D00E84C65 /* ZKNewsTableViewCell.m in Sources */,
 				E2443FB71FA86C6E00E84C65 /* AppDelegate.m in Sources */,
 				E2443FFF1FA8706F00E84C65 /* ZKPersonViewController.m in Sources */,
+				E2257EEC1FAD71CB006C14C4 /* ZKNavigationController.m in Sources */,
 				E244407B1FAC090B00E84C65 /* NSString+Extension.m in Sources */,
 				E2A88A161FAC5DF500410CBA /* ZKFullViewController.m in Sources */,
 				E2443FEA1FA86D4400E84C65 /* ZKTabBarViewController.m in Sources */,

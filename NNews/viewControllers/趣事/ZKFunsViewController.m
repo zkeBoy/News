@@ -35,6 +35,10 @@ static NSString * const cellIdentifider = @"ZKFunsTableViewCellID";
     return self;
 }
 
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"趣事";
@@ -96,10 +100,12 @@ static NSString * const cellIdentifider = @"ZKFunsTableViewCellID";
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    //关闭播放
+    [self.videoPlayView resetVideoPlay];
+    
     ZKDetailViewController * detailVC = [[ZKDetailViewController alloc] init];
-    detailVC.hidesBottomBarWhenPushed = YES;
-    detailVC.type = typeVideo;
     detailVC.videoModel = self.listArray[indexPath.section];
+    detailVC.type = typeVideo;
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 

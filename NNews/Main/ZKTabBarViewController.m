@@ -50,15 +50,15 @@
         NSString * title = self.titles[index];
         UIImage * image = [UIImage imageNamed:self.normalImages[index]];
         UIImage * selectImage = [UIImage imageNamed:self.selectImages[index]];
-        UINavigationController * nav = [self instanceRootViewControllerWithName:nibName andTabBarNormalImage:image selectImage:selectImage title:title];
+        ZKNavigationController * nav = [self instanceRootViewControllerWithName:nibName andTabBarNormalImage:image selectImage:selectImage title:title];
         [viewControllers addObject:nav];
     }
     self.viewControllers = viewControllers;
 }
 
-- (UINavigationController *)instanceRootViewControllerWithName:(NSString *)nibName andTabBarNormalImage:(UIImage *)normal selectImage:(UIImage *)select title:(NSString *)title{
+- (ZKNavigationController *)instanceRootViewControllerWithName:(NSString *)nibName andTabBarNormalImage:(UIImage *)normal selectImage:(UIImage *)select title:(NSString *)title{
     UIViewController * vc = (UIViewController *)[[NSClassFromString(nibName) alloc] init];
-    UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    ZKNavigationController * nav = [[ZKNavigationController alloc] initWithRootViewController:vc];
     nav.tabBarItem.selectedImage = select;
     nav.tabBarItem.image = normal;
     nav.title = title;
