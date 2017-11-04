@@ -102,6 +102,7 @@ static NSString * const cellIdentifider = @"ZKFunsTableViewCellID";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     //关闭播放
     [self.videoPlayView resetVideoPlay];
+    self.videoPlayView = nil;
     
     ZKDetailViewController * detailVC = [[ZKDetailViewController alloc] init];
     detailVC.videoModel = self.listArray[indexPath.section];
@@ -168,18 +169,19 @@ static NSString * const cellIdentifider = @"ZKFunsTableViewCellID";
 
 #pragma mark - ZKVideoPlayViewDelegate
 - (void)openFullPlayWindow:(BOOL)full{ //是否全屏
+    __weak typeof(self)weakSelf = self;
     if(full){
         self.isFullWindow = full;
-        [self presentViewController:self.fullWindow animated:YES completion:^{
-            self.videoPlayView.frame = self.fullWindow.view.bounds;
-            [self.fullWindow.view addSubview:self.videoPlayView];
+        [self presentViewController:weakSelf.fullWindow animated:YES completion:^{
+            weakSelf.videoPlayView.frame = weakSelf.fullWindow.view.bounds;
+            [weakSelf.fullWindow.view addSubview:weakSelf.videoPlayView];
         }];
     }else{
-        [self.fullWindow dismissViewControllerAnimated:YES completion:^{
-            self.videoPlayView.frame = self.currentSelectCell.videnPlayFrame;
-            [self.currentSelectCell addSubview:self.videoPlayView];
-            self.isFullWindow = full;
+        [weakSelf.fullWindow dismissViewControllerAnimated:YES completion:^{
+            weakSelf.isFullWindow = full;
         }];
+        weakSelf.videoPlayView.frame = weakSelf.currentSelectCell.videnPlayFrame;
+        [weakSelf.currentSelectCell addSubview:weakSelf.videoPlayView];
     }
 }
 

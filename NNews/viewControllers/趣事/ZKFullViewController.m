@@ -28,6 +28,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    NSLog(@"ZKFullViewController dealloc !!!!!!");
+}
+
 /*
 #pragma mark - Navigation
 

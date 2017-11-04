@@ -20,7 +20,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        
+    
     }
     return self;
 }
@@ -34,6 +34,10 @@
     self.titles = @[@"新闻",@"趣事",@"游戏",@"小说",@"个人"];
     self.selectImages = @[@"",@"",@"",@"",@""];
     self.normalImages = @[@"",@"",@"",@"",@""];
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 - (void)viewDidLoad {
