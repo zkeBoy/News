@@ -1,22 +1,23 @@
 //
-//  ZKFunsDetailViewController.m
+//  ZKDetailViewController.m
 //  NNews
 //
-//  Created by Tom on 2017/11/3.
+//  Created by Tom on 2017/11/4.
 //  Copyright © 2017年 Tom. All rights reserved.
 //
 
-#import "ZKFunsDetailViewController.h"
+#import "ZKDetailViewController.h"
+#import "ZKDetailHeaderView.h"
 
-@interface ZKFunsDetailViewController ()
-
+@interface ZKDetailViewController ()
+@property (nonatomic, strong) UITableView * tableView;
 @end
 
-@implementation ZKFunsDetailViewController
+@implementation ZKDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {

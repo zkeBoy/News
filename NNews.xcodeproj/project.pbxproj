@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BE1351E9BEB79286081471DB /* libPods-NNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 450F700E5C37477FC145B41A /* libPods-NNews.a */; };
-		E2257ECF1FAC7077006C14C4 /* ZKFunsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2257ECE1FAC7077006C14C4 /* ZKFunsDetailViewController.m */; };
+		E2257EDE1FAD61D6006C14C4 /* ZKDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2257EDD1FAD61D6006C14C4 /* ZKDetailViewController.m */; };
+		E2257EE31FAD6308006C14C4 /* ZKDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2257EE21FAD6308006C14C4 /* ZKDetailHeaderView.m */; };
 		E2443FB71FA86C6E00E84C65 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2443FB61FA86C6E00E84C65 /* AppDelegate.m */; };
 		E2443FBA1FA86C6E00E84C65 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2443FB91FA86C6E00E84C65 /* ViewController.m */; };
 		E2443FBD1FA86C6E00E84C65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2443FBB1FA86C6E00E84C65 /* Main.storyboard */; };
@@ -40,8 +41,10 @@
 		450F700E5C37477FC145B41A /* libPods-NNews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NNews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		801ABD53072112AB10E53CF7 /* Pods-NNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NNews/Pods-NNews.debug.xcconfig"; sourceTree = "<group>"; };
 		DB3DA298AE23B0C5F601BC3E /* Pods-NNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-NNews/Pods-NNews.release.xcconfig"; sourceTree = "<group>"; };
-		E2257ECD1FAC7077006C14C4 /* ZKFunsDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKFunsDetailViewController.h; sourceTree = "<group>"; };
-		E2257ECE1FAC7077006C14C4 /* ZKFunsDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKFunsDetailViewController.m; sourceTree = "<group>"; };
+		E2257EDC1FAD61D6006C14C4 /* ZKDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKDetailViewController.h; sourceTree = "<group>"; };
+		E2257EDD1FAD61D6006C14C4 /* ZKDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKDetailViewController.m; sourceTree = "<group>"; };
+		E2257EE11FAD6308006C14C4 /* ZKDetailHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKDetailHeaderView.h; sourceTree = "<group>"; };
+		E2257EE21FAD6308006C14C4 /* ZKDetailHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKDetailHeaderView.m; sourceTree = "<group>"; };
 		E2443FB21FA86C6E00E84C65 /* NNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2443FB51FA86C6E00E84C65 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E2443FB61FA86C6E00E84C65 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -124,13 +127,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E2257ECC1FAC7061006C14C4 /* 详情 */ = {
+		E2257EDB1FAD61B6006C14C4 /* 详情 */ = {
 			isa = PBXGroup;
 			children = (
-				E2257ECD1FAC7077006C14C4 /* ZKFunsDetailViewController.h */,
-				E2257ECE1FAC7077006C14C4 /* ZKFunsDetailViewController.m */,
+				E2257EDC1FAD61D6006C14C4 /* ZKDetailViewController.h */,
+				E2257EDD1FAD61D6006C14C4 /* ZKDetailViewController.m */,
+				E2257EE01FAD62EF006C14C4 /* view */,
+				E2257EDF1FAD62EF006C14C4 /* model */,
 			);
 			path = "详情";
+			sourceTree = "<group>";
+		};
+		E2257EDF1FAD62EF006C14C4 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		E2257EE01FAD62EF006C14C4 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				E2257EE11FAD6308006C14C4 /* ZKDetailHeaderView.h */,
+				E2257EE21FAD6308006C14C4 /* ZKDetailHeaderView.m */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		E2443FA91FA86C6D00E84C65 = {
@@ -191,6 +212,7 @@
 				E2443FF01FA86FB500E84C65 /* 游戏 */,
 				E2443FEF1FA86FB500E84C65 /* 个人 */,
 				E24440151FA996E600E84C65 /* WebController */,
+				E2257EDB1FAD61B6006C14C4 /* 详情 */,
 			);
 			path = viewControllers;
 			sourceTree = "<group>";
@@ -218,7 +240,6 @@
 		E2443FEE1FA86FB500E84C65 /* 趣事 */ = {
 			isa = PBXGroup;
 			children = (
-				E2257ECC1FAC7061006C14C4 /* 详情 */,
 				E2443FF41FA8701300E84C65 /* ZKFunsViewController.h */,
 				E2443FF51FA8701300E84C65 /* ZKFunsViewController.m */,
 				E2A88A141FAC5DF500410CBA /* ZKFullViewController.h */,
@@ -446,12 +467,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2257ECF1FAC7077006C14C4 /* ZKFunsDetailViewController.m in Sources */,
 				E2443FF31FA86FFF00E84C65 /* ZKNewsViewController.m in Sources */,
 				E24440751FAAE95700E84C65 /* ZKVideoPlayView.m in Sources */,
 				E244401D1FA9A15500E84C65 /* ZKHelperView.m in Sources */,
 				E2443FF91FA8704800E84C65 /* ZKStoryViewController.m in Sources */,
+				E2257EDE1FAD61D6006C14C4 /* ZKDetailViewController.m in Sources */,
 				E244405D1FA9CFD600E84C65 /* ZKTTVideoUser.m in Sources */,
+				E2257EE31FAD6308006C14C4 /* ZKDetailHeaderView.m in Sources */,
 				E2443FF61FA8701300E84C65 /* ZKFunsViewController.m in Sources */,
 				E244405A1FA9CFC300E84C65 /* ZKTTVideoComment.m in Sources */,
 				E24440181FA9970A00E84C65 /* ZKWebViewController.m in Sources */,

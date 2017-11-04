@@ -16,7 +16,7 @@
 #define TabBarH  49
 
 #define Scale(s) (D_HEIGHT/736*s)
-
+#define CellH    44
 #define N_Cell   60
 
 #define MainColor [[UIColor blackColor] colorWithAlphaComponent:0.2]
