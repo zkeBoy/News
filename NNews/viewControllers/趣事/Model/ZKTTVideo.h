@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class ZKTTVideoComment;
+#import "ZKTTVideoComment.h"
 
 @interface ZKTTVideo : NSObject
 @property (nonatomic, copy) NSString *ID;

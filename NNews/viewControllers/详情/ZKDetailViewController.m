@@ -115,8 +115,8 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    //return _listArray.count;
-    return 0;
+    return _listArray.count;
+    //return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

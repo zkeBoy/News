@@ -8,7 +8,7 @@
 
 #import "ZKDetailTableViewCell.h"
 
-#define Margin 12
+#define Margin 10
 
 @interface ZKDetailTableViewCell ()
 @property (nonatomic, strong) UIView      * mainView;
@@ -30,6 +30,9 @@
 - (void)setVideoComment:(ZKTTVideoComment *)videoComment {
     _videoComment = videoComment;
     
+    [self.userIcon sd_setImageWithURL:nil placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        
+    }];
 }
 
 - (void)layoutSubviews {
@@ -56,7 +59,7 @@
 
 - (UIImageView *)userSex {
     if (!_userSex) {
-        _userSex = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
+        _userSex = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"user_sex_man"]];
         _userSex.backgroundColor = [UIColor clearColor];
     }
     return _userSex;
@@ -77,7 +80,7 @@
     if (!_supportButton) {
         _supportButton = [[UIButton alloc] init];
         [_supportButton addTarget:self action:@selector(supportUserComment) forControlEvents:UIControlEventTouchUpInside];
-        [_supportButton setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+        [_supportButton setBackgroundImage:[UIImage imageNamed:@"user_support"] forState:UIControlStateNormal];
     }
     return _supportButton;
 }
@@ -109,7 +112,37 @@
     [self.userSex mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.userIcon.mas_right).offset(Margin);
         make.top.equalTo(self.userIcon);
-        make.width.height.equalTo(self.userSex);
+        make.width.height.mas_equalTo(13);
+    }];
+    
+    [self.mainView addSubview:self.supportButton];
+    [self.supportButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.userIcon);
+        make.right.equalTo(self.mainView).offset(-Margin);
+        make.width.height.equalTo(self.supportButton);
+    }];
+    
+    [self.mainView addSubview:self.supportNumber];
+    [self.supportNumber mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.supportButton.mas_bottom).offset(Margin);
+        make.right.equalTo(self.supportButton);
+        make.width.height.equalTo(self.supportNumber);
+    }];
+    
+    [self.mainView addSubview:self.userName];
+    [self.userName mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.userSex.mas_right).offset(4);
+        make.top.equalTo(self.userIcon);
+        make.right.equalTo(self.supportButton.mas_left).offset(4);
+        make.height.equalTo(self.userName);
+    }];
+    
+    [self.mainView addSubview:self.userComment];
+    [self.userComment mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.userSex);
+        make.top.equalTo(self.userName.mas_bottom).offset(4);
+        make.right.equalTo(self.supportNumber.mas_left).offset(-4);
+        make.height.equalTo(self.userComment);
     }];
 }
 
@@ -120,7 +153,6 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
     // Configure the view for the selected state
 }
 

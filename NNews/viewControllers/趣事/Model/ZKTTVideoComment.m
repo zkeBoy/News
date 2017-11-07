@@ -28,11 +28,10 @@
 }
 
 - (CGFloat)cellHeight {
-    /*
-    CGSize size = CGSizeMake(D_WIDTH, <#CGFloat height#>)
-    CGRect rect = [self.content boundingRectWithSize:<#(CGSize)#> options:<#(NSStringDrawingOptions)#> attributes:<#(nullable NSDictionary<NSAttributedStringKey,id> *)#> context:<#(nullable NSStringDrawingContext *)#>];
-    */
-    return 0;
+    CGSize size = CGSizeMake(D_WIDTH-80, MAXFLOAT);
+    CGRect rect = [self.content boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]} context:nil];
+    _cellHeight = Margin*2 +20 + CGRectGetHeight(rect);
+    return _cellHeight;
 }
 
 @end

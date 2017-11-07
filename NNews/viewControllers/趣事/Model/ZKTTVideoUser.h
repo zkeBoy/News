@@ -9,7 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface ZKTTVideoUser : NSObject
-@property (nonatomic, copy) NSString *username;
-@property (nonatomic, copy) NSString *profile_image;
-@property (nonatomic, copy) NSString *sex;
+@property (nonatomic, copy) NSString * userICO;
 @end
