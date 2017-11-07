@@ -9,19 +9,24 @@
 #import "ZKDetailViewController.h"
 #import "ZKDetailHeaderView.h"
 #import "ZKDetailTableViewCell.h"
+#import "ZKDetailModelManager.h"
 #import "ZKFullViewController.h"
 #import "ZKVideoPlayView.h"
 
+
 @interface ZKDetailViewController ()<UITableViewDataSource, UITableViewDelegate, ZKDetailHeaderViewDelegate, ZKVideoPlayViewDelegate>
 @property (nonatomic, strong) UITableView          * tableView;
+@property (nonatomic, strong) NSMutableArray       * listArray; //评论数据
 @property (nonatomic, strong) ZKDetailHeaderView   * headerView;
 @property (nonatomic, strong) ZKVideoPlayView      * videoPlayView;
 @property (nonatomic, assign) BOOL                   isVideoFullWindow;
 @property (nonatomic, strong) ZKFullViewController * videoFullWindow;
 @property (nonatomic, assign) CGRect                 headerFrame;
+@property (nonatomic, assign) NSInteger              page;
 @end
 
-static NSString * const cellIdentifider = @"detailCellID";
+static NSString * const cellVideoIdentifider   = @"videoDetailCellID";
+static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
 
 @implementation ZKDetailViewController
 
@@ -32,6 +37,8 @@ static NSString * const cellIdentifider = @"detailCellID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.listArray = [NSMutableArray array];
+    [self loadNewListData];
     [self setUI];
 }
 
@@ -40,24 +47,94 @@ static NSString * const cellIdentifider = @"detailCellID";
     if (type == typeVideo) {
         self.headerView.type = typeVideo;
         self.headerView.videoModel = self.videoModel;
-        self.headerFrame = self.headerView.frame = CGRectMake(0, 0, D_WIDTH, self.videoModel.cellHeight);
     }else if (type == typePicture) {
         self.headerView.type = typePicture;
     }
+    self.headerFrame = self.headerView.frame = CGRectMake(0, 0, D_WIDTH, self.videoModel.cellHeight);
     self.tableView.tableHeaderView = self.headerView;
+}
+
+- (void)loadNewListData{ //加载最新的消息
+    NSMutableDictionary * para = [NSMutableDictionary dictionary];
+    NSString * urlString = @"http://api.budejie.com/api/api_open.php";
+    if (_type == typeVideo) {
+        para[@"a"] = @"dataList";
+        para[@"c"] = @"comment";
+        para[@"data_id"] = self.videoModel.ID;
+        para[@"hot"] = @"1";
+    }else if (_type == typePicture) {
+        
+    }
+    [ZKDetailModelManager detailWithURLString:urlString andPara:para success:^(id responsder) {
+        if (responsder) {
+            if (_type == typeVideo) {
+                // 最热评论
+                NSArray * hot = [ZKTTVideoComment mj_objectArrayWithKeyValuesArray:responsder[@"hot"]];
+                [self.listArray addObjectsFromArray:hot];
+            }else if (_type == typePicture) {
+                
+            }
+            self.page = 1;
+            [self.tableView reloadData];
+            [self.tableView.mj_header endRefreshing];
+        }
+    } failure:^(NSError * error) {
+        [self.tableView.mj_header endRefreshing];
+    }];
+}
+
+- (void)refreshLoadMoreListData{ //上啦加载更多的信息
+    NSInteger page = self.page + 1;
+    NSMutableDictionary * para = [NSMutableDictionary dictionary];
+    NSString * urlString = @"http://api.budejie.com/api/api_open.php";
+    if (_type == typeVideo) {
+        para[@"a"] = @"dataList";
+        para[@"c"] = @"comment";
+        para[@"data_id"] = self.videoModel.ID;
+        para[@"page"] = @(page);
+        ZKTTVideoComment * videoComment = [self.listArray lastObject];
+        para[@"lastcid"] = videoComment.ID;
+    }else if (_type == typePicture) {
+        
+    }
+    [ZKDetailModelManager detailWithURLString:urlString andPara:para success:^(id resopnsder) {
+        if (resopnsder) {
+            if (_type == typeVideo) {
+                NSArray * newComments = [ZKTTVideoComment mj_objectArrayWithKeyValuesArray:resopnsder[@"data"]];
+                [self.listArray addObjectsFromArray:newComments];
+            }else if (_type == typePicture) {
+                
+            }
+            [self.tableView reloadData];
+            [self.tableView.mj_footer endRefreshing];
+        }
+    } failure:^(NSError * error) {
+        [self.tableView.mj_footer endRefreshing];
+    }];
 }
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 0;
+    return _listArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (_type==typeVideo) {
+        ZKDetailTableViewCell *  cell = [tableView dequeueReusableCellWithIdentifier:cellVideoIdentifider forIndexPath:indexPath];
+        return cell;
+    }else if (_type==typePicture){
+        
+    }
     return nil;
 }
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (_type==typeVideo) {
+        
+    }else if (_type==typePicture) {
+        
+    }
     return N_Cell;
 }
 
@@ -116,12 +193,12 @@ static NSString * const cellIdentifider = @"detailCellID";
         _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.separatorColor = [UIColor clearColor];
         [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-        [_tableView registerClass:NSClassFromString(@"ZKDetailTableViewCell") forCellReuseIdentifier:cellIdentifider];
-        //__weak typeof(self)weakSelf = self;
-        //_tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            //[weakSelf refreshLoadMoreList];
-        //}];
-        //[_tableView.mj_header beginRefreshing];
+        [_tableView registerClass:NSClassFromString(@"ZKDetailTableViewCell") forCellReuseIdentifier:cellVideoIdentifider];
+        __weak typeof(self)weakSelf = self;
+        _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            [weakSelf refreshLoadMoreListData];
+        }];
+        [_tableView.mj_header beginRefreshing];
     }
     return _tableView;
 }

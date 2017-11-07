@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ZKDetailHeaderView.h"
+#import "ZKTTVideoComment.h"
 
 @interface ZKDetailViewController : UIViewController
 @property (nonatomic, assign) detailType   type;
