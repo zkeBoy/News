@@ -16,4 +16,6 @@
 @property (nonatomic, copy)   NSString      * content;    /** 评论的文字内容 */
 @property (nonatomic, assign) NSInteger       like_count; /** 被点赞的数量 */
 @property (nonatomic, strong) ZKTTVideoUser * user;       /** 用户 */
+
+@property (nonatomic, assign) CGFloat         cellHeight; //Cell 高度
 @end

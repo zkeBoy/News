@@ -115,12 +115,15 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return _listArray.count;
+    //return _listArray.count;
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (_type==typeVideo) {
+        ZKTTVideoComment * comment = self.listArray[indexPath.row];
         ZKDetailTableViewCell *  cell = [tableView dequeueReusableCellWithIdentifier:cellVideoIdentifider forIndexPath:indexPath];
+        cell.videoComment = comment;
         return cell;
     }else if (_type==typePicture){
         
@@ -131,11 +134,12 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (_type==typeVideo) {
-        
+        ZKTTVideoComment * comment = self.listArray[indexPath.row];
+        return comment.cellHeight;
     }else if (_type==typePicture) {
         
     }
-    return N_Cell;
+    return 0;
 }
 
 #pragma mark - ZKDetailHeaderViewDelegate

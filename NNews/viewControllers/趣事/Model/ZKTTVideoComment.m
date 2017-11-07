@@ -8,6 +8,8 @@
 
 #import "ZKTTVideoComment.h"
 
+#define Margin 10
+
 @implementation ZKTTVideoComment
 
 +(NSDictionary *)mj_replacedKeyFromPropertyName {
@@ -23,6 +25,14 @@
         [self mj_decode:aDecoder];
     }
     return self;
+}
+
+- (CGFloat)cellHeight {
+    /*
+    CGSize size = CGSizeMake(D_WIDTH, <#CGFloat height#>)
+    CGRect rect = [self.content boundingRectWithSize:<#(CGSize)#> options:<#(NSStringDrawingOptions)#> attributes:<#(nullable NSDictionary<NSAttributedStringKey,id> *)#> context:<#(nullable NSStringDrawingContext *)#>];
+    */
+    return 0;
 }
 
 @end

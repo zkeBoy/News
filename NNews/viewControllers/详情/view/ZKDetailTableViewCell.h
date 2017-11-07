@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZKTTVideoComment.h"
 
 @interface ZKDetailTableViewCell : UITableViewCell
-
+@property (nonatomic, strong) ZKTTVideoComment * videoComment;
 @end
