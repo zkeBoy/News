@@ -39,6 +39,9 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
     [super viewDidLoad];
     self.listArray = [NSMutableArray array];
     [self setUI];
+    
+#warning - 返回事件需要自定义,需要判断播放是否完成
+    
 }
 
 - (void)setType:(detailType)type {

@@ -22,7 +22,7 @@ static NSString * const cellIdentifider = @"ZKPictureTableViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    //self.automaticallyAdjustsScrollViewInsets = NO;
     self.listArray = [NSMutableArray array];
     [self setUI];
 }
@@ -92,6 +92,36 @@ static NSString * const cellIdentifider = @"ZKPictureTableViewCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     ZKTTPicture * picture = self.listArray[indexPath.section];
     return picture.cellHeight;
+}
+
+//section 之间的间距
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section==0) {
+        return 10;
+    }
+    return 5;//section头部高度
+}
+
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView * headerSection = [[UIView alloc] init];
+    headerSection.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 0);
+    headerSection.backgroundColor = MainColor;
+    return headerSection;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    //设置这个高度才有效
+    if (section==self.listArray.count-1) {
+        return 10;
+    }
+    return 5;//section底部间距
+}
+
+- (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    UIView * footerSection = [[UIView alloc] init];
+    footerSection.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 0);
+    footerSection.backgroundColor = MainColor;
+    return footerSection;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

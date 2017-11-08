@@ -34,14 +34,14 @@
     _pictureModel = pictureModel;
     [self.headIcon sd_setImageWithURL:[NSURL URLWithString:pictureModel.profile_image] placeholderImage:[UIImage imageNamed:@""] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         if (image) {
-            self.headIcon.layer.cornerRadius = W_H;
+            self.headIcon.layer.cornerRadius = W_H/2;
             self.headIcon.layer.masksToBounds = YES;
         }
     }];
     
     self.userName.text = pictureModel.screen_name;
     self.timeLabel.text = pictureModel.created_at;
-    self.commentLabel.text = pictureModel.comment;
+    self.commentLabel.text = pictureModel.text;
     
     [self.pictureView sd_setImageWithURL:[NSURL URLWithString:pictureModel.image1] placeholderImage:[UIImage imageNamed:@""] options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
         CGFloat progress = 1.0*receivedSize/expectedSize;
@@ -51,8 +51,15 @@
         self.progressView.hidden = NO;
     } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         self.progressView.hidden = YES;
-        
     }];
+
+    if (pictureModel.isBigPicture) { //大图
+        self.seePictureBtn.hidden = NO;
+        self.pictureView.contentMode = UIViewContentModeScaleAspectFill; //适配view的大小
+    }else { //小图
+        self.seePictureBtn.hidden = YES;
+        self.pictureView.contentMode = UIViewContentModeScaleToFill; //适配图片的大小
+    }
 }
 
 
@@ -100,7 +107,7 @@
     if (!_commentLabel) {
         _commentLabel = [[UILabel alloc] init];
         _commentLabel.textColor = [UIColor blackColor];
-        _commentLabel.textAlignment = NSTextAlignmentCenter;
+        _commentLabel.textAlignment = NSTextAlignmentLeft;
         _commentLabel.font = [UIFont systemFontOfSize:12];
         _commentLabel.numberOfLines = 0;
         _commentLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -121,6 +128,16 @@
         _progressView = [[DALabeledCircularProgressView alloc] init];
     }
     return _progressView;
+}
+
+- (UIButton *)seePictureBtn {
+    if (!_seePictureBtn) {
+        _seePictureBtn = [[UIButton alloc] init];
+        _seePictureBtn.backgroundColor = [UIColor clearColor];
+        [_seePictureBtn setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+        [_seePictureBtn addTarget:self action:@selector(seeBigPictureAction) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _seePictureBtn;
 }
 
 #pragma mark - setUI
@@ -150,8 +167,10 @@
         make.width.height.equalTo(self.timeLabel);
     }];
     
+    
     [self.mainView addSubview:self.commentLabel];
     [self.commentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.timeLabel.mas_bottom).offset(Margin);
         make.left.equalTo(self.headIcon);
         make.right.equalTo(self.mainView).offset(-Margin);
         make.width.height.equalTo(self.commentLabel);
@@ -164,8 +183,18 @@
         make.bottom.equalTo(self.mainView.mas_bottom).offset(-Margin);;
     }];
     
+    [self.pictureView addSubview:self.progressView];
+    [self.progressView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.pictureView);
+        make.width.height.mas_equalTo (Scale(60));
+    }];
+}
+
+#pragma mark - Private Method
+- (void)seeBigPictureAction{
     
 }
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

@@ -32,8 +32,12 @@
 - (CGFloat)cellHeight {
     NSInteger c_h = Margin+W_H+Margin;
     CGSize size = CGSizeMake(D_WIDTH-Margin*2, MAXFLOAT);
-    CGRect rect = [_comment boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]} context:nil];
-    c_h = c_h +CGRectGetHeight(rect)+Margin;
+    CGRect rect = [_text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]} context:nil];
+    CGFloat pictureHeight = self.height * D_WIDTH/self.width;
+    if (pictureHeight>D_HEIGHT-NavBarH-TabBarH) {
+        pictureHeight = size.width*9/16;
+    }
+    c_h = c_h +CGRectGetHeight(rect)+Margin*2+pictureHeight;
     return c_h;
 }
 
