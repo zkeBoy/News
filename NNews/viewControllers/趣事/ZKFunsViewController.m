@@ -27,14 +27,6 @@ static NSString * const cellIdentifider = @"ZKFunsTableViewCellID";
 
 @implementation ZKFunsViewController
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        self.listArray = [NSMutableArray array];
-    }
-    return self;
-}
-
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations{
     return UIInterfaceOrientationMaskPortrait;
 }
@@ -42,6 +34,7 @@ static NSString * const cellIdentifider = @"ZKFunsTableViewCellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"趣事";
+    self.listArray = [NSMutableArray array];
     [self setUI];
 }
 
@@ -52,26 +45,63 @@ static NSString * const cellIdentifider = @"ZKFunsTableViewCellID";
     }];
 }
 
-- (void)refreshLoadMoreList{
+- (void)loadLastData{ //加载最新的数据
+    if (self.listArray.count) {
+        [self.listArray removeAllObjects];
+    }
     NSString * link = @"http://api.budejie.com/api/api_open.php";
     NSDictionary * para = @{@"a":@"list",
                             @"c":@"data",
                             @"type":@(41),
                             @"page":@(0)};
     [[ZKNetWorkManager shareManager] requestWithType:requestTypePost urlString:link andParameters:para success:^(id responsder) {
-        NSArray  * array = [ZKTTVideo mj_objectArrayWithKeyValuesArray:responsder[@"list"]];
-        NSString * maxTime = responsder[@"info"][@"maxtime"];
-        for (ZKTTVideo *video in array) {
-            video.maxtime = maxTime;
+        if (responsder && [responsder isKindOfClass:[NSDictionary class]]) {
+            NSArray  * array = [ZKTTVideo mj_objectArrayWithKeyValuesArray:responsder[@"list"]];
+            NSString * maxTime = responsder[@"info"][@"maxtime"];
+            for (ZKTTVideo *video in array) {
+                video.maxtime = maxTime;
+            }
+            [self.listArray addObjectsFromArray:array];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView.mj_header endRefreshing];
+                [self.tableView reloadData];
+            });
+            self.page = 1;
         }
-        [self.listArray addObjectsFromArray:array];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView.mj_header endRefreshing];
-            [self.tableView reloadData];
-        });
     } failure:^(NSError * error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView.mj_header endRefreshing];
+        });
+    }];
+}
+
+- (void)refreshLoadMoreList{
+    NSString * link = @"http://api.budejie.com/api/api_open.php";
+    NSDictionary * para = @{@"a":@"list",
+                            @"c":@"data",
+                            @"type":@(41),
+                            @"page":@(self.page)};
+    [[ZKNetWorkManager shareManager] requestWithType:requestTypePost urlString:link andParameters:para success:^(id responsder) {
+        if (responsder&&[responsder isKindOfClass:[NSDictionary class]]) {
+            NSArray  * array = [ZKTTVideo mj_objectArrayWithKeyValuesArray:responsder[@"list"]];
+            NSString * maxTime = responsder[@"info"][@"maxtime"];
+            for (ZKTTVideo *video in array) {
+                video.maxtime = maxTime;
+            }
+            [self.listArray addObjectsFromArray:array];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView.mj_footer endRefreshing];
+                [self.tableView reloadData];
+            });
+            NSString * page = responsder[@"info"][@"page"];
+            self.page = page.integerValue;
+        }else {
+            [self.tableView.mj_footer endRefreshing];
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
+        }
+    } failure:^(NSError * error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView.mj_footer endRefreshing];
         });
     }];
 }
@@ -187,9 +217,8 @@ static NSString * const cellIdentifider = @"ZKFunsTableViewCellID";
 
 - (void)videoPlayFinish{
     if (self.isFullWindow) {
-        [self.fullWindow dismissViewControllerAnimated:YES completion:^{
-            self.isFullWindow = NO;
-        }];
+        [self.fullWindow dismissViewControllerAnimated:YES completion:nil];
+        self.isFullWindow = NO;
     }
 }
 
@@ -218,9 +247,12 @@ static NSString * const cellIdentifider = @"ZKFunsTableViewCellID";
         [_tableView registerClass:NSClassFromString(@"ZKFunsTableViewCell") forCellReuseIdentifier:cellIdentifider];
         __weak typeof(self)weakSelf = self;
         _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            [weakSelf refreshLoadMoreList];
+            [weakSelf loadLastData];
         }];
         [_tableView.mj_header beginRefreshing];
+        _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            [weakSelf refreshLoadMoreList];
+        }];
     }
     return _tableView;
 }

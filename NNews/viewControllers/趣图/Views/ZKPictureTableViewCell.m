@@ -10,9 +10,22 @@
 
 @implementation ZKPictureTableViewCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    [self setUI];
+}
+
+- (void)setPictureModel:(ZKTTPicture *)pictureModel {
+    _pictureModel = pictureModel;
+}
+
+
+#pragma mark -
+#pragma mark lazy init
+
+#pragma mark - setUI
+- (void)setUI{
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

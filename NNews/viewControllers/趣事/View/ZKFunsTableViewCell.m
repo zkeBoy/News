@@ -95,6 +95,10 @@
         _commentTitle.backgroundColor = [UIColor clearColor];
         _commentTitle.font = [UIFont systemFontOfSize:14];
         _commentTitle.textAlignment = NSTextAlignmentLeft;
+        
+        /*用于文字换行自适应*/
+        //_commentTitle.numberOfLines = 0;
+        //_commentTitle.lineBreakMode = NSLineBreakByWordWrapping;
     }
     return _commentTitle;
 }

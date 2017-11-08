@@ -13,4 +13,5 @@ pod 'SDWebImage'
 pod 'MBProgressHUD'
 pod 'RealReachability'
 pod 'MJExtension'
+pod 'DACircularProgress'
 end

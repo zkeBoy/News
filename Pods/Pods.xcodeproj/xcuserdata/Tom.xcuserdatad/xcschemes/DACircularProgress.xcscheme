@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '2E98DCACF5B7BDFB55540B1DF26FB2CC'
-               BlueprintName = 'Pods-NNews'
+               BlueprintIdentifier = 'C791F0A928C1A8FE97074DFC9ACF4E75'
+               BlueprintName = 'DACircularProgress'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libPods-NNews.a'>
+               BuildableName = 'libDACircularProgress.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

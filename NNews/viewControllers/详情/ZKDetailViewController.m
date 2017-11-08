@@ -38,7 +38,6 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.listArray = [NSMutableArray array];
-    [self loadNewListData];
     [self setUI];
 }
 
@@ -55,6 +54,9 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
 }
 
 - (void)loadNewListData{ //加载最新的消息
+    if (self.listArray.count) {
+        [self.listArray removeAllObjects];
+    }
     NSMutableDictionary * para = [NSMutableDictionary dictionary];
     NSString * urlString = @"http://api.budejie.com/api/api_open.php";
     if (_type == typeVideo) {
@@ -83,15 +85,15 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
     }];
 }
 
-- (void)refreshLoadMoreListData{ //上啦加载更多的信息
-    NSInteger page = self.page + 1;
+- (void)refreshLoadMoreListData{ //上拉加载更多的信息
+    self.page ++;
     NSMutableDictionary * para = [NSMutableDictionary dictionary];
     NSString * urlString = @"http://api.budejie.com/api/api_open.php";
     if (_type == typeVideo) {
         para[@"a"] = @"dataList";
         para[@"c"] = @"comment";
         para[@"data_id"] = self.videoModel.ID;
-        para[@"page"] = @(page);
+        para[@"page"] = @(self.page);
         ZKTTVideoComment * videoComment = [self.listArray lastObject];
         para[@"lastcid"] = videoComment.ID;
     }else if (_type == typePicture) {
@@ -206,10 +208,13 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
         [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         [_tableView registerClass:NSClassFromString(@"ZKDetailTableViewCell") forCellReuseIdentifier:cellVideoIdentifider];
         __weak typeof(self)weakSelf = self;
+        _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            [weakSelf loadNewListData];
+        }];
+        [_tableView.mj_header beginRefreshing];
         _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
             [weakSelf refreshLoadMoreListData];
         }];
-        [_tableView.mj_header beginRefreshing];
     }
     return _tableView;
 }

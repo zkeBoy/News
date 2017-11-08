@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 #import "ZKTTPicture.h"
 @interface ZKPictureTableViewCell : UITableViewCell
-
+@property (nonatomic, strong) ZKTTPicture * pictureModel;
 @end
