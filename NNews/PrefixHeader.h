@@ -19,4 +19,5 @@
 #import <MJExtension/MJExtension.h>
 #import "NSString+Extension.h"
 #import "ZKNavigationController.h"
+#import <DALabeledCircularProgressView.h>
 #endif /* PrefixHeader_h */

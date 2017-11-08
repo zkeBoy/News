@@ -74,8 +74,7 @@ static NSString * const cellIdentifider = @"ZKPictureTableViewCell";
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    //return self.listArray.count;
-    return 0;
+    return self.listArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -91,7 +90,8 @@ static NSString * const cellIdentifider = @"ZKPictureTableViewCell";
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return N_Cell;
+    ZKTTPicture * picture = self.listArray[indexPath.section];
+    return picture.cellHeight;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

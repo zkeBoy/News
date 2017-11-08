@@ -8,6 +8,9 @@
 
 #import "ZKTTPicture.h"
 
+#define Margin 10
+#define W_H 24
+
 @implementation ZKTTPicture
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder {
@@ -27,7 +30,11 @@
 }
 
 - (CGFloat)cellHeight {
-    return 0;
+    NSInteger c_h = Margin+W_H+Margin;
+    CGSize size = CGSizeMake(D_WIDTH-Margin*2, MAXFLOAT);
+    CGRect rect = [_comment boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]} context:nil];
+    c_h = c_h +CGRectGetHeight(rect)+Margin;
+    return c_h;
 }
 
 @end
