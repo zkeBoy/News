@@ -7,8 +7,11 @@
 //
 
 #import "ZKPictureViewController.h"
+#import "ZKPictureTableViewCell.h"
 
 @interface ZKPictureViewController ()
+@property (nonatomic, strong) UITableView     * tableView;
+@property (nonatomic, strong) NSMutableArray  * listArray;
 
 @end
 

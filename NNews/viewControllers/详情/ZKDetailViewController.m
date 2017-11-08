@@ -202,6 +202,7 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
         _tableView.dataSource = self;
         _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.separatorColor = [UIColor clearColor];
+        _tableView.allowsSelection = NO;
         [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         [_tableView registerClass:NSClassFromString(@"ZKDetailTableViewCell") forCellReuseIdentifier:cellVideoIdentifider];
         __weak typeof(self)weakSelf = self;

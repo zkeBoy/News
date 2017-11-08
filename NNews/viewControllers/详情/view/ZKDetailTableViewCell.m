@@ -178,7 +178,7 @@
 
 #pragma mark - Private Method
 - (void)supportUserComment{ //👍 评论
-    
+    NSLog(@"点赞");
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
