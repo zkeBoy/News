@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class ZKTTVideoUser;
+#import "ZKTTVideoUser.h"
 
 @interface ZKTTVideoComment : NSObject
 @property (nonatomic, copy)   NSString      * ID;        //评论的标识

@@ -1,13 +1,13 @@
 //
-//  ZKTTVideoUser.m
+//  ZKPictureViewController.h
 //  NNews
 //
 //  Created by Tom on 2017/11/8.
 //  Copyright © 2017年 Tom. All rights reserved.
 //
 
-#import "ZKTTVideoUser.h"
+#import <UIKit/UIKit.h>
 
-@implementation ZKTTVideoUser
+@interface ZKPictureViewController : UIViewController
 
 @end

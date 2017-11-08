@@ -27,13 +27,12 @@
 
 - (void)initArrays{
     self.viewControllerNames = @[@"ZKNewsViewController",
+                                 @"ZKPictureViewController",
                                  @"ZKFunsViewController",
-                                 @"ZKStoryViewController",
-                                 @"ZKGameViewController",
                                  @"ZKPersonViewController"];
-    self.titles = @[@"新闻",@"趣事",@"游戏",@"小说",@"个人"];
-    self.selectImages = @[@"",@"",@"",@"",@""];
-    self.normalImages = @[@"",@"",@"",@"",@""];
+    self.titles = @[@"新闻",@"趣图",@"趣事",@"个人"];
+    self.selectImages = @[@"",@"",@"",@""];
+    self.normalImages = @[@"",@"",@"",@""];
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations{

@@ -98,15 +98,21 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
         
     }
     [ZKDetailModelManager detailWithURLString:urlString andPara:para success:^(id resopnsder) {
-        if (resopnsder) {
+        if (resopnsder&&[resopnsder isKindOfClass:[NSDictionary class]]) {
             if (_type == typeVideo) {
-                NSArray * newComments = [ZKTTVideoComment mj_objectArrayWithKeyValuesArray:resopnsder[@"data"]];
-                [self.listArray addObjectsFromArray:newComments];
+                NSArray * array = resopnsder[@"data"];
+                if (array.count) {
+                    NSArray * newComments = [ZKTTVideoComment mj_objectArrayWithKeyValuesArray:array];
+                    [self.listArray addObjectsFromArray:newComments];
+                }
             }else if (_type == typePicture) {
                 
             }
             [self.tableView reloadData];
             [self.tableView.mj_footer endRefreshing];
+        }else {
+            [self.tableView.mj_footer endRefreshing];
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
         }
     } failure:^(NSError * error) {
         [self.tableView.mj_footer endRefreshing];

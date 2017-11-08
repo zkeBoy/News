@@ -1,22 +1,22 @@
 //
-//  ZKStoryViewController.m
+//  ZKPictureViewController.m
 //  NNews
 //
-//  Created by Tom on 2017/10/31.
+//  Created by Tom on 2017/11/8.
 //  Copyright © 2017年 Tom. All rights reserved.
 //
 
-#import "ZKStoryViewController.h"
+#import "ZKPictureViewController.h"
 
-@interface ZKStoryViewController ()
+@interface ZKPictureViewController ()
 
 @end
 
-@implementation ZKStoryViewController
+@implementation ZKPictureViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"小说";
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
