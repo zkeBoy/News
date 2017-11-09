@@ -44,7 +44,7 @@
     self.timeLabel.text = pictureModel.created_at;
     self.commentLabel.text = pictureModel.text;
     
-    [self.pictureView sd_setImageWithURL:[NSURL URLWithString:pictureModel.image1] placeholderImage:[UIImage imageNamed:@""] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+    [self.pictureView sd_setImageWithURL:[NSURL URLWithString:pictureModel.image1] placeholderImage:[UIImage imageNamed:@""] options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
         CGFloat progress = 1.0*receivedSize/expectedSize;
         NSString *text = [NSString stringWithFormat:@"%.0f%%", 100*progress];
         self.progressView.progressLabel.text = [text stringByReplacingOccurrencesOfString:@"-" withString:@""];
@@ -54,7 +54,7 @@
         if (pictureModel.isBigPicture) { //大图
             self.seePictureBtn.hidden = NO;
             //截取上面一截
-            CGSize size = CGSizeMake(D_WIDTH, pictureModel.cellHeight);
+            CGSize size = CGSizeMake(D_WIDTH, pictureModel.cellHeight-Margin*2-24);
             UIGraphicsBeginImageContextWithOptions(size, YES, 0);
             CGFloat w = D_WIDTH;
             CGFloat h = w * image.size.height / image.size.width;

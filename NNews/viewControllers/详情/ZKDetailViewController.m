@@ -11,6 +11,7 @@
 #import "ZKDetailTableViewCell.h"
 #import "ZKDetailModelManager.h"
 #import "ZKFullViewController.h"
+#import "ZKPictureFullController.h"
 #import "ZKVideoPlayView.h"
 
 
@@ -167,6 +168,12 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
     self.tableView.tableHeaderView = self.videoPlayView;
 }
 
+- (void)seeBigPicture:(ZKTTPicture *)pictureModel {
+    ZKPictureFullController * fullVC = [[ZKPictureFullController alloc] init];
+    fullVC.pictureModel = pictureModel;
+    [self presentViewController:fullVC animated:YES completion:nil];
+}
+
 #pragma mark - ZKVidepPlayViewDelegate
 - (void)openFullPlayWindow:(BOOL)full {
     __weak typeof(self)weakSelf = self;
@@ -246,6 +253,14 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.bottom.equalTo(self.view);
     }];
+}
+
+- (void)dealloc {
+    if (_type==typeVideo) {
+        NSLog(@"video ZKDetailViewController dealloc !!!");
+    }else{
+        NSLog(@"picture ZKDetailViewController dealloc !!!");
+    }
 }
 
 - (void)didReceiveMemoryWarning {

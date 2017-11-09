@@ -29,5 +29,5 @@ typedef NS_ENUM(NSInteger, detailType) {
 @optional
 - (void)startPlayVideo:(NSString *)videoLink;
 
-- (void)watchPicture:(id)date;
+- (void)seeBigPicture:(ZKTTPicture *)pictureModel;
 @end

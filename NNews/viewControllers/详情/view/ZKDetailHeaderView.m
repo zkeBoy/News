@@ -69,16 +69,24 @@
     self.userName.text = pictureModel.screen_name;
     self.timeTitle.text = pictureModel.created_at;
    
-    [self.pictureView sd_setImageWithURL:[NSURL URLWithString:pictureModel.image1] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+    NSString * link = pictureModel.image1;
+    [self.pictureView sd_setImageWithURL:[NSURL URLWithString:link] placeholderImage:nil options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
         
     } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-        CGSize size = CGSizeMake(D_WIDTH, pictureModel.cellHeight-Margin*2-24);
-        UIGraphicsBeginImageContextWithOptions(size, YES, 0.0f);
-        CGFloat w = D_WIDTH;
-        CGFloat h = w*image.size.height / image.size.width;
-        [image drawInRect:CGRectMake(0, 0, w, h)];
-        self.pictureView.image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
+        
+        if (pictureModel.isBigPicture) {
+            self.moreInfoBtn.hidden = NO;
+            CGSize size = CGSizeMake(D_WIDTH, pictureModel.cellHeight-Margin*2-24);
+            UIGraphicsBeginImageContextWithOptions(size, YES, 0.0f);
+            CGFloat w = D_WIDTH;
+            CGFloat h = w*image.size.height / image.size.width;
+            [image drawInRect:CGRectMake(0, 0, w, h)];
+            self.pictureView.image = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+        }else{
+            self.moreInfoBtn.hidden = YES;
+            self.pictureView.contentMode = UIViewContentModeScaleToFill; //适配图片的大小
+        }
     }];
     
     NSString * pathExtension = pictureModel.image1.pathExtension;
@@ -129,7 +137,7 @@
         [self.pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self).offset(Margin);
             make.top.equalTo(self.timeTitle.mas_bottom).offset(Margin);
-            make.bottom.right.equalTo(self).offset(-Margin);
+            make.bottom.right.equalTo(self).offset(0);
         }];
         
         [self.pictureView addSubview:self.moreInfoBtn];
@@ -154,6 +162,10 @@
     }else {
         
     }
+}
+
+- (void)didClickSeeBigPicture {
+    [self.delegate seeBigPicture:_pictureModel];
 }
 
 #pragma mark - Out Action
@@ -256,6 +268,7 @@
         _moreInfoBtn.backgroundColor = [UIColor clearColor];
         [_moreInfoBtn setImage:[UIImage imageNamed:@"see_big_picture"] forState:UIControlStateNormal];
         [_moreInfoBtn setBackgroundImage:[UIImage imageNamed:@"see_big_picture_background"] forState:UIControlStateNormal];
+        [_moreInfoBtn addTarget:self action:@selector(didClickSeeBigPicture) forControlEvents:UIControlEventTouchUpInside];
     }
     return _moreInfoBtn;
 }
