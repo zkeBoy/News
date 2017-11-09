@@ -10,6 +10,7 @@ pod 'Masonry'
 pod 'AFNetworking'
 pod 'MJRefresh'
 pod 'SDWebImage'
+pod 'SDWebImage/GIF' # 4.0.0 之后出的加载动图的方法
 pod 'MBProgressHUD'
 pod 'RealReachability'
 pod 'MJExtension'

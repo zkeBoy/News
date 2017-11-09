@@ -15,6 +15,7 @@
 #import <MBProgressHUD.h>
 #import "ZKHelperView.h"
 #import <UIImageView+WebCache.h>
+#import <SDWebImage/FLAnimatedImageView+WebCache.h>
 #import "ZKWebViewController.h"
 #import <MJExtension/MJExtension.h>
 #import "NSString+Extension.h"

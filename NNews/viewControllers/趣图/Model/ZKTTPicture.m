@@ -36,6 +36,9 @@
     CGFloat pictureHeight = self.height * D_WIDTH/self.width;
     if (pictureHeight>D_HEIGHT-NavBarH-TabBarH) {
         pictureHeight = size.width*9/16;
+        self.bigPicture = YES;
+    }else {
+        self.bigPicture = NO;
     }
     c_h = c_h +CGRectGetHeight(rect)+Margin*2+pictureHeight;
     return c_h;
