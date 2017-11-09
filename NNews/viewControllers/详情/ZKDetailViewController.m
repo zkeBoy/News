@@ -71,17 +71,16 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
         para[@"data_id"] = self.videoModel.ID;
         para[@"hot"] = @"1";
     }else if (_type == typePicture) {
-        
+        para[@"a"] = @"dataList";
+        para[@"c"] = @"comment";
+        para[@"data_id"] = self.pictureModel.ID;
+        para[@"hot"] = @"1";
     }
     [ZKDetailModelManager detailWithURLString:urlString andPara:para success:^(id responsder) {
         if (responsder) {
-            if (_type == typeVideo) {
-                // 最热评论
-                NSArray * hot = [ZKTTVideoComment mj_objectArrayWithKeyValuesArray:responsder[@"hot"]];
-                [self.listArray addObjectsFromArray:hot];
-            }else if (_type == typePicture) {
-                
-            }
+            // 最热评论
+            NSArray * hot = [ZKTTVideoComment mj_objectArrayWithKeyValuesArray:responsder[@"hot"]];
+            [self.listArray addObjectsFromArray:hot];
             self.page = 1;
             [self.tableView reloadData];
             [self.tableView.mj_header endRefreshing];
@@ -103,18 +102,19 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
         ZKTTVideoComment * videoComment = [self.listArray lastObject];
         para[@"lastcid"] = videoComment.ID;
     }else if (_type == typePicture) {
-        
+        para[@"a"] = @"dataList";
+        para[@"c"] = @"comment";
+        para[@"data_id"] = self.pictureModel.ID;
+        para[@"page"] = @(self.page);
+        ZKTTVideoComment * videoComment = [self.listArray lastObject];
+        para[@"lastcid"] = videoComment.ID;
     }
     [ZKDetailModelManager detailWithURLString:urlString andPara:para success:^(id resopnsder) {
         if (resopnsder&&[resopnsder isKindOfClass:[NSDictionary class]]) {
-            if (_type == typeVideo) {
-                NSArray * array = resopnsder[@"data"];
-                if (array.count) {
-                    NSArray * newComments = [ZKTTVideoComment mj_objectArrayWithKeyValuesArray:array];
-                    [self.listArray addObjectsFromArray:newComments];
-                }
-            }else if (_type == typePicture) {
-                
+            NSArray * array = resopnsder[@"data"];
+            if (array.count) {
+                NSArray * newComments = [ZKTTVideoComment mj_objectArrayWithKeyValuesArray:array];
+                [self.listArray addObjectsFromArray:newComments];
             }
             [self.tableView reloadData];
             [self.tableView.mj_footer endRefreshing];
@@ -134,26 +134,16 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (_type==typeVideo) {
-        ZKTTVideoComment * comment = self.listArray[indexPath.row];
-        ZKDetailTableViewCell *  cell = [tableView dequeueReusableCellWithIdentifier:cellVideoIdentifider forIndexPath:indexPath];
-        cell.videoComment = comment;
-        return cell;
-    }else if (_type==typePicture){
-        
-    }
-    return nil;
+    ZKTTVideoComment * comment = self.listArray[indexPath.row];
+    ZKDetailTableViewCell *  cell = [tableView dequeueReusableCellWithIdentifier:cellVideoIdentifider forIndexPath:indexPath];
+    cell.videoComment = comment;
+    return cell;
 }
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (_type==typeVideo) {
-        ZKTTVideoComment * comment = self.listArray[indexPath.row];
-        return comment.cellHeight;
-    }else if (_type==typePicture) {
-        
-    }
-    return 0;
+    ZKTTVideoComment * comment = self.listArray[indexPath.row];
+    return comment.cellHeight;
 }
 
 #pragma mark - ZKDetailHeaderViewDelegate

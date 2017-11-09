@@ -25,7 +25,7 @@ static NSString * const cellIdentifider = @"ZKPictureTableViewCell";
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     //self.automaticallyAdjustsScrollViewInsets = NO;
-    self.listArray = [NSMutableArray array];
+    self.listArray = [NSMutableArray arrayWithCapacity:10];
     [self setUI];
 }
 
@@ -40,6 +40,10 @@ static NSString * const cellIdentifider = @"ZKPictureTableViewCell";
                             @"page":@(0)};
     [[ZKNetWorkManager shareManager] requestWithType:requestTypePost urlString:linkURL andParameters:para success:^(id responsder) {
         NSArray * array = [ZKTTPicture mj_objectArrayWithKeyValuesArray:responsder[@"list"]];
+        NSString *maxTime = responsder[@"info"][@"maxtime"];
+        for (ZKTTPicture *picture in array) {
+            picture.maxtime = maxTime;
+        }
         [self.listArray addObjectsFromArray:array];
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
@@ -50,18 +54,23 @@ static NSString * const cellIdentifider = @"ZKPictureTableViewCell";
 }
 
 - (void)refreshloadMore{//刷新更新
-    if (self.listArray.count) {
-        [self.listArray removeAllObjects];
-    }
+    ZKTTPicture * picture = self.listArray.lastObject;
+    NSString * maxTime = picture.maxtime;
     NSString * linkURL = @"http://api.budejie.com/api/api_open.php";
     NSDictionary * para = @{@"a":@"list",
                             @"c":@"data",
                             @"type":@(10),
-                            @"page":@(self.page)};
+                            @"page":@(self.page),
+                            @"maxtime":maxTime?maxTime:@""};
     [[ZKNetWorkManager shareManager] requestWithType:requestTypePost urlString:linkURL andParameters:para success:^(id responsder) {
         if (responsder&&[responsder isKindOfClass:[NSDictionary class]]) {
             NSArray * array = [ZKTTPicture mj_objectArrayWithKeyValuesArray:responsder[@"list"]];
+            NSString *maxTime = responsder[@"info"][@"maxtime"];
+            for (ZKTTPicture *picture in array) {
+                picture.maxtime = maxTime;
+            }
             [self.listArray addObjectsFromArray:array];
+            
             [self.tableView reloadData];
             [self.tableView.mj_footer endRefreshing];
             self.page++;

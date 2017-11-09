@@ -76,11 +76,14 @@ static NSString * const cellIdentifider = @"ZKFunsTableViewCellID";
 }
 
 - (void)refreshLoadMoreList{
+    ZKTTVideo * videoModel = self.listArray.lastObject;
+    NSString * maxtime = videoModel.maxtime;
     NSString * link = @"http://api.budejie.com/api/api_open.php";
     NSDictionary * para = @{@"a":@"list",
                             @"c":@"data",
                             @"type":@(41),
-                            @"page":@(self.page)};
+                            @"page":@(self.page),
+                            @"maxtime":maxtime?maxtime:@""};
     [[ZKNetWorkManager shareManager] requestWithType:requestTypePost urlString:link andParameters:para success:^(id responsder) {
         if (responsder&&[responsder isKindOfClass:[NSDictionary class]]) {
             NSArray  * array = [ZKTTVideo mj_objectArrayWithKeyValuesArray:responsder[@"list"]];
