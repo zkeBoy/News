@@ -19,6 +19,8 @@
 #define CellH    44
 #define N_Cell   60
 
+#define U_I_S    40.f //User Icon size
+
 #define MainColor [[UIColor blackColor] colorWithAlphaComponent:0.2]
 
 #endif /* ZKCommandFile_h */

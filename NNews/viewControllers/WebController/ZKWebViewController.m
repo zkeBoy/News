@@ -82,6 +82,7 @@
         _webView.scrollView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
             [weakSelf startloadHtml];
         }];
+        [_webView.scrollView.mj_header beginRefreshing];
         _webView.navigationDelegate = self;
     }
     return _webView;

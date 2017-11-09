@@ -9,7 +9,7 @@
 #import "ZKDetailTableViewCell.h"
 
 #define Margin 10
-#define I_W 24
+#define I_W 40
 
 @interface ZKDetailTableViewCell ()
 @property (nonatomic, strong) UIView      * mainView;

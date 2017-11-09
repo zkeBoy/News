@@ -22,7 +22,7 @@
 @end
 
 #define Margin 10
-#define W_H 24
+
 
 @implementation ZKPictureTableViewCell
 
@@ -35,7 +35,7 @@
     _pictureModel = pictureModel;
     [self.headIcon sd_setImageWithURL:[NSURL URLWithString:pictureModel.profile_image] placeholderImage:[UIImage imageNamed:@"user_Default_Icon"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         if (image) {
-            self.headIcon.layer.cornerRadius = W_H/2;
+            self.headIcon.layer.cornerRadius = U_I_S/2;
             self.headIcon.layer.masksToBounds = YES;
         }
     }];
@@ -54,7 +54,7 @@
         if (pictureModel.isBigPicture) { //大图
             self.seePictureBtn.hidden = NO;
             //截取上面一截
-            CGSize size = CGSizeMake(D_WIDTH, pictureModel.cellHeight-Margin*2-24);
+            CGSize size = CGSizeMake(D_WIDTH, pictureModel.cellHeight-Margin*2-U_I_S);
             UIGraphicsBeginImageContextWithOptions(size, YES, 0);
             CGFloat w = D_WIDTH;
             CGFloat h = w * image.size.height / image.size.width;
@@ -91,7 +91,6 @@
     if (!_headIcon) {
         _headIcon = [[UIImageView alloc] initWithFrame:CGRectZero];
         _headIcon.backgroundColor = [UIColor clearColor];
-        _headIcon.layer.cornerRadius = W_H;
         _headIcon.layer.masksToBounds = YES;
     }
     return _headIcon;
@@ -179,7 +178,7 @@
     [self.mainView addSubview:self.headIcon];
     [self.headIcon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.equalTo(self.mainView).offset(Margin);
-        make.width.height.mas_equalTo(W_H);
+        make.width.height.mas_equalTo(U_I_S);
     }];
     
     [self.mainView addSubview:self.userName];

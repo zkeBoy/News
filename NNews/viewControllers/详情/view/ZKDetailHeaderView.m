@@ -62,7 +62,7 @@
 - (void)setPictureModel:(ZKTTPicture *)pictureModel {
     _pictureModel = pictureModel;
     [self.userIcon sd_setImageWithURL:[NSURL URLWithString:pictureModel.profile_image] placeholderImage:[UIImage imageNamed:@"bg_default_image"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-        self.userIcon.layer.cornerRadius = 20.f;
+        self.userIcon.layer.cornerRadius = U_I_S/2;
         self.userIcon.layer.masksToBounds = YES;
     }];
     
@@ -76,7 +76,7 @@
         
         if (pictureModel.isBigPicture) {
             self.moreInfoBtn.hidden = NO;
-            CGSize size = CGSizeMake(D_WIDTH, pictureModel.cellHeight-Margin*2-24);
+            CGSize size = CGSizeMake(D_WIDTH, pictureModel.cellHeight-Margin*2-U_I_S);
             UIGraphicsBeginImageContextWithOptions(size, YES, 0.0f);
             CGFloat w = D_WIDTH;
             CGFloat h = w*image.size.height / image.size.width;
@@ -100,9 +100,9 @@
 - (void)setUI{
     [self addSubview:self.userIcon];
     [self.userIcon mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(0);
+        make.top.equalTo(self).offset(Margin);
         make.left.equalTo(self).offset(Margin);
-        make.width.height.mas_equalTo(40);
+        make.width.height.mas_equalTo(U_I_S);
     }];
     
     [self addSubview:self.userName];
