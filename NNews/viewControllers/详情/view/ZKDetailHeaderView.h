@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ZKTTVideo.h"
+#import "ZKTTPicture.h"
 @protocol ZKDetailHeaderViewDelegate;
 
 typedef NS_ENUM(NSInteger, detailType) {
@@ -21,6 +22,7 @@ typedef NS_ENUM(NSInteger, detailType) {
 @property (nonatomic, strong) ZKTTVideo  * videoModel;
 @property (nonatomic, weak)   id <ZKDetailHeaderViewDelegate> delegate;
 @property (nonatomic, assign) CGRect       coverFrame;
+@property (nonatomic, strong) ZKTTPicture * pictureModel;
 @end
 
 @protocol ZKDetailHeaderViewDelegate <NSObject>

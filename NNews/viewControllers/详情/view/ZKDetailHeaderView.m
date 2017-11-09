@@ -22,8 +22,9 @@
 
 @property (nonatomic, strong) UILabel     * pictureCommentTitle; //图片评论
 
-@property (nonatomic, strong) UIButton    * moreInfoBtn; //更多详情界面 see-big-picture
-
+@property (nonatomic, strong) FLAnimatedImageView * pictureView;
+@property (nonatomic, strong) UIButton    * moreInfoBtn; //更多详情界面 see_big_picture
+@property (nonatomic, strong) UIImageView * giftIconView; //判断是否是gift图片
 @end
 
 @implementation ZKDetailHeaderView
@@ -58,6 +59,34 @@
     [self.coverImage sd_setImageWithURL:[NSURL URLWithString:videoModel.image1]];
 }
 
+- (void)setPictureModel:(ZKTTPicture *)pictureModel {
+    _pictureModel = pictureModel;
+    [self.userIcon sd_setImageWithURL:[NSURL URLWithString:pictureModel.profile_image] placeholderImage:[UIImage imageNamed:@"bg_default_image"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        self.userIcon.layer.cornerRadius = 20.f;
+        self.userIcon.layer.masksToBounds = YES;
+    }];
+    
+    self.userName.text = pictureModel.screen_name;
+    self.timeTitle.text = pictureModel.created_at;
+   
+    [self.pictureView sd_setImageWithURL:[NSURL URLWithString:pictureModel.image1] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+        
+    } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        CGSize size = CGSizeMake(D_WIDTH, pictureModel.cellHeight-Margin*2-24);
+        UIGraphicsBeginImageContextWithOptions(size, YES, 0.0f);
+        CGFloat w = D_WIDTH;
+        CGFloat h = w*image.size.height / image.size.width;
+        [image drawInRect:CGRectMake(0, 0, w, h)];
+        self.pictureView.image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }];
+    
+    NSString * pathExtension = pictureModel.image1.pathExtension;
+    if ([pathExtension.lowercaseString isEqualToString:@"gif"]) {
+        self.giftIconView.hidden = NO;
+    }
+}
+
 #pragma mark -
 #pragma mark setUI
 - (void)setUI{
@@ -82,24 +111,39 @@
         make.width.equalTo(self.timeTitle);
     }];
     
-    [self addSubview:self.coverImage];
-    [self.coverImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).offset(Margin);
-        make.top.equalTo(self.timeTitle.mas_bottom).offset(Margin);
-        make.bottom.right.equalTo(self).offset(-Margin);
-    }];
-    
     if (self.type==typeVideo) {
+        [self addSubview:self.coverImage];
+        [self.coverImage mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self).offset(Margin);
+            make.top.equalTo(self.timeTitle.mas_bottom).offset(Margin);
+            make.bottom.right.equalTo(self).offset(-Margin);
+        }];
+        
         [self.coverImage addSubview:self.loadIngView];
         [self.loadIngView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.center.equalTo(self.coverImage);
             make.width.height.equalTo(self.loadIngView);
         }];
     }else if (self.type==typePicture){
+        [self addSubview:self.pictureView];
+        [self.pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self).offset(Margin);
+            make.top.equalTo(self.timeTitle.mas_bottom).offset(Margin);
+            make.bottom.right.equalTo(self).offset(-Margin);
+        }];
         
+        [self.pictureView addSubview:self.moreInfoBtn];
+        [self.moreInfoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.bottom.right.equalTo(self.pictureView);
+            make.height.mas_equalTo(30);
+        }];
+        
+        [self.pictureView addSubview:self.giftIconView];
+        [self.giftIconView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.left.equalTo(self.pictureView);
+            make.width.height.mas_equalTo(36);
+        }];
     }
-    
-    
 }
 
 #pragma mark - Private Method
@@ -197,15 +241,33 @@
     return _pictureCommentTitle;
 }
 
+- (FLAnimatedImageView *)pictureView {
+    if (!_pictureView) {
+        _pictureView = [[FLAnimatedImageView alloc] init];
+        _pictureView.backgroundColor = [UIColor whiteColor];
+        _pictureView.userInteractionEnabled = YES;
+    }
+    return _pictureView;
+}
+
 - (UIButton *)moreInfoBtn {
     if (!_moreInfoBtn) {
         _moreInfoBtn = [[UIButton alloc] init];
         _moreInfoBtn.backgroundColor = [UIColor clearColor];
-        [_moreInfoBtn setImage:[UIImage imageNamed:@"see-big-picture"] forState:UIControlStateNormal];
-        [_moreInfoBtn setTitle:@"查看大图" forState:UIControlStateNormal];
-        [_moreInfoBtn setBackgroundImage:[UIImage imageNamed:@"see-big-picture-background"] forState:UIControlStateNormal];
+        [_moreInfoBtn setImage:[UIImage imageNamed:@"see_big_picture"] forState:UIControlStateNormal];
+        [_moreInfoBtn setBackgroundImage:[UIImage imageNamed:@"see_big_picture_background"] forState:UIControlStateNormal];
     }
     return _moreInfoBtn;
+}
+
+- (UIImageView *)giftIconView {
+    if (!_giftIconView) {
+        _giftIconView = [[UIImageView alloc] init];
+        _giftIconView.backgroundColor = [UIColor clearColor];
+        _giftIconView.image = [UIImage imageNamed:@"picture_gif"];
+        _giftIconView.hidden = YES;
+    }
+    return _giftIconView;
 }
 
 /*

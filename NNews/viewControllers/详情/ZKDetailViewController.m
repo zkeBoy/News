@@ -49,10 +49,12 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
     if (type == typeVideo) {
         self.headerView.type = typeVideo;
         self.headerView.videoModel = self.videoModel;
+        self.headerFrame = self.headerView.frame = CGRectMake(0, 0, D_WIDTH, self.videoModel.cellHeight);
     }else if (type == typePicture) {
         self.headerView.type = typePicture;
+        self.headerView.pictureModel = self.pictureModel;
+        self.headerFrame = self.headerView.frame = CGRectMake(0, 0, D_WIDTH, self.pictureModel.cellHeight);
     }
-    self.headerFrame = self.headerView.frame = CGRectMake(0, 0, D_WIDTH, self.videoModel.cellHeight);
     self.tableView.tableHeaderView = self.headerView;
 }
 

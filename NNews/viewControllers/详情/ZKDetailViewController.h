@@ -9,9 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "ZKDetailHeaderView.h"
 #import "ZKTTVideoComment.h"
-
 @interface ZKDetailViewController : UIViewController
-@property (nonatomic, assign) detailType   type;
-@property (nonatomic, strong) ZKTTVideo  * videoModel;
-
+@property (nonatomic, assign) detailType    type;
+@property (nonatomic, strong) ZKTTVideo   * videoModel;
+@property (nonatomic, strong) ZKTTPicture * pictureModel;
 @end

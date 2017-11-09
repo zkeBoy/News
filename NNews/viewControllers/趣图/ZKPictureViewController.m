@@ -9,6 +9,7 @@
 #import "ZKPictureViewController.h"
 #import "ZKPictureTableViewCell.h"
 #import "ZKPictureFullController.h"
+#import "ZKDetailViewController.h"
 
 @interface ZKPictureViewController () <UITableViewDataSource, UITableViewDelegate, ZKPictureTableViewCellDelegate>
 @property (nonatomic, strong) UITableView     * tableView;
@@ -127,8 +128,12 @@ static NSString * const cellIdentifider = @"ZKPictureTableViewCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ZKTTPicture * pictureModel = self.listArray[indexPath.section];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    ZKDetailViewController * detailVC = [[ZKDetailViewController alloc] init];
+    detailVC.pictureModel = pictureModel;
+    detailVC.type = typePicture;
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 #pragma mark - ZKPictureTableViewCellDelegate
