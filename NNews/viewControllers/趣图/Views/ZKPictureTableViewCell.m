@@ -233,7 +233,7 @@
 
 #pragma mark - Private Method
 - (void)seeBigPictureAction{
-    
+    [self.delegate didClickBigPicture:_pictureModel];
 }
 
 

@@ -8,8 +8,9 @@
 
 #import "ZKPictureViewController.h"
 #import "ZKPictureTableViewCell.h"
+#import "ZKPictureFullController.h"
 
-@interface ZKPictureViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface ZKPictureViewController () <UITableViewDataSource, UITableViewDelegate, ZKPictureTableViewCellDelegate>
 @property (nonatomic, strong) UITableView     * tableView;
 @property (nonatomic, strong) NSMutableArray  * listArray;
 @property (nonatomic, assign) NSInteger         page;
@@ -85,6 +86,7 @@ static NSString * const cellIdentifider = @"ZKPictureTableViewCell";
     ZKTTPicture * picture = self.listArray[indexPath.section];
     ZKPictureTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifider forIndexPath:indexPath];
     cell.pictureModel = picture;
+    cell.delegate = self;
     return cell;
 }
 
@@ -127,6 +129,13 @@ static NSString * const cellIdentifider = @"ZKPictureTableViewCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+}
+
+#pragma mark - ZKPictureTableViewCellDelegate
+- (void)didClickBigPicture:(ZKTTPicture *)pictureModel {
+    ZKPictureFullController * fullVC = [[ZKPictureFullController alloc] init];
+    fullVC.pictureModel = pictureModel;
+    [self presentViewController:fullVC animated:YES completion:nil];
 }
 
 #pragma mark -

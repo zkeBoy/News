@@ -38,6 +38,7 @@
 		E24440751FAAE95700E84C65 /* ZKVideoPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = E24440741FAAE95700E84C65 /* ZKVideoPlayView.m */; };
 		E244407B1FAC090B00E84C65 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E244407A1FAC090B00E84C65 /* NSString+Extension.m */; };
 		E2A88A161FAC5DF500410CBA /* ZKFullViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A88A151FAC5DF500410CBA /* ZKFullViewController.m */; };
+		E2E8DF181FB40207008F8995 /* ZKPictureFullController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E8DF171FB40207008F8995 /* ZKPictureFullController.m */; };
 		E2F0636B1FB140F300BADD8A /* ZKDetailModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F0636A1FB140F300BADD8A /* ZKDetailModelManager.m */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +105,8 @@
 		E244407A1FAC090B00E84C65 /* NSString+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		E2A88A141FAC5DF500410CBA /* ZKFullViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKFullViewController.h; sourceTree = "<group>"; };
 		E2A88A151FAC5DF500410CBA /* ZKFullViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKFullViewController.m; sourceTree = "<group>"; };
+		E2E8DF161FB40207008F8995 /* ZKPictureFullController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKPictureFullController.h; sourceTree = "<group>"; };
+		E2E8DF171FB40207008F8995 /* ZKPictureFullController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKPictureFullController.m; sourceTree = "<group>"; };
 		E2F063691FB140F300BADD8A /* ZKDetailModelManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKDetailModelManager.h; sourceTree = "<group>"; };
 		E2F0636A1FB140F300BADD8A /* ZKDetailModelManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKDetailModelManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,6 +147,8 @@
 			children = (
 				E223DD031FB2AC2800126A88 /* ZKPictureViewController.h */,
 				E223DD041FB2AC2800126A88 /* ZKPictureViewController.m */,
+				E2E8DF161FB40207008F8995 /* ZKPictureFullController.h */,
+				E2E8DF171FB40207008F8995 /* ZKPictureFullController.m */,
 				E223DD071FB2AE8400126A88 /* Views */,
 				E223DD061FB2AE8400126A88 /* Model */,
 			);
@@ -507,6 +512,7 @@
 				E223DD011FB2A0F700126A88 /* ZKTTVideoUser.m in Sources */,
 				E24440181FA9970A00E84C65 /* ZKWebViewController.m in Sources */,
 				E244400D1FA95FAF00E84C65 /* ZKNewsModel.m in Sources */,
+				E2E8DF181FB40207008F8995 /* ZKPictureFullController.m in Sources */,
 				E24440041FA879BF00E84C65 /* ZKNetWorkManager.m in Sources */,
 				E2443FBA1FA86C6E00E84C65 /* ViewController.m in Sources */,
 				E2443FC51FA86C6E00E84C65 /* main.m in Sources */,
