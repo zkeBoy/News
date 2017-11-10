@@ -106,6 +106,7 @@
 		E244407A1FAC090B00E84C65 /* NSString+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		E251AFA61FB5558F00303EC9 /* ZKWeatherViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKWeatherViewController.h; sourceTree = "<group>"; };
 		E251AFA71FB5558F00303EC9 /* ZKWeatherViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKWeatherViewController.m; sourceTree = "<group>"; };
+		E251AFA91FB58FD900303EC9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E2A88A141FAC5DF500410CBA /* ZKFullViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKFullViewController.h; sourceTree = "<group>"; };
 		E2A88A151FAC5DF500410CBA /* ZKFullViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKFullViewController.m; sourceTree = "<group>"; };
 		E2E8DF161FB40207008F8995 /* ZKPictureFullController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKPictureFullController.h; sourceTree = "<group>"; };
@@ -243,6 +244,7 @@
 				E2443FC01FA86C6E00E84C65 /* LaunchScreen.storyboard */,
 				E2443FC31FA86C6E00E84C65 /* Info.plist */,
 				E2443FC41FA86C6E00E84C65 /* main.m */,
+				E251AFA91FB58FD900303EC9 /* README.md */,
 			);
 			path = NNews;
 			sourceTree = "<group>";
