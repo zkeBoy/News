@@ -14,8 +14,16 @@
 
 @implementation ZKWeatherViewController
 
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
+- (BOOL)shouldAutorotate {
+    return NO;
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations{ //返回直接支持的方向
     return UIInterfaceOrientationMaskPortrait;
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation { //返回最优先显示的屏幕方向
+    return UIInterfaceOrientationPortrait;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -45,7 +53,7 @@
     self.mapManager = [ZKMapManager shareManager];
     [self.mapManager requireAuthorization];
     self.mapManager.delegate = self;
-    if ([self.mapManager authorizationStatus]==kCLAuthorizationStatusAuthorizedAlways) {
+    if ([self.mapManager authorizationStatus]==(kCLAuthorizationStatusAuthorizedWhenInUse)) {
         [self.mapManager updateLocation];
     }else{ //授权失败
         
@@ -54,11 +62,17 @@
 
 #pragma mark - ZKMapManagerDelegate
 - (void)mapManagerGetLastCLLocation:(CLLocation *)location city:(NSString *)city{
-    
+    NSLog(@"定位成功 - %@",city);
 }
 
 - (void)mapManagerFailureLocation:(NSError *)error {
     
+}
+
+- (void)mapManagerAuthorizationStatusChange:(CLAuthorizationStatus)status {
+    if (status == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        [self.mapManager updateLocation];
+    }
 }
 
 #pragma mark - setUI

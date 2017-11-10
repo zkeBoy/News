@@ -23,5 +23,5 @@
 @optional
 - (void)mapManagerGetLastCLLocation:(CLLocation *)location city:(NSString *)city;
 - (void)mapManagerFailureLocation:(NSError *)error;
-
+- (void)mapManagerAuthorizationStatusChange:(CLAuthorizationStatus)status;
 @end

@@ -25,7 +25,8 @@
 
 - (void)requireAuthorization { //要求授权
     if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
-        [self.locationManager requestWhenInUseAuthorization];
+        [self.locationManager requestWhenInUseAuthorization]; //使用期间定位
+        //[self.locationManager requestAlwaysAuthorization];    //一直使用定位
     }
 }
 
@@ -33,11 +34,54 @@
 //定位成功
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     [manager stopUpdatingLocation];
+    __weak typeof(self)weakSelf = self;
+    CLLocation *location = [locations lastObject];
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        if (!error) {
+            NSString *cityName = placemarks.lastObject.addressDictionary[@"City"];
+            NSString *city = [cityName substringToIndex:cityName.length -1];
+            [weakSelf.delegate mapManagerGetLastCLLocation:location city:city];
+        }
+    }];
 }
 
 //定位失败
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     
+}
+
+//定位授权发生改变时
+-(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
+    switch (status) {
+        case kCLAuthorizationStatusNotDetermined:{
+            NSLog(@"用户还未决定授权");
+            break;
+        }
+        case kCLAuthorizationStatusRestricted:{
+            NSLog(@"访问受限");
+            break;
+        }
+        case kCLAuthorizationStatusDenied:{
+            // 类方法，判断是否开启定位服务
+            if ([CLLocationManager locationServicesEnabled]) {
+                NSLog(@"定位服务开启，被拒绝");
+            } else {
+                NSLog(@"定位服务关闭，不可用");
+            }
+            break;
+        }
+        case kCLAuthorizationStatusAuthorizedAlways:{
+            
+            break;
+        }
+        case kCLAuthorizationStatusAuthorizedWhenInUse:{
+            [self.delegate mapManagerAuthorizationStatusChange:kCLAuthorizationStatusAuthorizedWhenInUse];
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 #pragma mark - Out Action
