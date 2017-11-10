@@ -97,8 +97,8 @@
         _commentTitle.textAlignment = NSTextAlignmentLeft;
         
         /*用于文字换行自适应*/
-        //_commentTitle.numberOfLines = 0;
-        //_commentTitle.lineBreakMode = NSLineBreakByWordWrapping;
+        _commentTitle.numberOfLines = 0;
+        _commentTitle.lineBreakMode = NSLineBreakByWordWrapping;
     }
     return _commentTitle;
 }
