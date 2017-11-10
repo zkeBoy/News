@@ -152,6 +152,11 @@ static NSString * const cellIdentifider = @"ZKPictureTableViewCell";
     [self presentViewController:fullVC animated:YES completion:nil];
 }
 
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+}
+
 #pragma mark -
 #pragma mark setUI
 - (void)setUI {

@@ -21,10 +21,11 @@
     self.viewControllerNames = @[@"ZKNewsViewController",
                                  @"ZKPictureViewController",
                                  @"ZKFunsViewController",
+                                 @"ZKWeatherViewController",
                                  @"ZKPersonViewController"];
-    self.titles = @[@"新闻",@"趣图",@"趣事",@"个人"];
-    self.selectImages = @[@"tabbar_news_select",@"tabbar_picture_select",@"tabbar_video_select",@""];
-    self.normalImages = @[@"tabbar_news",@"tabbar_picture",@"tabbar_video",@""];
+    self.titles = @[@"新闻",@"趣图",@"趣事",@"天气",@"个人"];
+    self.selectImages = @[@"tabbar_news_select",@"tabbar_picture_select",@"tabbar_video_select",@"",@""];
+    self.normalImages = @[@"tabbar_news",@"tabbar_picture",@"tabbar_video",@"",@""];
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations{

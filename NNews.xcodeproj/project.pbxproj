@@ -37,6 +37,7 @@
 		E24440601FA9D2F600E84C65 /* ZKFunsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E244405F1FA9D2F600E84C65 /* ZKFunsTableViewCell.m */; };
 		E24440751FAAE95700E84C65 /* ZKVideoPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = E24440741FAAE95700E84C65 /* ZKVideoPlayView.m */; };
 		E244407B1FAC090B00E84C65 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E244407A1FAC090B00E84C65 /* NSString+Extension.m */; };
+		E251AFA81FB5558F00303EC9 /* ZKWeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E251AFA71FB5558F00303EC9 /* ZKWeatherViewController.m */; };
 		E2A88A161FAC5DF500410CBA /* ZKFullViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A88A151FAC5DF500410CBA /* ZKFullViewController.m */; };
 		E2E8DF181FB40207008F8995 /* ZKPictureFullController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E8DF171FB40207008F8995 /* ZKPictureFullController.m */; };
 		E2F0636B1FB140F300BADD8A /* ZKDetailModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F0636A1FB140F300BADD8A /* ZKDetailModelManager.m */; };
@@ -103,6 +104,8 @@
 		E24440741FAAE95700E84C65 /* ZKVideoPlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKVideoPlayView.m; sourceTree = "<group>"; };
 		E24440791FAC090B00E84C65 /* NSString+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		E244407A1FAC090B00E84C65 /* NSString+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		E251AFA61FB5558F00303EC9 /* ZKWeatherViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKWeatherViewController.h; sourceTree = "<group>"; };
+		E251AFA71FB5558F00303EC9 /* ZKWeatherViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKWeatherViewController.m; sourceTree = "<group>"; };
 		E2A88A141FAC5DF500410CBA /* ZKFullViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKFullViewController.h; sourceTree = "<group>"; };
 		E2A88A151FAC5DF500410CBA /* ZKFullViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKFullViewController.m; sourceTree = "<group>"; };
 		E2E8DF161FB40207008F8995 /* ZKPictureFullController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKPictureFullController.h; sourceTree = "<group>"; };
@@ -261,6 +264,7 @@
 				E2443FEC1FA86F5A00E84C65 /* 新闻 */,
 				E223DD021FB2ABB800126A88 /* 趣图 */,
 				E2443FEE1FA86FB500E84C65 /* 趣事 */,
+				E251AFA51FB5557B00303EC9 /* 天气 */,
 				E2443FEF1FA86FB500E84C65 /* 个人 */,
 				E24440151FA996E600E84C65 /* WebController */,
 				E2257EDB1FAD61B6006C14C4 /* 详情 */,
@@ -370,6 +374,15 @@
 				E223DD001FB2A0F700126A88 /* ZKTTVideoUser.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E251AFA51FB5557B00303EC9 /* 天气 */ = {
+			isa = PBXGroup;
+			children = (
+				E251AFA61FB5558F00303EC9 /* ZKWeatherViewController.h */,
+				E251AFA71FB5558F00303EC9 /* ZKWeatherViewController.m */,
+			);
+			path = "天气";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -521,6 +534,7 @@
 				E2443FB71FA86C6E00E84C65 /* AppDelegate.m in Sources */,
 				E2443FFF1FA8706F00E84C65 /* ZKPersonViewController.m in Sources */,
 				E2257EEC1FAD71CB006C14C4 /* ZKNavigationController.m in Sources */,
+				E251AFA81FB5558F00303EC9 /* ZKWeatherViewController.m in Sources */,
 				E244407B1FAC090B00E84C65 /* NSString+Extension.m in Sources */,
 				E2A88A161FAC5DF500410CBA /* ZKFullViewController.m in Sources */,
 				E2443FEA1FA86D4400E84C65 /* ZKTabBarViewController.m in Sources */,
