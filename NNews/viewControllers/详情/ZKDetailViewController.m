@@ -41,8 +41,11 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
     self.listArray = [NSMutableArray array];
     [self setUI];
     
-#warning - 返回事件需要自定义,需要判断播放是否完成
-    
+//#warning - 返回事件需要自定义,需要判断播放是否完成
+    UIImage * image = [[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem * left = [[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
+    left.imageInsets = UIEdgeInsetsMake(4, -8, 4, 0);
+    self.navigationItem.leftBarButtonItem = left;
 }
 
 - (void)setType:(detailType)type {
@@ -243,6 +246,15 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.bottom.equalTo(self.view);
     }];
+}
+
+#pragma mark - Private Method
+- (void)backAction {
+    if (self.videoPlayView) {
+        [self.videoPlayView resetVideoPlay];
+        self.videoPlayView = nil;
+    }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)dealloc {

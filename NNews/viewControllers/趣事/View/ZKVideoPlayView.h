@@ -17,7 +17,7 @@
 @end
 
 @interface ZKVideoPlayView : UIView
-@property (nonatomic, strong) id <ZKVideoPlayViewDelegate> delegate;
+@property (nonatomic, weak)   id <ZKVideoPlayViewDelegate> delegate;
 @property (nonatomic, strong) AVPlayerItem * playerItem;
 
 //重置播放器
