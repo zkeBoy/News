@@ -14,6 +14,7 @@
 
 #define NavBarH  64
 #define TabBarH  49
+#define StatusH  20
 
 #define Scale(s) (D_HEIGHT/736*s)
 #define CellH    44

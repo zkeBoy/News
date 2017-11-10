@@ -8,7 +8,7 @@
 
 #import "ZKTabBarViewController.h"
 
-@interface ZKTabBarViewController()
+@interface ZKTabBarViewController()<UITabBarControllerDelegate>
 @property (nonatomic, strong) NSArray * viewControllerNames;
 @property (nonatomic, strong) NSArray * titles;
 @property (nonatomic, strong) NSArray * selectImages;
@@ -35,6 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    self.delegate = self;
     [self initArrays];
     [self setTabBarItemVC];
 }
@@ -63,6 +64,17 @@
     [nav.tabBarItem setTitleTextAttributes:normalDic forState:UIControlStateNormal];
     [nav.tabBarItem setTitleTextAttributes:selectDic forState:UIControlStateSelected];
     return nav;
+}
+
+#pragma mark -
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
+    if (viewController == [tabBarController.viewControllers objectAtIndex:self.viewControllers.count-2]) {
+        UIViewController * viewController = [[NSClassFromString(@"ZKWeatherViewController") alloc] init];
+        ZKNavigationController * nav = [[ZKNavigationController alloc] initWithRootViewController:viewController];
+        [self presentViewController:nav animated:YES completion:nil];
+        return NO;
+    }
+    return YES;
 }
 
 @end

@@ -8,11 +8,15 @@
 
 #import "ZKWeatherViewController.h"
 
-@interface ZKWeatherViewController ()
-
+@interface ZKWeatherViewController ()<ZKMapManagerDelegate>
+@property (nonatomic, strong) ZKMapManager * mapManager;
 @end
 
 @implementation ZKWeatherViewController
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskPortrait;
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -28,6 +32,46 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"天气";
+    [self setBasicMessage];
+}
+
+- (void)setBasicMessage {
+    UIImage * image = [[UIImage imageNamed:@"show_image_back_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIButton * back = [[UIButton alloc] init];
+    back.frame = CGRectMake(StatusH, StatusH, 35, 35);
+    [back setImage:image forState:UIControlStateNormal];
+    [back addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:back];
+    self.mapManager = [ZKMapManager shareManager];
+    [self.mapManager requireAuthorization];
+    self.mapManager.delegate = self;
+    if ([self.mapManager authorizationStatus]==kCLAuthorizationStatusAuthorizedAlways) {
+        [self.mapManager updateLocation];
+    }else{ //授权失败
+        
+    }
+}
+
+#pragma mark - ZKMapManagerDelegate
+- (void)mapManagerGetLastCLLocation:(CLLocation *)location city:(NSString *)city{
+    
+}
+
+- (void)mapManagerFailureLocation:(NSError *)error {
+    
+}
+
+#pragma mark - setUI
+
+#pragma mark - lazy init
+
+#pragma mark - Private Method
+- (void)back{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)dealloc {
+    NSLog(@"ZKWeatherViewController dealloc !!!!!!");
 }
 
 - (void)didReceiveMemoryWarning {
