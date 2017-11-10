@@ -45,20 +45,20 @@
         NSString * title = self.titles[index];
         UIImage * image = [[UIImage imageNamed:self.normalImages[index]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         UIImage * selectImage = [[UIImage imageNamed:self.selectImages[index]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-        UINavigationController * nav = [self instanceRootViewControllerWithName:nibName andTabBarNormalImage:image selectImage:selectImage title:title];
+        ZKNavigationController * nav = [self instanceRootViewControllerWithName:nibName andTabBarNormalImage:image selectImage:selectImage title:title];
         [viewControllers addObject:nav];
     }
     self.viewControllers = viewControllers;
 }
 
-- (UINavigationController *)instanceRootViewControllerWithName:(NSString *)nibName andTabBarNormalImage:(UIImage *)normal selectImage:(UIImage *)select title:(NSString *)title{
+- (ZKNavigationController *)instanceRootViewControllerWithName:(NSString *)nibName andTabBarNormalImage:(UIImage *)normal selectImage:(UIImage *)select title:(NSString *)title{
     UIViewController * vc = (UIViewController *)[[NSClassFromString(nibName) alloc] init];
-    UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    ZKNavigationController * nav = [[ZKNavigationController alloc] initWithRootViewController:vc];
     nav.tabBarItem.title = title;
     nav.tabBarItem.image = normal;
     nav.tabBarItem.selectedImage = select;
-    NSDictionary * normalDic = @{NSForegroundColorAttributeName:[UIColor orangeColor]};
-    NSDictionary * selectDic = @{NSForegroundColorAttributeName:[UIColor purpleColor]};
+    NSDictionary * normalDic = @{NSForegroundColorAttributeName:[UIColor grayColor]};
+    NSDictionary * selectDic = @{NSForegroundColorAttributeName:[UIColor redColor]};
     [nav.tabBarItem setTitleTextAttributes:normalDic forState:UIControlStateNormal];
     [nav.tabBarItem setTitleTextAttributes:selectDic forState:UIControlStateSelected];
     return nav;
