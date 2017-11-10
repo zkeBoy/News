@@ -17,22 +17,14 @@
 
 @implementation ZKTabBarViewController
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-    
-    }
-    return self;
-}
-
 - (void)initArrays{
     self.viewControllerNames = @[@"ZKNewsViewController",
                                  @"ZKPictureViewController",
                                  @"ZKFunsViewController",
                                  @"ZKPersonViewController"];
     self.titles = @[@"新闻",@"趣图",@"趣事",@"个人"];
-    self.selectImages = @[@"",@"",@"",@""];
-    self.normalImages = @[@"",@"",@"",@""];
+    self.selectImages = @[@"tabbar_news_select",@"tabbar_picture_select",@"tabbar_video_select",@""];
+    self.normalImages = @[@"tabbar_news",@"tabbar_picture",@"tabbar_video",@""];
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations{
@@ -51,24 +43,23 @@
     for (NSInteger index=0; index<self.viewControllerNames.count; index++) {
         NSString * nibName = self.viewControllerNames[index];
         NSString * title = self.titles[index];
-        UIImage * image = [UIImage imageNamed:self.normalImages[index]];
-        UIImage * selectImage = [UIImage imageNamed:self.selectImages[index]];
-        ZKNavigationController * nav = [self instanceRootViewControllerWithName:nibName andTabBarNormalImage:image selectImage:selectImage title:title];
+        UIImage * image = [[UIImage imageNamed:self.normalImages[index]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        UIImage * selectImage = [[UIImage imageNamed:self.selectImages[index]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        UINavigationController * nav = [self instanceRootViewControllerWithName:nibName andTabBarNormalImage:image selectImage:selectImage title:title];
         [viewControllers addObject:nav];
     }
     self.viewControllers = viewControllers;
 }
 
-- (ZKNavigationController *)instanceRootViewControllerWithName:(NSString *)nibName andTabBarNormalImage:(UIImage *)normal selectImage:(UIImage *)select title:(NSString *)title{
+- (UINavigationController *)instanceRootViewControllerWithName:(NSString *)nibName andTabBarNormalImage:(UIImage *)normal selectImage:(UIImage *)select title:(NSString *)title{
     UIViewController * vc = (UIViewController *)[[NSClassFromString(nibName) alloc] init];
-    ZKNavigationController * nav = [[ZKNavigationController alloc] initWithRootViewController:vc];
-    nav.tabBarItem.selectedImage = select;
+    UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    nav.tabBarItem.title = title;
     nav.tabBarItem.image = normal;
-    nav.title = title;
+    nav.tabBarItem.selectedImage = select;
     NSDictionary * normalDic = @{NSForegroundColorAttributeName:[UIColor orangeColor]};
-    [nav.tabBarItem setTitleTextAttributes:normalDic forState:UIControlStateNormal];
-    
     NSDictionary * selectDic = @{NSForegroundColorAttributeName:[UIColor purpleColor]};
+    [nav.tabBarItem setTitleTextAttributes:normalDic forState:UIControlStateNormal];
     [nav.tabBarItem setTitleTextAttributes:selectDic forState:UIControlStateSelected];
     return nav;
 }
