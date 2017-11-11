@@ -9,7 +9,7 @@
 typedef enum{
     night, //晚上
     day,   //白天
-    unKonw //未知
+    unKnow //未知
 } DayType;
 
 #import "ZKWeatherView.h"
