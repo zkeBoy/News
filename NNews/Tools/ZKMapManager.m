@@ -34,14 +34,18 @@
 //定位成功
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     [manager stopUpdatingLocation];
-    __weak typeof(self)weakSelf = self;
+    
     CLLocation *location = [locations lastObject];
+    NSTimeInterval locationTime = [location.timestamp timeIntervalSinceNow];
+    if (locationTime>5) {
+        return;
+    }
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         if (!error) {
             NSString *cityName = placemarks.lastObject.addressDictionary[@"City"];
             NSString *city = [cityName substringToIndex:cityName.length -1];
-            [weakSelf.delegate mapManagerGetLastCLLocation:location city:city];
+            [self.delegate mapManagerGetLastCLLocation:location city:city];
         }
     }];
 }
@@ -60,6 +64,7 @@
         }
         case kCLAuthorizationStatusRestricted:{
             NSLog(@"访问受限");
+            [self.delegate mapManagerAuthorizationStatusChange:kCLAuthorizationStatusRestricted];
             break;
         }
         case kCLAuthorizationStatusDenied:{

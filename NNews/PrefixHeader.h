@@ -22,4 +22,5 @@
 #import "ZKNavigationController.h"
 #import <DALabeledCircularProgressView.h>
 #import "ZKMapManager.h"
+#import "UIView+Animation.h"
 #endif /* PrefixHeader_h */

@@ -7,23 +7,20 @@
 //
 
 #import "ZKWeatherViewController.h"
+#import "ZKWeatherView.h"
 
-@interface ZKWeatherViewController ()<ZKMapManagerDelegate>
-@property (nonatomic, strong) ZKMapManager * mapManager;
+@interface ZKWeatherViewController ()<ZKMapManagerDelegate, ZKWeatherViewDelegate>
+@property (nonatomic, strong) ZKMapManager   * mapManager;
+@property (nonatomic, strong) ZKWeatherView  * weatherView;
+@property (nonatomic, strong) UIImageView    * backgroundView;
+@property (nonatomic, strong) NSURLSessionTask * sessionTask;
+
 @end
 
 @implementation ZKWeatherViewController
 
-- (BOOL)shouldAutorotate {
-    return NO;
-}
-
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations{ //返回直接支持的方向
     return UIInterfaceOrientationMaskPortrait;
-}
-
-- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation { //返回最优先显示的屏幕方向
-    return UIInterfaceOrientationPortrait;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -39,30 +36,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.title = @"天气";
-    [self setBasicMessage];
+    [self setUI];
+    [self setMap];
 }
 
-- (void)setBasicMessage {
-    UIImage * image = [[UIImage imageNamed:@"show_image_back_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UIButton * back = [[UIButton alloc] init];
-    back.frame = CGRectMake(StatusH, StatusH, 35, 35);
-    [back setImage:image forState:UIControlStateNormal];
-    [back addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:back];
+
+- (void)setMap {
     self.mapManager = [ZKMapManager shareManager];
-    [self.mapManager requireAuthorization];
     self.mapManager.delegate = self;
     if ([self.mapManager authorizationStatus]==(kCLAuthorizationStatusAuthorizedWhenInUse)) {
         [self.mapManager updateLocation];
     }else{ //授权失败
-        
+        [self.mapManager requireAuthorization];
     }
 }
 
 #pragma mark - ZKMapManagerDelegate
 - (void)mapManagerGetLastCLLocation:(CLLocation *)location city:(NSString *)city{
     NSLog(@"定位成功 - %@",city);
+    [self startRequestWeatherCityName:city];
 }
 
 - (void)mapManagerFailureLocation:(NSError *)error {
@@ -75,11 +67,74 @@
     }
 }
 
+#pragma mark - ZKWeatherViewDelegate
+- (void)didClickLoactionBtn{
+    
+}
+
 #pragma mark - setUI
+- (void)setUI {
+    [self.view addSubview:self.backgroundView];
+    self.backgroundView.frame = self.view.bounds;
+    
+    [self.view addSubview:self.weatherView];
+    [self.weatherView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+
+    UIImage * image = [[UIImage imageNamed:@"show_image_back_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIButton * back = [[UIButton alloc] init];
+    back.frame = CGRectMake(StatusH, StatusH, 33, 33);
+    [back setImage:image forState:UIControlStateNormal];
+    [back addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:back];
+}
 
 #pragma mark - lazy init
+- (UIImageView *)backgroundView {
+    if (!_backgroundView) {
+        _backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_normal.jpg"]];
+        _backgroundView.backgroundColor = [UIColor clearColor];
+    }
+    return _backgroundView;
+}
+
+- (ZKWeatherView *)weatherView {
+    if (!_weatherView) {
+        _weatherView = [[ZKWeatherView alloc] init];
+        _weatherView.backgroundColor = [UIColor clearColor];
+        _weatherView.delegate = self;
+    }
+    return _weatherView;
+}
 
 #pragma mark - Private Method
+- (void)startRequestWeatherCityName:(NSString *)city{
+    [self.sessionTask cancel];
+    NSString * weatherLink = [NSString stringWithFormat:@"https://api.thinkpage.cn/v3/weather/daily.json?key=osoydf7ademn8ybv&location=%@&language=zh-Hans&start=0&days=3",city];
+    weatherLink = [weatherLink stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    self.sessionTask = [[ZKNetWorkManager shareManager] requestWithType:requestTypeGet urlString:weatherLink andParameters:nil success:^(id responder) {
+        if (responder) {
+            NSArray * resultArray = responder[@"results"];
+            NSDictionary * dic = resultArray[0];
+            if (dic) {
+                ZKWeatherModel * model = [[ZKWeatherModel alloc] init];
+                model.cityName   = dic[@"location"][@"name"];
+                model.updateTime = dic[@"last_update"];
+                model.timeZone   = dic[@"location"][@"timezone"];
+                model.dayArrays  = [ZKDayModel mj_objectArrayWithKeyValuesArray:dic[@"daily"]];
+                [self updateWeather:model];
+            }
+        }
+    } failure:^(NSError * error) {
+        
+    }];
+}
+
+- (void)updateWeather:(ZKWeatherModel *)weatherModel{
+    self.weatherView.model = weatherModel;
+}
+
 - (void)back{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
