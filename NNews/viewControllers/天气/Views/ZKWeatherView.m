@@ -51,6 +51,7 @@ typedef enum{
     ZKDayModel * threeDay = model.dayArrays[2];
     [self threeday:threeDay];
     _model = model;
+    
     _cityNameLabel.text = model.cityName;
     NSString * currentTime = [self getNowTimeTimeZone:model.timeZone];
     [self compareTimeDayType:currentTime];

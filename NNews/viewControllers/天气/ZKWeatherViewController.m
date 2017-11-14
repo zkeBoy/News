@@ -8,8 +8,9 @@
 
 #import "ZKWeatherViewController.h"
 #import "ZKWeatherView.h"
+#import "ZKCityViewController.h"
 
-@interface ZKWeatherViewController ()<ZKMapManagerDelegate, ZKWeatherViewDelegate>
+@interface ZKWeatherViewController ()<ZKMapManagerDelegate, ZKWeatherViewDelegate, ZKCityViewControllerDelegate>
 @property (nonatomic, strong) ZKMapManager   * mapManager;
 @property (nonatomic, strong) ZKWeatherView  * weatherView;
 @property (nonatomic, strong) UIImageView    * backgroundView;
@@ -35,6 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBarHidden = YES;
     self.view.backgroundColor = [UIColor whiteColor];
     [self setUI];
     [self setMap];
@@ -69,7 +71,14 @@
 
 #pragma mark - ZKWeatherViewDelegate
 - (void)didClickLoactionBtn{
-    
+    ZKCityViewController * cityVC = [[ZKCityViewController alloc] init];
+    cityVC.delegate = self;
+    [self.navigationController pushViewController:cityVC animated:YES];
+}
+
+#pragma mark - ZKCityViewControllerDelegate
+- (void)didSelectCityName:(NSString *)cityName {
+    [self startRequestWeatherCityName:cityName];
 }
 
 #pragma mark - setUI
@@ -107,6 +116,7 @@
     }
     return _weatherView;
 }
+
 
 #pragma mark - Private Method
 - (void)startRequestWeatherCityName:(NSString *)city{

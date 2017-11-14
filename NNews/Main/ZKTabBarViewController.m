@@ -70,7 +70,8 @@
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
     if (viewController == [tabBarController.viewControllers objectAtIndex:self.viewControllers.count-2]) {
         UIViewController * viewController = [[NSClassFromString(@"ZKWeatherViewController") alloc] init];
-        [self presentViewController:viewController animated:YES completion:nil];
+        UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:viewController];
+        [self presentViewController:nav animated:YES completion:nil];
         return NO;
     }
     return YES;
