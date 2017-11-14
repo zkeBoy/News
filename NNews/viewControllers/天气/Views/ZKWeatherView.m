@@ -59,6 +59,7 @@ typedef enum{
     
     self.dayLabel2.text = @"明天";
     self.dayLabel3.text = @"后天";
+    self.locationBtn.hidden = NO;
 }
 
 - (void)today:(ZKDayModel *)day{
@@ -276,6 +277,7 @@ typedef enum{
         _locationBtn.backgroundColor = [UIColor clearColor];
         [_locationBtn addTarget:self action:@selector(clickLocationAction) forControlEvents:UIControlEventTouchUpInside];
         [_locationBtn setImage:[UIImage imageNamed:@"location_hardware"] forState:UIControlStateNormal];
+        _locationBtn.hidden = YES;
     }
     return _locationBtn;
 }

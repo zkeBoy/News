@@ -21,11 +21,10 @@
     self.viewControllerNames = @[@"ZKNewsViewController",
                                  @"ZKPictureViewController",
                                  @"ZKFunsViewController",
-                                 @"ZKWeatherViewController",
-                                 @"ZKPersonViewController"];
-    self.titles = @[@"新闻",@"趣图",@"趣事",@"天气",@"个人"];
-    self.selectImages = @[@"tabbar_news_select",@"tabbar_picture_select",@"tabbar_video_select",@"",@""];
-    self.normalImages = @[@"tabbar_news",@"tabbar_picture",@"tabbar_video",@"",@""];
+                                 @"ZKWeatherViewController"];
+    self.titles = @[@"新闻",@"趣图",@"趣事",@"天气"];
+    self.selectImages = @[@"tabbar_news_select",@"tabbar_picture_select",@"tabbar_video_select",@""];
+    self.normalImages = @[@"tabbar_news",@"tabbar_picture",@"tabbar_video",@""];
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations{
@@ -68,7 +67,7 @@
 
 #pragma mark -
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
-    if (viewController == [tabBarController.viewControllers objectAtIndex:self.viewControllers.count-2]) {
+    if (viewController == [tabBarController.viewControllers objectAtIndex:self.viewControllers.count-1]) {
         UIViewController * viewController = [[NSClassFromString(@"ZKWeatherViewController") alloc] init];
         UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:viewController];
         [self presentViewController:nav animated:YES completion:nil];
