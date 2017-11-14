@@ -41,6 +41,7 @@
 		E245BF2D1FBA923100D85BF7 /* ZKCityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E245BF2C1FBA923100D85BF7 /* ZKCityModel.m */; };
 		E245BF331FBA9C6B00D85BF7 /* cityGroups.plist in Resources */ = {isa = PBXBuildFile; fileRef = E245BF321FBA9C6B00D85BF7 /* cityGroups.plist */; };
 		E245BF371FBAF43F00D85BF7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E245BF391FBAF43F00D85BF7 /* InfoPlist.strings */; };
+		E245BF401FBAF7BE00D85BF7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E245BF421FBAF7BE00D85BF7 /* Localizable.strings */; };
 		E251AFA81FB5558F00303EC9 /* ZKWeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E251AFA71FB5558F00303EC9 /* ZKWeatherViewController.m */; };
 		E251AFAE1FB599C000303EC9 /* ZKMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E251AFAD1FB599C000303EC9 /* ZKMapManager.m */; };
 		E2929A181FB68E3400EA33E9 /* ZKWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2929A171FB68E3400EA33E9 /* ZKWeatherView.m */; };
@@ -176,6 +177,11 @@
 		E245BF3B1FBAF48A00D85BF7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		E245BF3C1FBAF49000D85BF7 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		E245BF3D1FBAF49A00D85BF7 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E245BF411FBAF7BE00D85BF7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E245BF431FBAF7C000D85BF7 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E245BF441FBAF7C100D85BF7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		E245BF451FBAF7C300D85BF7 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		E245BF461FBAF7C300D85BF7 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E251AFA61FB5558F00303EC9 /* ZKWeatherViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKWeatherViewController.h; sourceTree = "<group>"; };
 		E251AFA71FB5558F00303EC9 /* ZKWeatherViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKWeatherViewController.m; sourceTree = "<group>"; };
 		E251AFA91FB58FD900303EC9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -378,6 +384,7 @@
 				E24440111FA9602A00E84C65 /* ZKCommandFile.h */,
 				E2443FC01FA86C6E00E84C65 /* LaunchScreen.storyboard */,
 				E2443FC31FA86C6E00E84C65 /* Info.plist */,
+				E245BF421FBAF7BE00D85BF7 /* Localizable.strings */,
 				E245BF391FBAF43F00D85BF7 /* InfoPlist.strings */,
 				E2443FC41FA86C6E00E84C65 /* main.m */,
 				E251AFA91FB58FD900303EC9 /* README.md */,
@@ -711,6 +718,7 @@
 				E2929A2E1FB6A67400EA33E9 /* bg_fog.jpg in Resources */,
 				E245BF371FBAF43F00D85BF7 /* InfoPlist.strings in Resources */,
 				E2929A7B1FB6DEA400EA33E9 /* 24.png in Resources */,
+				E245BF401FBAF7BE00D85BF7 /* Localizable.strings in Resources */,
 				E2929A361FB6A67400EA33E9 /* bg_rain_night.jpg in Resources */,
 				E2929A7F1FB6DEA400EA33E9 /* 28.png in Resources */,
 				E2929A6F1FB6DEA400EA33E9 /* 13.png in Resources */,
@@ -886,6 +894,18 @@
 				E245BF3D1FBAF49A00D85BF7 /* ko */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E245BF421FBAF7BE00D85BF7 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E245BF411FBAF7BE00D85BF7 /* en */,
+				E245BF431FBAF7C000D85BF7 /* fr */,
+				E245BF441FBAF7C100D85BF7 /* zh-Hans */,
+				E245BF451FBAF7C300D85BF7 /* zh-Hant */,
+				E245BF461FBAF7C300D85BF7 /* ko */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
