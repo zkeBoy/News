@@ -11,4 +11,7 @@
 @interface NSString (Extension)
 + (NSString *)stringWithCurrentTime:(NSTimeInterval)currentTime
                            duration:(NSTimeInterval)duration;
+
++ (NSString *)stringWithTemperatureString:(NSString *)high
+                                      low:(NSString *)low;
 @end

@@ -22,4 +22,9 @@
     NSString *currentString = [NSString stringWithFormat:@"%02ld:%02ld", (long)cMin, (long)cSec];
     return [NSString stringWithFormat:@"%@/%@", currentString, durationString];
 }
+
++ (NSString *)stringWithTemperatureString:(NSString *)high low:(NSString *)low{
+    return [NSString stringWithFormat:@"%@℃/%@℃",high,low];
+}
+
 @end
