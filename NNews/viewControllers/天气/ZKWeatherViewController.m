@@ -137,7 +137,7 @@
             }
         }
     } failure:^(NSError * error) {
-        
+        [self showAlertViewController];
     }];
 }
 
@@ -147,6 +147,25 @@
 
 - (void)back{
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)showAlertViewController{
+    UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"location_fail", nil)
+                                                                      message:@""
+                                                               preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction * action1 = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil)
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+                                                         
+                                                     }];
+    UIAlertAction * action2 = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil)
+                                                       style:UIAlertActionStyleDestructive
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+                                                         
+                                                     }];
+    [alertVC addAction:action1];
+    [alertVC addAction:action2];
+    [self presentViewController:alertVC animated:YES completion:nil];
 }
 
 - (void)dealloc {

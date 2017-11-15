@@ -24,7 +24,7 @@ static NSString * const cellIdentifider = @"ZKPictureTableViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.title = @"趣图";
+    self.title = NSLocalizedString(@"tab_picture", nil);
     self.listArray = [NSMutableArray arrayWithCapacity:10];
     [self setUI];
 }

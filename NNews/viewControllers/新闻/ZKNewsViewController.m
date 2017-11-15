@@ -33,7 +33,7 @@ static NSString * const cellIdentifider = @"ZKNewsTableViewCellID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"新闻";
+    self.title = NSLocalizedString(@"tab_new", nil);
     [self setUI];
 }
 

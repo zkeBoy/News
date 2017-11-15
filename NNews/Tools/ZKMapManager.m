@@ -36,7 +36,7 @@
     [manager stopUpdatingLocation];
     
     CLLocation *location = [locations lastObject];
-    NSTimeInterval locationTime = [location.timestamp timeIntervalSinceNow];
+    NSTimeInterval locationTime = -[location.timestamp timeIntervalSinceNow];
     if (locationTime>5) {
         return;
     }

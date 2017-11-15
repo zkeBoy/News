@@ -5,3 +5,14 @@
   Created by Tom on 2017/11/14.
   Copyright © 2017年 Tom. All rights reserved.
 */
+"tab_new"       = "新闻";
+"tab_picture"   = "趣图";
+"tab_video"     = "趣事";
+"tab_weather"   = "天气";
+
+"third_day"     = "后天";
+"two_day"       = "明天";
+
+"location_fail" = "定位失败";
+"OK"            = "确定";
+"Cancel"        = "取消";

@@ -5,3 +5,14 @@
   Created by Tom on 2017/11/14.
   Copyright © 2017年 Tom. All rights reserved.
 */
+"tab_new"       = "actualité";
+"tab_picture"   = "graphe simple";
+"tab_video"     = "vidéo";
+"tab_weather"   = "temps";
+
+"third_day"     = "après-demain";
+"two_day"       = "demain";
+
+"location_fail" = "repérer échouer";
+"OK"            = "décider";
+"Cancel"        = "suppression";

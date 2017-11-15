@@ -5,3 +5,14 @@
   Created by Tom on 2017/11/14.
   Copyright © 2017年 Tom. All rights reserved.
 */
+"tab_new"       = "뉴스";
+"tab_picture"   = "그래프";
+"tab_video"     = "동영상 파일";
+"tab_weather"   = "날씨.";
+
+"third_day"     = "모레";
+"two_day"       = "투모로";
+
+"location_fail" = "이동패배하다";
+"OK"            = "확정하다";
+"Cancel"        = "취소하다";

@@ -22,9 +22,18 @@
                                  @"ZKPictureViewController",
                                  @"ZKFunsViewController",
                                  @"ZKWeatherViewController"];
-    self.titles = @[@"新闻",@"趣图",@"趣事",@"天气"];
-    self.selectImages = @[@"tabbar_news_select",@"tabbar_picture_select",@"tabbar_video_select",@""];
-    self.normalImages = @[@"tabbar_news",@"tabbar_picture",@"tabbar_video",@""];
+    self.titles = @[NSLocalizedString(@"tab_new", nil),
+                    NSLocalizedString(@"tab_picture", nil),
+                    NSLocalizedString(@"tab_video", nil),
+                    NSLocalizedString(@"tab_weather", nil)];
+    self.selectImages = @[@"tabbar_news_select",
+                          @"tabbar_picture_select",
+                          @"tabbar_video_select",
+                          @"tabbar_weather_select"];
+    self.normalImages = @[@"tabbar_news",
+                          @"tabbar_picture",
+                          @"tabbar_video",
+                          @"tabbar_weather"];
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations{

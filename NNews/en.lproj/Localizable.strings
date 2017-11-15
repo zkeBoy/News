@@ -5,3 +5,14 @@
   Created by Tom on 2017/11/14.
   Copyright © 2017年 Tom. All rights reserved.
 */
+"tab_new"       = "New";
+"tab_picture"   = "Picture";
+"tab_video"     = "Video";
+"tab_weather"   = "Weather";
+
+"third_day"     = "the day after tomorrow";
+"two_day"       = "tomorrow";
+
+"location_fail" = "location failure";
+"OK"            = "Ok";
+"Cancel"        = "Cancel";
