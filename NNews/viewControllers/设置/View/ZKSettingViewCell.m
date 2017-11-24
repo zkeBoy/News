@@ -42,8 +42,8 @@
 - (void)setUI1 {
     [self.mainView addSubview:self.headerView];
     [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.equalTo(self.mainView).offset(Margin);
-        make.bottom.equalTo(self.mainView).offset(-Margin);
+        make.top.left.equalTo(self.mainView).offset(Margin*2);
+        make.bottom.equalTo(self.mainView).offset(-Margin*2);
         make.width.equalTo(self.headerView.mas_height);
     }];
     
@@ -101,7 +101,7 @@
         _headerView = [[UIImageView alloc] init];
         _headerView.image = [UIImage imageNamed:@"user_default"];
         _headerView.backgroundColor = [UIColor clearColor];
-        _headerView.layer.cornerRadius = 40.f;
+        _headerView.layer.cornerRadius = 20.f;
         _headerView.layer.masksToBounds = YES;
     }
     return _headerView;
