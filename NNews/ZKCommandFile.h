@@ -23,5 +23,6 @@
 #define U_I_S    40.f //User Icon size
 
 #define MainColor [[UIColor blackColor] colorWithAlphaComponent:0.2]
+#define Margin 10
 
 #endif /* ZKCommandFile_h */

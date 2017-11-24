@@ -32,6 +32,7 @@ static NSString * const cellIdentifider = @"ZKPictureTableViewCell";
 - (void)loadLastData{ //加载最新的数据
     if (self.listArray.count) {
         [self.listArray removeAllObjects];
+        [self.tableView reloadData];
     }
     NSString * linkURL = @"http://api.budejie.com/api/api_open.php";
     NSDictionary * para = @{@"a":@"list",

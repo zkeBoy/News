@@ -21,19 +21,23 @@
     self.viewControllerNames = @[@"ZKNewsViewController",
                                  @"ZKPictureViewController",
                                  @"ZKFunsViewController",
-                                 @"ZKWeatherViewController"];
+                                 @"ZKWeatherViewController",
+                                 @"ZKSettingsViewController"];
     self.titles = @[NSLocalizedString(@"tab_new", nil),
                     NSLocalizedString(@"tab_picture", nil),
                     NSLocalizedString(@"tab_video", nil),
-                    NSLocalizedString(@"tab_weather", nil)];
+                    NSLocalizedString(@"tab_weather", nil),
+                    NSLocalizedString(@"tab_setting", nil)];
     self.selectImages = @[@"tabbar_news_select",
                           @"tabbar_picture_select",
                           @"tabbar_video_select",
-                          @"tabbar_weather_select"];
+                          @"tabbar_weather_select",
+                          @"tabbar_setting_select"];
     self.normalImages = @[@"tabbar_news",
                           @"tabbar_picture",
                           @"tabbar_video",
-                          @"tabbar_weather"];
+                          @"tabbar_weather",
+                          @"tabbar_setting"];
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations{
@@ -76,7 +80,7 @@
 
 #pragma mark -
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
-    if (viewController == [tabBarController.viewControllers objectAtIndex:self.viewControllers.count-1]) {
+    if (viewController == [tabBarController.viewControllers objectAtIndex:self.viewControllers.count-2]) {
         UIViewController * viewController = [[NSClassFromString(@"ZKWeatherViewController") alloc] init];
         UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:viewController];
         [self presentViewController:nav animated:YES completion:nil];

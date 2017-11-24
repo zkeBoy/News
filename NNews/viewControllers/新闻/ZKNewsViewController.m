@@ -49,6 +49,7 @@ static NSString * const cellIdentifider = @"ZKNewsTableViewCellID";
 //下拉刷新
 - (void)downloadRefreshData{
     [self.dataArray removeAllObjects];
+    [self.tableView reloadData];
     NSString * list = @"http://app3.qdaily.com/app3/homes/index/0.json?";
     [[ZKNetWorkManager shareManager] requestWithType:requestTypeGet
                                            urlString:list

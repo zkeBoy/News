@@ -137,7 +137,7 @@
             }
         }
     } failure:^(NSError * error) {
-        [self showAlertViewController];
+        //[self showAlertViewController];
     }];
 }
 

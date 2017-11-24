@@ -23,4 +23,5 @@
 #import <DALabeledCircularProgressView.h>
 #import "ZKMapManager.h"
 #import "UIView+Animation.h"
+#import "ZKToolManager.h"
 #endif /* PrefixHeader_h */

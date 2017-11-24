@@ -9,6 +9,7 @@
 "tab_picture"   = "Picture";
 "tab_video"     = "Video";
 "tab_weather"   = "Weather";
+"tab_setting"   = "Setting";
 
 "third_day"     = "the day after tomorrow";
 "two_day"       = "tomorrow";

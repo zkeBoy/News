@@ -48,6 +48,7 @@ static NSString * const cellIdentifider = @"ZKFunsTableViewCellID";
 - (void)loadLastData{ //加载最新的数据
     if (self.listArray.count) {
         [self.listArray removeAllObjects];
+        [self.tableView reloadData];
     }
     NSString * link = @"http://api.budejie.com/api/api_open.php";
     NSDictionary * para = @{@"a":@"list",
