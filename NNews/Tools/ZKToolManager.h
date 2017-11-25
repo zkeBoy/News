@@ -8,7 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ZKToolManager : NSObject
+typedef void(^clipBlock)(UIImage *);
+
+@interface ZKToolManager : NSObject <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@property (nonatomic, strong) UIImagePickerController * pickerVC;
+@property (nonatomic,   copy) clipBlock photoAlubmBlock;
+
++ (ZKToolManager *)shareManager;
+
 + (float)cacheSize;
 
 + (void)cleanCache:(void(^)(void))completeBlock;
@@ -20,4 +27,8 @@
             rootViewController:(UIViewController *)rootVC
                     otherBlock:(void(^)(void))otherBlock
                    cancelBlock:(void(^)(void))cancelBlock;
+
+- (void)clipPhotoalbumImage:(void(^)(UIImage *image))completeBlock;
+
 @end
+

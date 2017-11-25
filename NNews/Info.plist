@@ -27,6 +27,8 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>请允许App-在使用期间获取位置信息</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>请允许App使用相册</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

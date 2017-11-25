@@ -77,7 +77,15 @@ static NSString * const cellIdentifider = @"ZKSettingViewCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     if (indexPath.section==0&&indexPath.row==0) {
-        
+        [[ZKToolManager shareManager] clipPhotoalbumImage:^(UIImage *image) {
+            NSData * data = UIImageJPEGRepresentation(image, 1.0f);
+            NSUserDefaults * save = [NSUserDefaults standardUserDefaults];
+            [save setObject:data forKey:@"exchangeHeadSuccess"];
+            [save synchronize];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"NSNotificationExchangeHeaderSuccessKey" object:nil];
+            });
+        }];
     }else if (indexPath.section==1&&indexPath.row==0) {
         [ZKToolManager showAlertViewWithTitle:NSLocalizedString(@"清理本地图片缓存!", nil) message:NSLocalizedString(@"", nil) other:NSLocalizedString(@"确定", nil) cancel:NSLocalizedString(@"取消", nil) rootViewController:self otherBlock:^{
             [ZKToolManager cleanCache:^{

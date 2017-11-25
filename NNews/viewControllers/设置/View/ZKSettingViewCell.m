@@ -14,6 +14,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateMemery) name:@"NSNotificationAboutCleanCachekey" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateUserInfo) name:@"NSNotificationExchangeHeaderSuccessKey" object:nil];
     }
     return self;
 }
@@ -22,6 +23,19 @@
     NSString * memory = [NSString stringWithFormat:@"%f",[ZKToolManager cacheSize]];
     NSString * part1 = [memory componentsSeparatedByString:@"."].firstObject;
     _memoryLabel.text = [part1 stringByAppendingString:@".0M"];
+}
+
+- (void)updateUserInfo {
+    NSUserDefaults * defaules = [NSUserDefaults standardUserDefaults];
+    NSData * data = [defaules objectForKey:@"exchangeHeadSuccess"];
+    UIImage * image = [UIImage imageWithData:data];
+    [defaules synchronize];
+    if (!data.length) {
+        return;
+    }
+    self.headerView.image = image;
+    self.headerView.layer.cornerRadius = 30;
+    self.headerView.layer.masksToBounds = YES;
 }
 
 - (void)layoutSubviews {
@@ -36,6 +50,7 @@
     }else{
         [self setUI2];
     }
+    [self updateUserInfo];
 }
 
 #pragma mark - setUI
@@ -101,7 +116,7 @@
         _headerView = [[UIImageView alloc] init];
         _headerView.image = [UIImage imageNamed:@"user_default"];
         _headerView.backgroundColor = [UIColor clearColor];
-        _headerView.layer.cornerRadius = 20.f;
+        _headerView.layer.cornerRadius = 30.f;
         _headerView.layer.masksToBounds = YES;
     }
     return _headerView;
