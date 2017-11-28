@@ -32,7 +32,8 @@
 }
 
 - (void)registerClicked:(UIButton *)btn {
-    
+    ZKRegisterViewController * registerVC = [[ZKRegisterViewController alloc] init];
+    [self.navigationController pushViewController:registerVC animated:YES];
 }
 
 #pragma mark - UITextFieldDelegate
