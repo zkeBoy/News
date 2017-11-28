@@ -43,6 +43,8 @@
 		E245BF401FBAF7BE00D85BF7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E245BF421FBAF7BE00D85BF7 /* Localizable.strings */; };
 		E251AFA81FB5558F00303EC9 /* ZKWeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E251AFA71FB5558F00303EC9 /* ZKWeatherViewController.m */; };
 		E251AFAE1FB599C000303EC9 /* ZKMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E251AFAD1FB599C000303EC9 /* ZKMapManager.m */; };
+		E2719DA51FCD5DEA0033D968 /* ZKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2719DA41FCD5DEA0033D968 /* ZKLoginViewController.m */; };
+		E2719DA81FCD5DFA0033D968 /* ZKRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2719DA71FCD5DFA0033D968 /* ZKRegisterViewController.m */; };
 		E2778F521FC820A80064DA01 /* ZKToolManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2778F511FC820A80064DA01 /* ZKToolManager.m */; };
 		E2778F621FC820D40064DA01 /* ZKAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2778F561FC820D40064DA01 /* ZKAboutViewController.m */; };
 		E2778F631FC820D40064DA01 /* ZKFeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2778F591FC820D40064DA01 /* ZKFeedBackViewController.m */; };
@@ -190,6 +192,10 @@
 		E251AFA91FB58FD900303EC9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E251AFAC1FB599C000303EC9 /* ZKMapManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKMapManager.h; sourceTree = "<group>"; };
 		E251AFAD1FB599C000303EC9 /* ZKMapManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKMapManager.m; sourceTree = "<group>"; };
+		E2719DA31FCD5DEA0033D968 /* ZKLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKLoginViewController.h; sourceTree = "<group>"; };
+		E2719DA41FCD5DEA0033D968 /* ZKLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKLoginViewController.m; sourceTree = "<group>"; };
+		E2719DA61FCD5DFA0033D968 /* ZKRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKRegisterViewController.h; sourceTree = "<group>"; };
+		E2719DA71FCD5DFA0033D968 /* ZKRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKRegisterViewController.m; sourceTree = "<group>"; };
 		E2778F501FC820A80064DA01 /* ZKToolManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKToolManager.h; sourceTree = "<group>"; };
 		E2778F511FC820A80064DA01 /* ZKToolManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKToolManager.m; sourceTree = "<group>"; };
 		E2778F551FC820D40064DA01 /* ZKAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKAboutViewController.h; sourceTree = "<group>"; };
@@ -385,6 +391,7 @@
 		E2443FB41FA86C6E00E84C65 /* NNews */ = {
 			isa = PBXGroup;
 			children = (
+				E2719DA21FCD5DDA0033D968 /* Login */,
 				E2443FB51FA86C6E00E84C65 /* AppDelegate.h */,
 				E2443FB61FA86C6E00E84C65 /* AppDelegate.m */,
 				E2443FB81FA86C6E00E84C65 /* ViewController.h */,
@@ -567,6 +574,17 @@
 				E2929A171FB68E3400EA33E9 /* ZKWeatherView.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E2719DA21FCD5DDA0033D968 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E2719DA31FCD5DEA0033D968 /* ZKLoginViewController.h */,
+				E2719DA41FCD5DEA0033D968 /* ZKLoginViewController.m */,
+				E2719DA61FCD5DFA0033D968 /* ZKRegisterViewController.h */,
+				E2719DA71FCD5DFA0033D968 /* ZKRegisterViewController.m */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		E2778F531FC820D40064DA01 /* 设置 */ = {
@@ -888,6 +906,7 @@
 				E24440751FAAE95700E84C65 /* ZKVideoPlayView.m in Sources */,
 				E2778F621FC820D40064DA01 /* ZKAboutViewController.m in Sources */,
 				E244401D1FA9A15500E84C65 /* ZKHelperView.m in Sources */,
+				E2719DA81FCD5DFA0033D968 /* ZKRegisterViewController.m in Sources */,
 				E2F0636B1FB140F300BADD8A /* ZKDetailModelManager.m in Sources */,
 				E2257EDE1FAD61D6006C14C4 /* ZKDetailViewController.m in Sources */,
 				E2257EE31FAD6308006C14C4 /* ZKDetailHeaderView.m in Sources */,
@@ -896,6 +915,7 @@
 				E2778F641FC820D40064DA01 /* ZKSettingModel.m in Sources */,
 				E2778F631FC820D40064DA01 /* ZKFeedBackViewController.m in Sources */,
 				E2778F651FC820D40064DA01 /* ZKSettingViewCell.m in Sources */,
+				E2719DA51FCD5DEA0033D968 /* ZKLoginViewController.m in Sources */,
 				E2443FF61FA8701300E84C65 /* ZKFunsViewController.m in Sources */,
 				E2929A3D1FB6C47500EA33E9 /* UIView+Animation.m in Sources */,
 				E244405A1FA9CFC300E84C65 /* ZKTTVideoComment.m in Sources */,

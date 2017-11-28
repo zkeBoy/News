@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ZKTabBarViewController.h"
+#import "ZKLoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,12 +19,23 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[ZKNetWorkManager shareManager] startMonitoring]; //开启网络监听
     
+    [self compareLogin];
+    return YES;
+}
+
+- (void)compareLogin{
     ZKTabBarViewController * rootVC = [[ZKTabBarViewController alloc] init];
-    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = rootVC;
     [self.window makeKeyAndVisible];
-    return YES;
+    
+    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    if (!username){
+        ZKLoginViewController *login = [[ZKLoginViewController alloc] init];
+        ZKNavigationController *loginNav = [[ZKNavigationController alloc] initWithRootViewController:login];
+        loginNav.navigationBar.hidden = YES;
+        [self.window.rootViewController presentViewController:loginNav animated:YES completion:NULL];
+    }
 }
 
 
