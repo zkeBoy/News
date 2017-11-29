@@ -52,7 +52,10 @@ static NSString * const cellIdentifider = @"ZKSettingViewCell";
     //ZKSettingModel * model2_2 = [ZKSettingModel initWithIcon:@"icon_feedback" title:@"反馈" clean:NO header:NO];
     ZKSettingModel * model2_3 = [ZKSettingModel initWithIcon:@"icon_about" title:@"关于" clean:NO header:NO];
     NSArray * group2 = @[model2_1,model2_3];
-    self.list = @[group1,group2];
+    
+    ZKSettingModel * model3_1 = [ZKSettingModel initWithIcon:@"" title:NSLocalizedString(@"", nil) clean:NO header:NO];
+    NSArray * group3 = @[model3_1];
+    self.list = @[group1,group2,group3];
 }
 
 #pragma mark - UITableViewDataSource
@@ -100,6 +103,10 @@ static NSString * const cellIdentifider = @"ZKSettingViewCell";
     }else if (indexPath.section==1&&indexPath.row==1){
         ZKAboutViewController * aboutVC = [[ZKAboutViewController alloc] init];
         [self.navigationController pushViewController:aboutVC animated:YES];
+    }else if (indexPath.section==2&&indexPath.row==0){//log out
+        [ZKBmobManager logOut];
+        ZKLoginViewController * loginVC = [[ZKLoginViewController alloc] init];
+        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:loginVC animated:YES completion:nil];
     }
 }
 

@@ -34,9 +34,7 @@
             if (success) {
                 [ZKHelperView hideWaitingMessage:NSLocalizedString(@"注册成功!", nil)];
                 [self returnAction:nil];
-                NSDictionary * userInfo = user.mj_keyValues;
-                [[NSUserDefaults standardUserDefaults] setObject:userInfo forKey:@"userInfo"];
-                [[NSUserDefaults standardUserDefaults] synchronize];
+                [ZKBmobManager loginSuccess:user];
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     [self.delegate registerSuccess];
                 });

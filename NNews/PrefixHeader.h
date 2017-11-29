@@ -26,4 +26,5 @@
 #import "ZKToolManager.h"
 #import "ZKBmobManager.h"
 #import <BmobSDK/Bmob.h>
+#import "ZKLoginViewController.h"
 #endif /* PrefixHeader_h */

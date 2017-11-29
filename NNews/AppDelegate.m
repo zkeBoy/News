@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "ZKTabBarViewController.h"
-#import "ZKLoginViewController.h"
 
 #define BmobAppID @"766ea543d530b58937454ac7d9f49ea1"
 

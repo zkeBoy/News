@@ -17,4 +17,10 @@
 //登录接口(查找数据)
 + (void)bmobFindUser:(ZKUser *)user result:(void(^)(BOOL success, NSError * error))resultBlock;
 
++ (void)loginSuccess:(ZKUser *)user;
+
++ (void)logOut;
+
++ (ZKUser *)user;
+
 @end

@@ -56,8 +56,7 @@
 
 #pragma mark - ZKRegisterDelegate
 - (void)registerSuccess {
-    NSDictionary * userInfo = [[NSUserDefaults standardUserDefaults] objectForKey:@"userInfo"];
-    ZKUser *user = [ZKUser mj_objectWithKeyValues:userInfo];
+    ZKUser *user = [ZKBmobManager user];
     [self loginWithUser:user];
 }
 

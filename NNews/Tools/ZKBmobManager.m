@@ -47,4 +47,20 @@
     }];
 }
 
++ (void)loginSuccess:(ZKUser *)user{
+    NSDictionary * userInfo = user.mj_keyValues;
+    [[NSUserDefaults standardUserDefaults] setObject:userInfo forKey:@"userInfo"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++ (void)logOut{
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"userInfo"];
+}
+
++ (ZKUser *)user{
+    NSDictionary * userInfo = [[NSUserDefaults standardUserDefaults] objectForKey:@"userInfo"];
+    ZKUser *user = [ZKUser mj_objectWithKeyValues:userInfo];
+    return user;
+}
+
 @end
