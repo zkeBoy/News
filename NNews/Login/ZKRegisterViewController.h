@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@protocol ZKRegisterDelegate;
 @interface ZKRegisterViewController : UIViewController
+@property (nonatomic, weak) id <ZKRegisterDelegate> delegate;
+
+@end
+
+
+@protocol ZKRegisterDelegate <NSObject>
+@optional
+- (void)registerSuccess;
 
 @end

@@ -10,6 +10,8 @@
 #import "ZKTabBarViewController.h"
 #import "ZKLoginViewController.h"
 
+#define BmobAppID @"766ea543d530b58937454ac7d9f49ea1"
+
 @interface AppDelegate ()
 
 @end
@@ -18,7 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[ZKNetWorkManager shareManager] startMonitoring]; //开启网络监听
-    
+    [Bmob registerWithAppKey:BmobAppID];
     [self compareLogin];
     return YES;
 }
@@ -29,8 +31,8 @@
     self.window.rootViewController = rootVC;
     [self.window makeKeyAndVisible];
     
-    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
-    if (!username){
+    NSDictionary *userInfo = [[NSUserDefaults standardUserDefaults] objectForKey:@"userInfo"];
+    if (!userInfo){
         ZKLoginViewController *login = [[ZKLoginViewController alloc] init];
         ZKNavigationController *loginNav = [[ZKNavigationController alloc] initWithRootViewController:login];
         loginNav.navigationBar.hidden = YES;

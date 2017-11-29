@@ -45,6 +45,8 @@
 		E251AFAE1FB599C000303EC9 /* ZKMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E251AFAD1FB599C000303EC9 /* ZKMapManager.m */; };
 		E2719DA51FCD5DEA0033D968 /* ZKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2719DA41FCD5DEA0033D968 /* ZKLoginViewController.m */; };
 		E2719DA81FCD5DFA0033D968 /* ZKRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2719DA71FCD5DFA0033D968 /* ZKRegisterViewController.m */; };
+		E2719DFB1FCE61BD0033D968 /* ZKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E2719DF71FCE61BC0033D968 /* ZKUser.m */; };
+		E2719DFC1FCE61BD0033D968 /* ZKBmobManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2719DF81FCE61BC0033D968 /* ZKBmobManager.m */; };
 		E2778F521FC820A80064DA01 /* ZKToolManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2778F511FC820A80064DA01 /* ZKToolManager.m */; };
 		E2778F621FC820D40064DA01 /* ZKAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2778F561FC820D40064DA01 /* ZKAboutViewController.m */; };
 		E2778F631FC820D40064DA01 /* ZKFeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2778F591FC820D40064DA01 /* ZKFeedBackViewController.m */; };
@@ -196,6 +198,10 @@
 		E2719DA41FCD5DEA0033D968 /* ZKLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKLoginViewController.m; sourceTree = "<group>"; };
 		E2719DA61FCD5DFA0033D968 /* ZKRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKRegisterViewController.h; sourceTree = "<group>"; };
 		E2719DA71FCD5DFA0033D968 /* ZKRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKRegisterViewController.m; sourceTree = "<group>"; };
+		E2719DF71FCE61BC0033D968 /* ZKUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKUser.m; sourceTree = "<group>"; };
+		E2719DF81FCE61BC0033D968 /* ZKBmobManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKBmobManager.m; sourceTree = "<group>"; };
+		E2719DF91FCE61BD0033D968 /* ZKBmobManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKBmobManager.h; sourceTree = "<group>"; };
+		E2719DFA1FCE61BD0033D968 /* ZKUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKUser.h; sourceTree = "<group>"; };
 		E2778F501FC820A80064DA01 /* ZKToolManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKToolManager.h; sourceTree = "<group>"; };
 		E2778F511FC820A80064DA01 /* ZKToolManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKToolManager.m; sourceTree = "<group>"; };
 		E2778F551FC820D40064DA01 /* ZKAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKAboutViewController.h; sourceTree = "<group>"; };
@@ -474,6 +480,10 @@
 				E244401C1FA9A15500E84C65 /* ZKHelperView.m */,
 				E251AFAC1FB599C000303EC9 /* ZKMapManager.h */,
 				E251AFAD1FB599C000303EC9 /* ZKMapManager.m */,
+				E2719DF91FCE61BD0033D968 /* ZKBmobManager.h */,
+				E2719DF81FCE61BC0033D968 /* ZKBmobManager.m */,
+				E2719DFA1FCE61BD0033D968 /* ZKUser.h */,
+				E2719DF71FCE61BC0033D968 /* ZKUser.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -869,6 +879,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-NNews/Pods-NNews-resources.sh",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -925,9 +936,11 @@
 				E244400D1FA95FAF00E84C65 /* ZKNewsModel.m in Sources */,
 				E2E8DF181FB40207008F8995 /* ZKPictureFullController.m in Sources */,
 				E24440041FA879BF00E84C65 /* ZKNetWorkManager.m in Sources */,
+				E2719DFC1FCE61BD0033D968 /* ZKBmobManager.m in Sources */,
 				E2443FBA1FA86C6E00E84C65 /* ViewController.m in Sources */,
 				E2929A1B1FB68FFD00EA33E9 /* ZKWeatherModel.m in Sources */,
 				E2443FC51FA86C6E00E84C65 /* main.m in Sources */,
+				E2719DFB1FCE61BD0033D968 /* ZKUser.m in Sources */,
 				E223DD0A1FB2AEA700126A88 /* ZKPictureTableViewCell.m in Sources */,
 				E24440091FA95E2D00E84C65 /* ZKNewsTableViewCell.m in Sources */,
 				E2443FB71FA86C6E00E84C65 /* AppDelegate.m in Sources */,
@@ -1106,7 +1119,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5VMH39C98C;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/PrefixHeader.h";
+				GCC_PREFIX_HEADER = "$(PROJECT_NAME)/PrefixHeader.h";
 				INFOPLIST_FILE = NNews/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1123,7 +1136,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5VMH39C98C;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/PrefixHeader.h";
+				GCC_PREFIX_HEADER = "$(PROJECT_NAME)/PrefixHeader.h";
 				INFOPLIST_FILE = NNews/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

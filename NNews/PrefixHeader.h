@@ -24,4 +24,6 @@
 #import "ZKMapManager.h"
 #import "UIView+Animation.h"
 #import "ZKToolManager.h"
+#import "ZKBmobManager.h"
+#import <BmobSDK/Bmob.h>
 #endif /* PrefixHeader_h */

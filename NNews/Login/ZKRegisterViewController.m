@@ -25,7 +25,28 @@
 
 #pragma mark - Private Method
 - (void)registerAction:(UIButton *)btn{
-    
+    ZKUser * user = [[ZKUser alloc] init];
+    user.userName = self.userName.text;
+    user.passWord = self.passWord.text;
+    if ([self.passWord.text isEqualToString:self.passWord.text]) {
+        [ZKHelperView showWaitingView];
+        [ZKBmobManager bmobInsertUser:user result:^(BOOL success, NSError *error) {
+            if (success) {
+                [ZKHelperView hideWaitingMessage:NSLocalizedString(@"注册成功!", nil)];
+                [self returnAction:nil];
+                NSDictionary * userInfo = user.mj_keyValues;
+                [[NSUserDefaults standardUserDefaults] setObject:userInfo forKey:@"userInfo"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [self.delegate registerSuccess];
+                });
+            }else{
+                
+            }
+        }];
+    }else{//密码不相同
+        
+    }
 }
 
 - (void)returnAction:(UIButton *)btn {

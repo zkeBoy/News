@@ -15,4 +15,7 @@ pod 'MBProgressHUD'
 pod 'RealReachability'
 pod 'MJExtension'
 pod 'DACircularProgress'
+pod 'BmobSDK'
+pod 'SVProgressHUD'
+
 end

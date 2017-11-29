@@ -9,7 +9,7 @@
 #import "ZKLoginViewController.h"
 #import "ZKRegisterViewController.h"
 
-@interface ZKLoginViewController ()<UITextFieldDelegate>
+@interface ZKLoginViewController ()<UITextFieldDelegate, ZKRegisterDelegate>
 @property (nonatomic, strong) UIImageView * userIconView;
 @property (nonatomic, strong) UIView      * whiteView, *dividingLine;
 @property (nonatomic, strong) UITextField * userName, *passWord;
@@ -28,12 +28,37 @@
 
 #pragma mark - Private Method
 - (void)loginClicked:(UIButton *)btn {
-    
+    ZKUser * user = [[ZKUser alloc] init];
+    user.userName = self.userName.text;
+    user.passWord = self.passWord.text;
+    [self loginWithUser:user];
+}
+
+- (void)loginWithUser:(ZKUser *)user {
+    [ZKHelperView showWaitingView];
+    [ZKBmobManager bmobFindUser:user result:^(BOOL success, NSError *error) {
+        if (success) {
+            [ZKHelperView hideWaitingMessage:NSLocalizedString(@"登录成功!", nil)];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+               [self dismissViewControllerAnimated:YES completion:nil];
+            });
+        }else{
+            [ZKHelperView hideWaitingMessage:NSLocalizedString(@"登录失败!", nil)];
+        }
+    }];
 }
 
 - (void)registerClicked:(UIButton *)btn {
     ZKRegisterViewController * registerVC = [[ZKRegisterViewController alloc] init];
+    registerVC.delegate = self;
     [self.navigationController pushViewController:registerVC animated:YES];
+}
+
+#pragma mark - ZKRegisterDelegate
+- (void)registerSuccess {
+    NSDictionary * userInfo = [[NSUserDefaults standardUserDefaults] objectForKey:@"userInfo"];
+    ZKUser *user = [ZKUser mj_objectWithKeyValues:userInfo];
+    [self loginWithUser:user];
 }
 
 #pragma mark - UITextFieldDelegate
