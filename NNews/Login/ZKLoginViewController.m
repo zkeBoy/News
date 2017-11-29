@@ -19,6 +19,13 @@
 
 @implementation ZKLoginViewController
 
++ (ZKNavigationController *)defaultLoginVC{
+    ZKLoginViewController *login = [[ZKLoginViewController alloc] init];
+    ZKNavigationController *loginNav = [[ZKNavigationController alloc] initWithRootViewController:login];
+    loginNav.navigationBar.hidden = YES;
+    return loginNav;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
@@ -39,6 +46,7 @@
     [ZKBmobManager bmobFindUser:user result:^(BOOL success, NSError *error) {
         if (success) {
             [ZKHelperView hideWaitingMessage:NSLocalizedString(@"登录成功!", nil)];
+            [ZKBmobManager loginSuccess:user];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                [self dismissViewControllerAnimated:YES completion:nil];
             });
@@ -142,11 +150,11 @@
         make.height.equalTo(@40);
         make.top.equalTo(self.whiteView.mas_bottom).offset(StatusH);
     }];
-    
+
     [self.view addSubview:self.registerBtn];
     [self.registerBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
-        make.width.mas_equalTo(D_WIDTH* 0.92);
+        make.width.mas_equalTo(200);
         make.height.equalTo(@40);
         make.top.equalTo(self.loginBtn.mas_bottom).offset(StatusH*2);
     }];

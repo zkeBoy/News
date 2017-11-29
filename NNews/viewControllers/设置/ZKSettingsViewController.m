@@ -53,7 +53,7 @@ static NSString * const cellIdentifider = @"ZKSettingViewCell";
     ZKSettingModel * model2_3 = [ZKSettingModel initWithIcon:@"icon_about" title:@"关于" clean:NO header:NO];
     NSArray * group2 = @[model2_1,model2_3];
     
-    ZKSettingModel * model3_1 = [ZKSettingModel initWithIcon:@"" title:NSLocalizedString(@"", nil) clean:NO header:NO];
+    ZKSettingModel * model3_1 = [ZKSettingModel initWithIcon:@"log_out" title:NSLocalizedString(@"退出登录", nil) clean:NO header:NO];
     NSArray * group3 = @[model3_1];
     self.list = @[group1,group2,group3];
 }
@@ -104,9 +104,13 @@ static NSString * const cellIdentifider = @"ZKSettingViewCell";
         ZKAboutViewController * aboutVC = [[ZKAboutViewController alloc] init];
         [self.navigationController pushViewController:aboutVC animated:YES];
     }else if (indexPath.section==2&&indexPath.row==0){//log out
-        [ZKBmobManager logOut];
-        ZKLoginViewController * loginVC = [[ZKLoginViewController alloc] init];
-        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:loginVC animated:YES completion:nil];
+        [ZKToolManager showAlertViewWithTitle:NSLocalizedString(@"退出登录?", nil) message:NSLocalizedString(@"是否退出登录!", nil) other:NSLocalizedString(@"退出", nil) cancel:NSLocalizedString(@"取消", nil) rootViewController:self otherBlock:^{
+            [ZKBmobManager logOut];
+            ZKNavigationController *loginNav = [ZKLoginViewController defaultLoginVC];
+            [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:loginNav animated:YES completion:nil];
+        } cancelBlock:^{
+            
+        }];
     }
 }
 

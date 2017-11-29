@@ -34,7 +34,6 @@
             if (success) {
                 [ZKHelperView hideWaitingMessage:NSLocalizedString(@"注册成功!", nil)];
                 [self returnAction:nil];
-                [ZKBmobManager loginSuccess:user];
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     [self.delegate registerSuccess];
                 });

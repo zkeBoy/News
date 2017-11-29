@@ -33,7 +33,7 @@ static NSString * const cellIdentifider = @"ZKFunsTableViewCellID";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"tab_picture", nil);
+    self.title = NSLocalizedString(@"tab_video", nil);
     self.listArray = [NSMutableArray array];
     [self setUI];
 }

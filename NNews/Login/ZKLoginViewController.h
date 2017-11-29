@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ZKLoginViewController : UIViewController
++ (ZKNavigationController *)defaultLoginVC;
 
 @end

@@ -37,7 +37,7 @@
 
 + (void)showAlertViewWithTitle:(NSString *)title message:(NSString *)message other:(NSString *)other cancel:(NSString *)cancel rootViewController:(UIViewController *)rootVC otherBlock:(void(^)(void))otherBlock cancelBlock:(void(^)(void))cancelBlock {
     UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction * sure = [UIAlertAction actionWithTitle:other style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction * sure = [UIAlertAction actionWithTitle:other style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         if (otherBlock) {
             otherBlock ();
         }

@@ -32,9 +32,7 @@
     
     NSDictionary *userInfo = [[NSUserDefaults standardUserDefaults] objectForKey:@"userInfo"];
     if (!userInfo){
-        ZKLoginViewController *login = [[ZKLoginViewController alloc] init];
-        ZKNavigationController *loginNav = [[ZKNavigationController alloc] initWithRootViewController:login];
-        loginNav.navigationBar.hidden = YES;
+        ZKNavigationController *loginNav = [ZKLoginViewController defaultLoginVC];
         [self.window.rootViewController presentViewController:loginNav animated:YES completion:NULL];
     }
 }
