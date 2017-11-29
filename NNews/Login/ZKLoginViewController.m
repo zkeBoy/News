@@ -164,8 +164,9 @@
 - (UIImageView *)userIconView {
     if (!_userIconView) {
         _userIconView = [[UIImageView alloc] init];
-        _userIconView.image = [UIImage imageNamed:@"user_default"];
+        _userIconView.image = [UIImage imageNamed:@"user_Default_Icon"];
         _userIconView.layer.cornerRadius = 50;
+        _userIconView.layer.masksToBounds = YES;
     }
     return _userIconView;
 }

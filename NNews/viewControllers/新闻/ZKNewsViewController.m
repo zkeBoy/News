@@ -81,9 +81,6 @@ static NSString * const cellIdentifider = @"ZKNewsTableViewCellID";
                                                          img = @"http://img.qdaily.com/article/article_show/20161110122926LJBdCEmQtRVzhGji.png?imageMogr2/auto-orient/thumbnail/!640x380r/gravity/Center/crop/640x380/quality/85/format/jpg/ignore-error/1";
                                                          model.image = img;
                                                      }
-                                                     if (self.dataArray.count) {
-                                                         [self.dataArray removeAllObjects];
-                                                     }
                                                      //添加数据源
                                                      [self.dataArray addObject:model];
                                                  }
