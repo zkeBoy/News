@@ -36,7 +36,7 @@ static NSString * const cellIdentifider = @"ZKSettingViewCell";
 - (void)addTableView {
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     self.tableView.frame = CGRectMake(0, NavBarH, D_WIDTH, D_HEIGHT-NavBarH-TabBarH);
-    self.tableView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
+    self.tableView.backgroundColor = MainColor;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.dataSource = self;
     self.tableView.delegate   = self;
@@ -49,9 +49,9 @@ static NSString * const cellIdentifider = @"ZKSettingViewCell";
     NSArray * group1 = @[model1_1];
     
     ZKSettingModel * model2_1 = [ZKSettingModel initWithIcon:@"icon_clean" title:@"清除缓存" clean:YES header:NO];
-    //ZKSettingModel * model2_2 = [ZKSettingModel initWithIcon:@"icon_feedback" title:@"反馈" clean:NO header:NO];
+    ZKSettingModel * model2_2 = [ZKSettingModel initWithIcon:@"icon_feedback" title:@"反馈" clean:NO header:NO];
     ZKSettingModel * model2_3 = [ZKSettingModel initWithIcon:@"icon_about" title:@"关于" clean:NO header:NO];
-    NSArray * group2 = @[model2_1,model2_3];
+    NSArray * group2 = @[model2_1,model2_2,model2_3];
     
     ZKSettingModel * model3_1 = [ZKSettingModel initWithIcon:@"log_out" title:NSLocalizedString(@"退出登录", nil) clean:NO header:NO];
     NSArray * group3 = @[model3_1];
@@ -101,6 +101,8 @@ static NSString * const cellIdentifider = @"ZKSettingViewCell";
             
         }];
     }else if (indexPath.section==1&&indexPath.row==1){
+        
+    }else if (indexPath.section==1&&indexPath.row==2){
         ZKAboutViewController * aboutVC = [[ZKAboutViewController alloc] init];
         [self.navigationController pushViewController:aboutVC animated:YES];
     }else if (indexPath.section==2&&indexPath.row==0){//log out

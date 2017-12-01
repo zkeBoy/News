@@ -42,7 +42,6 @@
     [self setMap];
 }
 
-
 - (void)setMap {
     self.mapManager = [ZKMapManager shareManager];
     self.mapManager.delegate = self;

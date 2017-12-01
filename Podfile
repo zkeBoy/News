@@ -17,5 +17,6 @@ pod 'MJExtension'
 pod 'DACircularProgress'
 pod 'BmobSDK'
 pod 'SVProgressHUD'
+pod 'DKNightVersion' # 皮肤框架
 
 end
