@@ -25,4 +25,9 @@
 #define MainColor [UIColor colorWithRed:242/255.0 green:242/255.0 blue:244/255.0 alpha:1]
 #define Margin 10
 
+//app名称
+#define kAppName [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"]
+//app版本
+#define kAppVersion [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
+
 #endif /* ZKCommandFile_h */
