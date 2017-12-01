@@ -53,6 +53,7 @@
 		E2778F641FC820D40064DA01 /* ZKSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2778F5C1FC820D40064DA01 /* ZKSettingModel.m */; };
 		E2778F651FC820D40064DA01 /* ZKSettingViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2778F5F1FC820D40064DA01 /* ZKSettingViewCell.m */; };
 		E2778F661FC820D40064DA01 /* ZKSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2778F611FC820D40064DA01 /* ZKSettingsViewController.m */; };
+		E27DD1111FD13712003BA461 /* ZKSwitchViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E27DD1101FD13712003BA461 /* ZKSwitchViewCell.m */; };
 		E2929A181FB68E3400EA33E9 /* ZKWeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2929A171FB68E3400EA33E9 /* ZKWeatherView.m */; };
 		E2929A1B1FB68FFD00EA33E9 /* ZKWeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2929A1A1FB68FFD00EA33E9 /* ZKWeatherModel.m */; };
 		E2929A1E1FB6996A00EA33E9 /* ZKDayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2929A1D1FB6996A00EA33E9 /* ZKDayModel.m */; };
@@ -214,6 +215,8 @@
 		E2778F5F1FC820D40064DA01 /* ZKSettingViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKSettingViewCell.m; sourceTree = "<group>"; };
 		E2778F601FC820D40064DA01 /* ZKSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKSettingsViewController.h; sourceTree = "<group>"; };
 		E2778F611FC820D40064DA01 /* ZKSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKSettingsViewController.m; sourceTree = "<group>"; };
+		E27DD10F1FD13712003BA461 /* ZKSwitchViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKSwitchViewCell.h; sourceTree = "<group>"; };
+		E27DD1101FD13712003BA461 /* ZKSwitchViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKSwitchViewCell.m; sourceTree = "<group>"; };
 		E2929A161FB68E3400EA33E9 /* ZKWeatherView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKWeatherView.h; sourceTree = "<group>"; };
 		E2929A171FB68E3400EA33E9 /* ZKWeatherView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKWeatherView.m; sourceTree = "<group>"; };
 		E2929A191FB68FFD00EA33E9 /* ZKWeatherModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKWeatherModel.h; sourceTree = "<group>"; };
@@ -642,6 +645,8 @@
 			children = (
 				E2778F5E1FC820D40064DA01 /* ZKSettingViewCell.h */,
 				E2778F5F1FC820D40064DA01 /* ZKSettingViewCell.m */,
+				E27DD10F1FD13712003BA461 /* ZKSwitchViewCell.h */,
+				E27DD1101FD13712003BA461 /* ZKSwitchViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -878,7 +883,6 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-NNews/Pods-NNews-resources.sh",
-				"${PODS_ROOT}/DKNightVersion/DKNightVersion/ColorTable/DKColorTable.txt",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
@@ -944,6 +948,7 @@
 				E2719DFB1FCE61BD0033D968 /* ZKUser.m in Sources */,
 				E223DD0A1FB2AEA700126A88 /* ZKPictureTableViewCell.m in Sources */,
 				E24440091FA95E2D00E84C65 /* ZKNewsTableViewCell.m in Sources */,
+				E27DD1111FD13712003BA461 /* ZKSwitchViewCell.m in Sources */,
 				E2443FB71FA86C6E00E84C65 /* AppDelegate.m in Sources */,
 				E2257EEC1FAD71CB006C14C4 /* ZKNavigationController.m in Sources */,
 				E251AFA81FB5558F00303EC9 /* ZKWeatherViewController.m in Sources */,

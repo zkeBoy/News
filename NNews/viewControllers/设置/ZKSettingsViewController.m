@@ -8,10 +8,12 @@
 
 #import "ZKSettingsViewController.h"
 #import "ZKSettingViewCell.h"
+#import "ZKSwitchViewCell.h"
 #import "ZKAboutViewController.h"
 #import "ZKFeedBackViewController.h"
 
 static NSString * const cellIdentifider = @"ZKSettingViewCell";
+static NSString * const cellSwitchIdentifider = @"ZKSwitchViewCell";
 
 @interface ZKSettingsViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UITableView * tableView;
@@ -42,6 +44,7 @@ static NSString * const cellIdentifider = @"ZKSettingViewCell";
     self.tableView.delegate   = self;
     [self.view addSubview:self.tableView];
     [self.tableView registerClass:[ZKSettingViewCell class] forCellReuseIdentifier:cellIdentifider];
+    [self.tableView registerClass:[ZKSwitchViewCell class] forCellReuseIdentifier:cellSwitchIdentifider];
 }
 
 - (void)groupArray{
@@ -50,7 +53,8 @@ static NSString * const cellIdentifider = @"ZKSettingViewCell";
     
     ZKSettingModel * model2_1 = [ZKSettingModel initWithIcon:@"icon_clean" title:@"清除缓存" clean:YES header:NO];
     ZKSettingModel * model2_2 = [ZKSettingModel initWithIcon:@"icon_about" title:@"关于" clean:NO header:NO];
-    NSArray * group2 = @[model2_1,model2_2];
+    ZKSettingModel * model2_3 = [ZKSettingModel initWithIcon:@"icon_about" title:@"夜间模式" clean:NO header:NO];
+    NSArray * group2 = @[model2_1,model2_2,model2_3];
     
     ZKSettingModel * model3_1 = [ZKSettingModel initWithIcon:@"log_out" title:NSLocalizedString(@"退出登录", nil) clean:NO header:NO];
     NSArray * group3 = @[model3_1];
@@ -70,9 +74,16 @@ static NSString * const cellIdentifider = @"ZKSettingViewCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSArray * rows = self.list[indexPath.section];
     ZKSettingModel * model = rows[indexPath.row];
-    ZKSettingViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifider forIndexPath:indexPath];
-    cell.model = model;
-    return cell;
+    if (indexPath.section==1&&indexPath.row==2){
+        ZKSwitchViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellSwitchIdentifider forIndexPath:indexPath];
+        cell.model = model;
+        return cell;
+    }else{
+        ZKSettingViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifider forIndexPath:indexPath];
+        cell.model = model;
+        return cell;
+    }
+    return nil;
 }
 
 #pragma mark - UITableViewDelegate

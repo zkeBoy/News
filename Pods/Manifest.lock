@@ -17,19 +17,6 @@ PODS:
   - BmobSDK (2.2.3):
     - WechatOpenSDK (~> 1.7.7)
   - DACircularProgress (2.3.1)
-  - DKNightVersion (2.4.3):
-    - DKNightVersion/Core (= 2.4.3)
-    - DKNightVersion/CoreAnimation (= 2.4.3)
-    - DKNightVersion/UIKit (= 2.4.3)
-  - DKNightVersion/Core (2.4.3):
-    - DKNightVersion/Core/DeallocBlockExecutor (= 2.4.3)
-    - DKNightVersion/Core/extobjc (= 2.4.3)
-  - DKNightVersion/Core/DeallocBlockExecutor (2.4.3)
-  - DKNightVersion/Core/extobjc (2.4.3)
-  - DKNightVersion/CoreAnimation (2.4.3):
-    - DKNightVersion/Core
-  - DKNightVersion/UIKit (2.4.3):
-    - DKNightVersion/Core
   - FLAnimatedImage (1.0.12)
   - Masonry (1.1.0)
   - MBProgressHUD (1.0.0)
@@ -53,7 +40,6 @@ DEPENDENCIES:
   - AFNetworking
   - BmobSDK
   - DACircularProgress
-  - DKNightVersion
   - Masonry
   - MBProgressHUD
   - MJExtension
@@ -67,7 +53,6 @@ SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   BmobSDK: dd61cf835d063303fb53b29465fcb3e9718b36f2
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
-  DKNightVersion: eaa80cc4014b4bae7d4b535fd87ecc6a3c2767b3
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
@@ -78,6 +63,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: db27c54e6e18bc903341661fc9feb55e04905cc4
   WechatOpenSDK: 1fe7e3b07db860d6a936c3ff4a5aba6b890958d9
 
-PODFILE CHECKSUM: dfeb3ea2ad002645d63616e89a32e7a483eb1bc1
+PODFILE CHECKSUM: a0215e6f771fb97da28818601e91a5f4a5f277f3
 
 COCOAPODS: 1.3.1
