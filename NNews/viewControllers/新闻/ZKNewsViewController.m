@@ -134,7 +134,7 @@ static NSString * const cellIdentifider = @"ZKNewsTableViewCellID";
         [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         [_tableView registerClass:NSClassFromString(@"ZKNewsTableViewCell") forCellReuseIdentifier:cellIdentifider];
         __weak typeof(self)weakSelf = self;
-        _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        _tableView.mj_header = [ZKRefreshGiftHeader headerWithRefreshingBlock:^{
             [weakSelf downloadRefreshData];
         }];
         [_tableView.mj_header beginRefreshing];

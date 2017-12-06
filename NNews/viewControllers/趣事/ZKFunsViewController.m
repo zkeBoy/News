@@ -249,7 +249,7 @@ static NSString * const cellIdentifider = @"ZKFunsTableViewCellID";
         [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
         [_tableView registerClass:NSClassFromString(@"ZKFunsTableViewCell") forCellReuseIdentifier:cellIdentifider];
         __weak typeof(self)weakSelf = self;
-        _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        _tableView.mj_header = [ZKRefreshGiftHeader headerWithRefreshingBlock:^{
             [weakSelf loadLastData];
         }];
         [_tableView.mj_header beginRefreshing];

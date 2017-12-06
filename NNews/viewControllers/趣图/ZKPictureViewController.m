@@ -178,7 +178,7 @@ static NSString * const cellIdentifider = @"ZKPictureTableViewCell";
         [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         [_tableView setSeparatorColor:[UIColor clearColor]];
         __weak typeof(self)weakSelf = self;
-        _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        _tableView.mj_header = [ZKRefreshGiftHeader headerWithRefreshingBlock:^{
             [weakSelf loadLastData];
         }];
         [_tableView.mj_header beginRefreshing];

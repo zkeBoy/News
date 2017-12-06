@@ -27,4 +27,5 @@
 #import "ZKBmobManager.h"
 #import <BmobSDK/Bmob.h>
 #import "ZKLoginViewController.h"
+#import "ZKRefreshGiftHeader.h"
 #endif /* PrefixHeader_h */

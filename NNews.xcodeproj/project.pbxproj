@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BE1351E9BEB79286081471DB /* libPods-NNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 450F700E5C37477FC145B41A /* libPods-NNews.a */; };
+		E2056B671FD7D8BF00CC4CFB /* ZKRefreshGiftHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E2056B661FD7D8BF00CC4CFB /* ZKRefreshGiftHeader.m */; };
 		E223DD011FB2A0F700126A88 /* ZKTTVideoUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E223DD001FB2A0F700126A88 /* ZKTTVideoUser.m */; };
 		E223DD051FB2AC2800126A88 /* ZKPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E223DD041FB2AC2800126A88 /* ZKPictureViewController.m */; };
 		E223DD0A1FB2AEA700126A88 /* ZKPictureTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E223DD091FB2AEA700126A88 /* ZKPictureTableViewCell.m */; };
@@ -120,6 +121,8 @@
 		450F700E5C37477FC145B41A /* libPods-NNews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NNews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		801ABD53072112AB10E53CF7 /* Pods-NNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NNews/Pods-NNews.debug.xcconfig"; sourceTree = "<group>"; };
 		DB3DA298AE23B0C5F601BC3E /* Pods-NNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-NNews/Pods-NNews.release.xcconfig"; sourceTree = "<group>"; };
+		E2056B651FD7D8BF00CC4CFB /* ZKRefreshGiftHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKRefreshGiftHeader.h; sourceTree = "<group>"; };
+		E2056B661FD7D8BF00CC4CFB /* ZKRefreshGiftHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKRefreshGiftHeader.m; sourceTree = "<group>"; };
 		E223DCFF1FB2A0F700126A88 /* ZKTTVideoUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKTTVideoUser.h; sourceTree = "<group>"; };
 		E223DD001FB2A0F700126A88 /* ZKTTVideoUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKTTVideoUser.m; sourceTree = "<group>"; };
 		E223DD031FB2AC2800126A88 /* ZKPictureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKPictureViewController.h; sourceTree = "<group>"; };
@@ -475,6 +478,8 @@
 		E24440001FA879A200E84C65 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				E2056B651FD7D8BF00CC4CFB /* ZKRefreshGiftHeader.h */,
+				E2056B661FD7D8BF00CC4CFB /* ZKRefreshGiftHeader.m */,
 				E2778F501FC820A80064DA01 /* ZKToolManager.h */,
 				E2778F511FC820A80064DA01 /* ZKToolManager.m */,
 				E24440021FA879BF00E84C65 /* ZKNetWorkManager.h */,
@@ -954,6 +959,7 @@
 				E251AFA81FB5558F00303EC9 /* ZKWeatherViewController.m in Sources */,
 				E244407B1FAC090B00E84C65 /* NSString+Extension.m in Sources */,
 				E2778F661FC820D40064DA01 /* ZKSettingsViewController.m in Sources */,
+				E2056B671FD7D8BF00CC4CFB /* ZKRefreshGiftHeader.m in Sources */,
 				E245BF2D1FBA923100D85BF7 /* ZKCityModel.m in Sources */,
 				E245BF291FBA8A8B00D85BF7 /* ZKCityViewController.m in Sources */,
 				E2929A1E1FB6996A00EA33E9 /* ZKDayModel.m in Sources */,
