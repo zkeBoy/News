@@ -15,6 +15,7 @@
 #define NavBarH  64
 #define TabBarH  49
 #define StatusH  20
+#define TabFrame CGRectMake(0, NavBarH, D_WIDTH, D_HEIGHT-NavBarH-TabBarH)
 
 #define Scale(s) (D_HEIGHT/736*s)
 #define CellH    44

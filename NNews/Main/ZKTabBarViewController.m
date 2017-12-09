@@ -18,7 +18,7 @@
 @implementation ZKTabBarViewController
 
 - (void)initArrays{
-    self.viewControllerNames = @[@"ZKNewsViewController",
+    self.viewControllerNames = @[@"ZKHomeViewController",
                                  @"ZKPictureViewController",
                                  @"ZKFunsViewController",
                                  @"ZKWeatherViewController",

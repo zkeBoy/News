@@ -17,6 +17,23 @@
 		E2257EE31FAD6308006C14C4 /* ZKDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2257EE21FAD6308006C14C4 /* ZKDetailHeaderView.m */; };
 		E2257EE61FAD6980006C14C4 /* ZKDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2257EE51FAD6980006C14C4 /* ZKDetailTableViewCell.m */; };
 		E2257EEC1FAD71CB006C14C4 /* ZKNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2257EEB1FAD71CB006C14C4 /* ZKNavigationController.m */; };
+		E23D678E1FDBDE800080C548 /* ZKHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E23D67651FDBDE7F0080C548 /* ZKHomeModel.m */; };
+		E23D678F1FDBDE800080C548 /* ZKNewsDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E23D67671FDBDE7F0080C548 /* ZKNewsDetailModel.m */; };
+		E23D67901FDBDE800080C548 /* ZKBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E23D67691FDBDE7F0080C548 /* ZKBannerModel.m */; };
+		E23D67911FDBDE800080C548 /* ZKHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E23D676B1FDBDE7F0080C548 /* ZKHomeViewModel.m */; };
+		E23D67921FDBDE800080C548 /* ZKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E23D676F1FDBDE7F0080C548 /* ZKWebViewController.m */; };
+		E23D67931FDBDE800080C548 /* ZKPictureDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E23D67711FDBDE7F0080C548 /* ZKPictureDetailViewController.m */; };
+		E23D67941FDBDE800080C548 /* ZKPictureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E23D67741FDBDE7F0080C548 /* ZKPictureModel.m */; };
+		E23D67951FDBDE800080C548 /* ZKPictureBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = E23D67771FDBDE7F0080C548 /* ZKPictureBottomView.m */; };
+		E23D67961FDBDE800080C548 /* ZKPictureContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E23D67781FDBDE7F0080C548 /* ZKPictureContentView.m */; };
+		E23D67971FDBDE800080C548 /* ZKBaseNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = E23D677D1FDBDE800080C548 /* ZKBaseNetWork.m */; };
+		E23D67981FDBDE800080C548 /* ZKHomeNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = E23D67801FDBDE800080C548 /* ZKHomeNetWork.m */; };
+		E23D67991FDBDE800080C548 /* ZKHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E23D67821FDBDE800080C548 /* ZKHomeViewController.m */; };
+		E23D679A1FDBDE800080C548 /* ZKHomeBigImgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E23D67861FDBDE800080C548 /* ZKHomeBigImgCell.m */; };
+		E23D679B1FDBDE800080C548 /* ZKHomeDefaultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E23D67881FDBDE800080C548 /* ZKHomeDefaultCell.m */; };
+		E23D679C1FDBDE800080C548 /* ZKHomeTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E23D67891FDBDE800080C548 /* ZKHomeTextCell.m */; };
+		E23D679D1FDBDE800080C548 /* ZKHomeImgsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E23D678A1FDBDE800080C548 /* ZKHomeImgsCell.m */; };
+		E23D679E1FDBDE800080C548 /* ZKHomeImgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E23D678C1FDBDE800080C548 /* ZKHomeImgCell.m */; };
 		E2443FB71FA86C6E00E84C65 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2443FB61FA86C6E00E84C65 /* AppDelegate.m */; };
 		E2443FBA1FA86C6E00E84C65 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2443FB91FA86C6E00E84C65 /* ViewController.m */; };
 		E2443FBD1FA86C6E00E84C65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2443FBB1FA86C6E00E84C65 /* Main.storyboard */; };
@@ -24,12 +41,8 @@
 		E2443FC21FA86C6E00E84C65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2443FC01FA86C6E00E84C65 /* LaunchScreen.storyboard */; };
 		E2443FC51FA86C6E00E84C65 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2443FC41FA86C6E00E84C65 /* main.m */; };
 		E2443FEA1FA86D4400E84C65 /* ZKTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2443FE91FA86D4400E84C65 /* ZKTabBarViewController.m */; };
-		E2443FF31FA86FFF00E84C65 /* ZKNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2443FF21FA86FFF00E84C65 /* ZKNewsViewController.m */; };
 		E2443FF61FA8701300E84C65 /* ZKFunsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2443FF51FA8701300E84C65 /* ZKFunsViewController.m */; };
 		E24440041FA879BF00E84C65 /* ZKNetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E24440031FA879BF00E84C65 /* ZKNetWorkManager.m */; };
-		E24440091FA95E2D00E84C65 /* ZKNewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E24440081FA95E2D00E84C65 /* ZKNewsTableViewCell.m */; };
-		E244400D1FA95FAF00E84C65 /* ZKNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E244400C1FA95FAF00E84C65 /* ZKNewsModel.m */; };
-		E24440181FA9970A00E84C65 /* ZKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E24440171FA9970A00E84C65 /* ZKWebViewController.m */; };
 		E244401A1FA9982E00E84C65 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E24440191FA9982E00E84C65 /* WebKit.framework */; };
 		E244401D1FA9A15500E84C65 /* ZKHelperView.m in Sources */ = {isa = PBXBuildFile; fileRef = E244401C1FA9A15500E84C65 /* ZKHelperView.m */; };
 		E24440571FA9CFA300E84C65 /* ZKTTVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = E24440561FA9CFA300E84C65 /* ZKTTVideo.m */; };
@@ -139,6 +152,40 @@
 		E2257EE51FAD6980006C14C4 /* ZKDetailTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKDetailTableViewCell.m; sourceTree = "<group>"; };
 		E2257EEA1FAD71CB006C14C4 /* ZKNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKNavigationController.h; sourceTree = "<group>"; };
 		E2257EEB1FAD71CB006C14C4 /* ZKNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKNavigationController.m; sourceTree = "<group>"; };
+		E23D67641FDBDE7F0080C548 /* ZKNewsDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKNewsDetailModel.h; sourceTree = "<group>"; };
+		E23D67651FDBDE7F0080C548 /* ZKHomeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKHomeModel.m; sourceTree = "<group>"; };
+		E23D67661FDBDE7F0080C548 /* ZKBannerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKBannerModel.h; sourceTree = "<group>"; };
+		E23D67671FDBDE7F0080C548 /* ZKNewsDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKNewsDetailModel.m; sourceTree = "<group>"; };
+		E23D67681FDBDE7F0080C548 /* ZKHomeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKHomeModel.h; sourceTree = "<group>"; };
+		E23D67691FDBDE7F0080C548 /* ZKBannerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKBannerModel.m; sourceTree = "<group>"; };
+		E23D676B1FDBDE7F0080C548 /* ZKHomeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKHomeViewModel.m; sourceTree = "<group>"; };
+		E23D676C1FDBDE7F0080C548 /* ZKHomeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKHomeViewModel.h; sourceTree = "<group>"; };
+		E23D676D1FDBDE7F0080C548 /* ZKHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKHomeViewController.h; sourceTree = "<group>"; };
+		E23D676F1FDBDE7F0080C548 /* ZKWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKWebViewController.m; sourceTree = "<group>"; };
+		E23D67711FDBDE7F0080C548 /* ZKPictureDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKPictureDetailViewController.m; sourceTree = "<group>"; };
+		E23D67731FDBDE7F0080C548 /* ZKPictureModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKPictureModel.h; sourceTree = "<group>"; };
+		E23D67741FDBDE7F0080C548 /* ZKPictureModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKPictureModel.m; sourceTree = "<group>"; };
+		E23D67761FDBDE7F0080C548 /* ZKPictureContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKPictureContentView.h; sourceTree = "<group>"; };
+		E23D67771FDBDE7F0080C548 /* ZKPictureBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKPictureBottomView.m; sourceTree = "<group>"; };
+		E23D67781FDBDE7F0080C548 /* ZKPictureContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKPictureContentView.m; sourceTree = "<group>"; };
+		E23D67791FDBDE7F0080C548 /* ZKPictureBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKPictureBottomView.h; sourceTree = "<group>"; };
+		E23D677A1FDBDE7F0080C548 /* ZKPictureDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKPictureDetailViewController.h; sourceTree = "<group>"; };
+		E23D677B1FDBDE7F0080C548 /* ZKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKWebViewController.h; sourceTree = "<group>"; };
+		E23D677D1FDBDE800080C548 /* ZKBaseNetWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKBaseNetWork.m; sourceTree = "<group>"; };
+		E23D677F1FDBDE800080C548 /* ZKHomeNetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKHomeNetWork.h; sourceTree = "<group>"; };
+		E23D67801FDBDE800080C548 /* ZKHomeNetWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKHomeNetWork.m; sourceTree = "<group>"; };
+		E23D67811FDBDE800080C548 /* ZKBaseNetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKBaseNetWork.h; sourceTree = "<group>"; };
+		E23D67821FDBDE800080C548 /* ZKHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKHomeViewController.m; sourceTree = "<group>"; };
+		E23D67841FDBDE800080C548 /* ZKHomeImgsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKHomeImgsCell.h; sourceTree = "<group>"; };
+		E23D67851FDBDE800080C548 /* ZKHomeTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKHomeTextCell.h; sourceTree = "<group>"; };
+		E23D67861FDBDE800080C548 /* ZKHomeBigImgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKHomeBigImgCell.m; sourceTree = "<group>"; };
+		E23D67871FDBDE800080C548 /* ZKHomeImgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKHomeImgCell.h; sourceTree = "<group>"; };
+		E23D67881FDBDE800080C548 /* ZKHomeDefaultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKHomeDefaultCell.m; sourceTree = "<group>"; };
+		E23D67891FDBDE800080C548 /* ZKHomeTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKHomeTextCell.m; sourceTree = "<group>"; };
+		E23D678A1FDBDE800080C548 /* ZKHomeImgsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKHomeImgsCell.m; sourceTree = "<group>"; };
+		E23D678B1FDBDE800080C548 /* ZKHomeDefaultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKHomeDefaultCell.h; sourceTree = "<group>"; };
+		E23D678C1FDBDE800080C548 /* ZKHomeImgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKHomeImgCell.m; sourceTree = "<group>"; };
+		E23D678D1FDBDE800080C548 /* ZKHomeBigImgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKHomeBigImgCell.h; sourceTree = "<group>"; };
 		E2443FB21FA86C6E00E84C65 /* NNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2443FB51FA86C6E00E84C65 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E2443FB61FA86C6E00E84C65 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -151,20 +198,12 @@
 		E2443FC41FA86C6E00E84C65 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E2443FE81FA86D4400E84C65 /* ZKTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKTabBarViewController.h; sourceTree = "<group>"; };
 		E2443FE91FA86D4400E84C65 /* ZKTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKTabBarViewController.m; sourceTree = "<group>"; };
-		E2443FF11FA86FFF00E84C65 /* ZKNewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKNewsViewController.h; sourceTree = "<group>"; };
-		E2443FF21FA86FFF00E84C65 /* ZKNewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKNewsViewController.m; sourceTree = "<group>"; };
 		E2443FF41FA8701300E84C65 /* ZKFunsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKFunsViewController.h; sourceTree = "<group>"; };
 		E2443FF51FA8701300E84C65 /* ZKFunsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKFunsViewController.m; sourceTree = "<group>"; };
 		E24440021FA879BF00E84C65 /* ZKNetWorkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKNetWorkManager.h; sourceTree = "<group>"; };
 		E24440031FA879BF00E84C65 /* ZKNetWorkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKNetWorkManager.m; sourceTree = "<group>"; };
 		E24440051FA87C5A00E84C65 /* PrefixHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.h; sourceTree = "<group>"; };
-		E24440071FA95E2D00E84C65 /* ZKNewsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKNewsTableViewCell.h; sourceTree = "<group>"; };
-		E24440081FA95E2D00E84C65 /* ZKNewsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKNewsTableViewCell.m; sourceTree = "<group>"; };
-		E244400B1FA95FAF00E84C65 /* ZKNewsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKNewsModel.h; sourceTree = "<group>"; };
-		E244400C1FA95FAF00E84C65 /* ZKNewsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKNewsModel.m; sourceTree = "<group>"; };
 		E24440111FA9602A00E84C65 /* ZKCommandFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKCommandFile.h; sourceTree = "<group>"; };
-		E24440161FA9970A00E84C65 /* ZKWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKWebViewController.h; sourceTree = "<group>"; };
-		E24440171FA9970A00E84C65 /* ZKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKWebViewController.m; sourceTree = "<group>"; };
 		E24440191FA9982E00E84C65 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		E244401B1FA9A15500E84C65 /* ZKHelperView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKHelperView.h; sourceTree = "<group>"; };
 		E244401C1FA9A15500E84C65 /* ZKHelperView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKHelperView.m; sourceTree = "<group>"; };
@@ -382,6 +421,105 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		E23D67631FDBDE7F0080C548 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E23D67641FDBDE7F0080C548 /* ZKNewsDetailModel.h */,
+				E23D67671FDBDE7F0080C548 /* ZKNewsDetailModel.m */,
+				E23D67681FDBDE7F0080C548 /* ZKHomeModel.h */,
+				E23D67651FDBDE7F0080C548 /* ZKHomeModel.m */,
+				E23D67661FDBDE7F0080C548 /* ZKBannerModel.h */,
+				E23D67691FDBDE7F0080C548 /* ZKBannerModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E23D676A1FDBDE7F0080C548 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E23D676C1FDBDE7F0080C548 /* ZKHomeViewModel.h */,
+				E23D676B1FDBDE7F0080C548 /* ZKHomeViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E23D676E1FDBDE7F0080C548 /* 详情 */ = {
+			isa = PBXGroup;
+			children = (
+				E23D676F1FDBDE7F0080C548 /* ZKWebViewController.m */,
+				E23D677B1FDBDE7F0080C548 /* ZKWebViewController.h */,
+				E23D67701FDBDE7F0080C548 /* 图片详情 */,
+			);
+			path = "详情";
+			sourceTree = "<group>";
+		};
+		E23D67701FDBDE7F0080C548 /* 图片详情 */ = {
+			isa = PBXGroup;
+			children = (
+				E23D67711FDBDE7F0080C548 /* ZKPictureDetailViewController.m */,
+				E23D67721FDBDE7F0080C548 /* model */,
+				E23D67751FDBDE7F0080C548 /* view */,
+				E23D677A1FDBDE7F0080C548 /* ZKPictureDetailViewController.h */,
+			);
+			path = "图片详情";
+			sourceTree = "<group>";
+		};
+		E23D67721FDBDE7F0080C548 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				E23D67731FDBDE7F0080C548 /* ZKPictureModel.h */,
+				E23D67741FDBDE7F0080C548 /* ZKPictureModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		E23D67751FDBDE7F0080C548 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				E23D67761FDBDE7F0080C548 /* ZKPictureContentView.h */,
+				E23D67771FDBDE7F0080C548 /* ZKPictureBottomView.m */,
+				E23D67781FDBDE7F0080C548 /* ZKPictureContentView.m */,
+				E23D67791FDBDE7F0080C548 /* ZKPictureBottomView.h */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		E23D677C1FDBDE800080C548 /* VMNetWork */ = {
+			isa = PBXGroup;
+			children = (
+				E23D67811FDBDE800080C548 /* ZKBaseNetWork.h */,
+				E23D677D1FDBDE800080C548 /* ZKBaseNetWork.m */,
+				E23D677E1FDBDE800080C548 /* HomeNet */,
+			);
+			path = VMNetWork;
+			sourceTree = "<group>";
+		};
+		E23D677E1FDBDE800080C548 /* HomeNet */ = {
+			isa = PBXGroup;
+			children = (
+				E23D677F1FDBDE800080C548 /* ZKHomeNetWork.h */,
+				E23D67801FDBDE800080C548 /* ZKHomeNetWork.m */,
+			);
+			path = HomeNet;
+			sourceTree = "<group>";
+		};
+		E23D67831FDBDE800080C548 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E23D678D1FDBDE800080C548 /* ZKHomeBigImgCell.h */,
+				E23D67861FDBDE800080C548 /* ZKHomeBigImgCell.m */,
+				E23D678B1FDBDE800080C548 /* ZKHomeDefaultCell.h */,
+				E23D67881FDBDE800080C548 /* ZKHomeDefaultCell.m */,
+				E23D67871FDBDE800080C548 /* ZKHomeImgCell.h */,
+				E23D678C1FDBDE800080C548 /* ZKHomeImgCell.m */,
+				E23D67841FDBDE800080C548 /* ZKHomeImgsCell.h */,
+				E23D678A1FDBDE800080C548 /* ZKHomeImgsCell.m */,
+				E23D67851FDBDE800080C548 /* ZKHomeTextCell.h */,
+				E23D67891FDBDE800080C548 /* ZKHomeTextCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E2443FA91FA86C6D00E84C65 = {
 			isa = PBXGroup;
 			children = (
@@ -445,7 +583,6 @@
 				E2443FEE1FA86FB500E84C65 /* 趣事 */,
 				E251AFA51FB5557B00303EC9 /* 天气 */,
 				E2778F531FC820D40064DA01 /* 设置 */,
-				E24440151FA996E600E84C65 /* WebController */,
 				E2257EDB1FAD61B6006C14C4 /* 详情 */,
 			);
 			path = viewControllers;
@@ -454,10 +591,13 @@
 		E2443FEC1FA86F5A00E84C65 /* 新闻 */ = {
 			isa = PBXGroup;
 			children = (
-				E2443FF11FA86FFF00E84C65 /* ZKNewsViewController.h */,
-				E2443FF21FA86FFF00E84C65 /* ZKNewsViewController.m */,
-				E244400A1FA95F9400E84C65 /* Model */,
-				E24440061FA95E0F00E84C65 /* views */,
+				E23D676D1FDBDE7F0080C548 /* ZKHomeViewController.h */,
+				E23D67821FDBDE800080C548 /* ZKHomeViewController.m */,
+				E23D676E1FDBDE7F0080C548 /* 详情 */,
+				E23D67631FDBDE7F0080C548 /* Model */,
+				E23D67831FDBDE800080C548 /* View */,
+				E23D676A1FDBDE7F0080C548 /* ViewModel */,
+				E23D677C1FDBDE800080C548 /* VMNetWork */,
 			);
 			path = "新闻";
 			sourceTree = "<group>";
@@ -505,33 +645,6 @@
 				E2929A3C1FB6C47500EA33E9 /* UIView+Animation.m */,
 			);
 			path = Category;
-			sourceTree = "<group>";
-		};
-		E24440061FA95E0F00E84C65 /* views */ = {
-			isa = PBXGroup;
-			children = (
-				E24440071FA95E2D00E84C65 /* ZKNewsTableViewCell.h */,
-				E24440081FA95E2D00E84C65 /* ZKNewsTableViewCell.m */,
-			);
-			path = views;
-			sourceTree = "<group>";
-		};
-		E244400A1FA95F9400E84C65 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				E244400B1FA95FAF00E84C65 /* ZKNewsModel.h */,
-				E244400C1FA95FAF00E84C65 /* ZKNewsModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		E24440151FA996E600E84C65 /* WebController */ = {
-			isa = PBXGroup;
-			children = (
-				E24440161FA9970A00E84C65 /* ZKWebViewController.h */,
-				E24440171FA9970A00E84C65 /* ZKWebViewController.m */,
-			);
-			path = WebController;
 			sourceTree = "<group>";
 		};
 		E24440531FA9C5F600E84C65 /* View */ = {
@@ -923,51 +1036,64 @@
 			buildActionMask = 2147483647;
 			files = (
 				E223DD051FB2AC2800126A88 /* ZKPictureViewController.m in Sources */,
-				E2443FF31FA86FFF00E84C65 /* ZKNewsViewController.m in Sources */,
 				E24440751FAAE95700E84C65 /* ZKVideoPlayView.m in Sources */,
 				E2778F621FC820D40064DA01 /* ZKAboutViewController.m in Sources */,
 				E244401D1FA9A15500E84C65 /* ZKHelperView.m in Sources */,
+				E23D67971FDBDE800080C548 /* ZKBaseNetWork.m in Sources */,
 				E2719DA81FCD5DFA0033D968 /* ZKRegisterViewController.m in Sources */,
 				E2F0636B1FB140F300BADD8A /* ZKDetailModelManager.m in Sources */,
 				E2257EDE1FAD61D6006C14C4 /* ZKDetailViewController.m in Sources */,
 				E2257EE31FAD6308006C14C4 /* ZKDetailHeaderView.m in Sources */,
 				E2778F521FC820A80064DA01 /* ZKToolManager.m in Sources */,
 				E2929A181FB68E3400EA33E9 /* ZKWeatherView.m in Sources */,
+				E23D678F1FDBDE800080C548 /* ZKNewsDetailModel.m in Sources */,
 				E2778F641FC820D40064DA01 /* ZKSettingModel.m in Sources */,
 				E2778F631FC820D40064DA01 /* ZKFeedBackViewController.m in Sources */,
+				E23D67991FDBDE800080C548 /* ZKHomeViewController.m in Sources */,
 				E2778F651FC820D40064DA01 /* ZKSettingViewCell.m in Sources */,
 				E2719DA51FCD5DEA0033D968 /* ZKLoginViewController.m in Sources */,
 				E2443FF61FA8701300E84C65 /* ZKFunsViewController.m in Sources */,
+				E23D67921FDBDE800080C548 /* ZKWebViewController.m in Sources */,
+				E23D67931FDBDE800080C548 /* ZKPictureDetailViewController.m in Sources */,
 				E2929A3D1FB6C47500EA33E9 /* UIView+Animation.m in Sources */,
 				E244405A1FA9CFC300E84C65 /* ZKTTVideoComment.m in Sources */,
 				E251AFAE1FB599C000303EC9 /* ZKMapManager.m in Sources */,
 				E223DD011FB2A0F700126A88 /* ZKTTVideoUser.m in Sources */,
-				E24440181FA9970A00E84C65 /* ZKWebViewController.m in Sources */,
-				E244400D1FA95FAF00E84C65 /* ZKNewsModel.m in Sources */,
+				E23D679E1FDBDE800080C548 /* ZKHomeImgCell.m in Sources */,
 				E2E8DF181FB40207008F8995 /* ZKPictureFullController.m in Sources */,
 				E24440041FA879BF00E84C65 /* ZKNetWorkManager.m in Sources */,
+				E23D67951FDBDE800080C548 /* ZKPictureBottomView.m in Sources */,
 				E2719DFC1FCE61BD0033D968 /* ZKBmobManager.m in Sources */,
+				E23D679D1FDBDE800080C548 /* ZKHomeImgsCell.m in Sources */,
 				E2443FBA1FA86C6E00E84C65 /* ViewController.m in Sources */,
 				E2929A1B1FB68FFD00EA33E9 /* ZKWeatherModel.m in Sources */,
 				E2443FC51FA86C6E00E84C65 /* main.m in Sources */,
+				E23D67981FDBDE800080C548 /* ZKHomeNetWork.m in Sources */,
 				E2719DFB1FCE61BD0033D968 /* ZKUser.m in Sources */,
+				E23D67961FDBDE800080C548 /* ZKPictureContentView.m in Sources */,
 				E223DD0A1FB2AEA700126A88 /* ZKPictureTableViewCell.m in Sources */,
-				E24440091FA95E2D00E84C65 /* ZKNewsTableViewCell.m in Sources */,
+				E23D678E1FDBDE800080C548 /* ZKHomeModel.m in Sources */,
 				E27DD1111FD13712003BA461 /* ZKSwitchViewCell.m in Sources */,
 				E2443FB71FA86C6E00E84C65 /* AppDelegate.m in Sources */,
 				E2257EEC1FAD71CB006C14C4 /* ZKNavigationController.m in Sources */,
 				E251AFA81FB5558F00303EC9 /* ZKWeatherViewController.m in Sources */,
 				E244407B1FAC090B00E84C65 /* NSString+Extension.m in Sources */,
 				E2778F661FC820D40064DA01 /* ZKSettingsViewController.m in Sources */,
+				E23D679B1FDBDE800080C548 /* ZKHomeDefaultCell.m in Sources */,
+				E23D67941FDBDE800080C548 /* ZKPictureModel.m in Sources */,
 				E2056B671FD7D8BF00CC4CFB /* ZKRefreshGiftHeader.m in Sources */,
 				E245BF2D1FBA923100D85BF7 /* ZKCityModel.m in Sources */,
+				E23D67911FDBDE800080C548 /* ZKHomeViewModel.m in Sources */,
 				E245BF291FBA8A8B00D85BF7 /* ZKCityViewController.m in Sources */,
 				E2929A1E1FB6996A00EA33E9 /* ZKDayModel.m in Sources */,
+				E23D679A1FDBDE800080C548 /* ZKHomeBigImgCell.m in Sources */,
+				E23D679C1FDBDE800080C548 /* ZKHomeTextCell.m in Sources */,
 				E2A88A161FAC5DF500410CBA /* ZKFullViewController.m in Sources */,
 				E2443FEA1FA86D4400E84C65 /* ZKTabBarViewController.m in Sources */,
 				E2257EE61FAD6980006C14C4 /* ZKDetailTableViewCell.m in Sources */,
 				E24440601FA9D2F600E84C65 /* ZKFunsTableViewCell.m in Sources */,
 				E223DD101FB2AF3500126A88 /* ZKTTPicture.m in Sources */,
+				E23D67901FDBDE800080C548 /* ZKBannerModel.m in Sources */,
 				E24440571FA9CFA300E84C65 /* ZKTTVideo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -47,10 +47,10 @@
     [self.pictureView sd_setImageWithURL:[NSURL URLWithString:pictureModel.image1] placeholderImage:[UIImage imageNamed:@""] options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
         CGFloat progress = 1.0*receivedSize/expectedSize;
         NSString *text = [NSString stringWithFormat:@"%.0f%%", 100*progress];
-        self.progressView.progressLabel.text = [text stringByReplacingOccurrencesOfString:@"-" withString:@""];
-        [self.progressView setProgress:progress animated:YES];
+        //self.progressView.progressLabel.text = [text stringByReplacingOccurrencesOfString:@"-" withString:@""];
+        //[self.progressView setProgress:progress animated:YES];
     } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-        self.progressView.hidden = YES;
+        //self.progressView.hidden = YES;
         if (pictureModel.isBigPicture) { //大图
             self.seePictureBtn.hidden = NO;
             //截取上面一截

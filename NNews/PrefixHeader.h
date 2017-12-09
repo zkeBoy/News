@@ -28,4 +28,7 @@
 #import <BmobSDK/Bmob.h>
 #import "ZKLoginViewController.h"
 #import "ZKRefreshGiftHeader.h"
+#import "ZKHomeNetWork.h"
+#import "ZKWebViewController.h"
+#import <SDCycleScrollView.h>
 #endif /* PrefixHeader_h */

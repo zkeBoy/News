@@ -1,14 +1,14 @@
 //
 //  ZKWebViewController.h
-//  NNews
+//  NewDemo
 //
-//  Created by Tom on 2017/11/1.
+//  Created by Tom on 2017/12/7.
 //  Copyright © 2017年 Tom. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "ZKHomeModel.h"
 
 @interface ZKWebViewController : UIViewController
-
-- (instancetype)initWithLinkURL:(NSString *)link;
+@property (nonatomic, strong) ZKHomeModel * model;
 @end
