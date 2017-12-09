@@ -4,7 +4,7 @@
 //
 //  Created by Tom on 2017/11/14.
 //  Copyright © 2017年 Tom. All rights reserved.
-//
+//  
 
 #import "ZKCityViewController.h"
 
@@ -16,6 +16,11 @@ static NSString * const cellIdentifider = @"identifider";
 @end
 
 @implementation ZKCityViewController
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

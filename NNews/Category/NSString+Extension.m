@@ -27,4 +27,40 @@
     return [NSString stringWithFormat:@"%@℃/%@℃",high,low];
 }
 
++ (NSString *)getWeatherTypeWithWeather:(NSString *)weather{
+    NSString * type;
+    if ([weather isEqualToString:@"晴"]){
+        type = @"clear";
+    }else if ([weather isEqualToString:@"晴转多云"]){
+        type = @"clear_to_overcast";
+    }else if ([weather isEqualToString:@"晴转阴"]){
+        type = @"clear_to_overcast";
+    }else if ([weather isEqualToString:@"多云"]){
+        type = @"cloudy";
+    }else if ([weather isEqualToString:@"多云转晴"]){
+        type = @"cloudy_becoming_fine";
+    }else if ([weather isEqualToString:@"多云转阴"]){
+        type = @"cloudy_to_overcast";
+    }else if ([weather isEqualToString:@"阴"]) {
+        type = @"shadey";
+    }else if ([weather isEqualToString:@"阴转多云"]){
+        type = @"cloudy_to_overcast";
+    }else if ([weather isEqualToString:@"阴转小雨"]){
+        type = @"cloudy_to_rain";
+    }else if ([weather isEqualToString:@"阴转小雪"]){
+        type = @"little_snow";
+    }else if ([weather isEqualToString:@"阴转晴"]){
+        type = @"overcast_to_clear";
+    }else if ([weather isEqualToString:@"阵雨转小雨"]){
+        type = @"cloudy_to_rain";
+    }else if ([weather isEqualToString:@"阵雨转晴"]){
+        type = @"clear";
+    }else if ([weather isEqualToString:@"小雨"]){
+        type = @"rain_litter";
+    }else if ([weather isEqualToString:@"小雨转阴"]){
+        type = @"cloudy_to_rain";
+    }
+    return type;
+}
+
 @end

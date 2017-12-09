@@ -21,7 +21,7 @@
     self.viewControllerNames = @[@"ZKHomeViewController",
                                  @"ZKPictureViewController",
                                  @"ZKFunsViewController",
-                                 @"ZKWeatherViewController",
+                                 @"ZKWeatherController",
                                  @"ZKSettingsViewController"];
     self.titles = @[NSLocalizedString(@"tab_new", nil),
                     NSLocalizedString(@"tab_picture", nil),
@@ -81,7 +81,7 @@
 #pragma mark -
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
     if (viewController == [tabBarController.viewControllers objectAtIndex:self.viewControllers.count-2]) {
-        UIViewController * viewController = [[NSClassFromString(@"ZKWeatherViewController") alloc] init];
+        UIViewController * viewController = [[NSClassFromString(@"ZKWeatherController") alloc] init];
         UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:viewController];
         [self presentViewController:nav animated:YES completion:nil];
         return NO;

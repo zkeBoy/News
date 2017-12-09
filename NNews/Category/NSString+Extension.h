@@ -14,4 +14,6 @@
 
 + (NSString *)stringWithTemperatureString:(NSString *)high
                                       low:(NSString *)low;
+
++ (NSString *)getWeatherTypeWithWeather:(NSString *)weather;
 @end
