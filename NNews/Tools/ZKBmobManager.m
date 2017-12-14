@@ -32,7 +32,8 @@
         BOOL find = NO;
         for (BmobObject *obj in array) {
             NSString * userName = [obj objectForKey:userNameKey];
-            if ([userName isEqualToString:user.userName]) {
+            NSString * passWord = [obj objectForKey:passWordKey];
+            if ([userName isEqualToString:user.userName]&&[passWord isEqualToString:user.passWord]) {
                 find = YES;
                 if (resultBlock) {
                     resultBlock (YES, nil);

@@ -17,7 +17,7 @@
     }else if (type == listTypeNba){
         
     }else if (type == listTypeTec){
-        path = [NSString stringWithFormat:@"http://c.m.163.com/nc/article/headline/T1348647853363/%d-20.html",page];
+        path = [NSString stringWithFormat:@"http://c.m.163.com/nc/article/headline/T1348647853363/%ld-20.html",(long)page];
     }
     return [self GET:path para:nil progress:nil completionHandler:completionHandler];
 }
