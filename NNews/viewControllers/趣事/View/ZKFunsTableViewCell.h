@@ -21,4 +21,5 @@
 @property (nonatomic,   weak) id <ZKFunsTableViewCellDelegate> delegate;
 @property (nonatomic, strong) ZKTTVideo                      * videoModel;
 @property (nonatomic, assign) CGRect                           videnPlayFrame;
+@property (nonatomic, strong) UIButton                       * shareButton;
 @end
