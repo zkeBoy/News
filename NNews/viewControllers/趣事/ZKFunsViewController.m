@@ -8,16 +8,16 @@
 
 #import "ZKFunsViewController.h"
 #import "ZKFunsTableViewCell.h"
-#import "ZKVideoPlayView.h" // 视频播放界面
+#import "ZKPlayerView.h"
 #import "ZKFullViewController.h"
 #import "ZKDetailViewController.h"
 #import "ZKTTVideo.h"
 
-@interface ZKFunsViewController ()<UITableViewDelegate, UITableViewDataSource, ZKFunsTableViewCellDelegate, ZKVideoPlayViewDelegate>
+@interface ZKFunsViewController ()<UITableViewDelegate, UITableViewDataSource, ZKFunsTableViewCellDelegate, ZKPlayerViewDelegate>
 @property (nonatomic, strong) UITableView          * tableView;
 @property (nonatomic, strong) NSMutableArray       * listArray;
 @property (nonatomic, assign) NSInteger              page;
-@property (nonatomic, strong) ZKVideoPlayView      * videoPlayView; //视频播放视图
+@property (nonatomic, strong) ZKPlayerView         * videoPlayView; //视频播放视图
 @property (nonatomic, strong) ZKFullViewController * fullWindow; //全屏
 @property (nonatomic, strong) ZKFunsTableViewCell  * currentSelectCell; //当前选中的cell
 @property (nonatomic, assign) BOOL                   isFullWindow;
@@ -134,7 +134,7 @@ static NSString * const cellIdentifider = @"ZKFunsTableViewCellID";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     //关闭播放
-    [self.videoPlayView resetVideoPlay];
+    [self.videoPlayView resetPlayer];
     self.videoPlayView = nil;
     
     ZKDetailViewController * detailVC = [[ZKDetailViewController alloc] init];
@@ -182,46 +182,46 @@ static NSString * const cellIdentifider = @"ZKFunsTableViewCellID";
 
 #pragma mark - ZKFunsTableViewCellDelegate
 - (void)clickVideoPlay:(NSIndexPath *)indexPath{
-    [self.videoPlayView resetVideoPlay];
+    [self.videoPlayView resetPlayer];
     
     ZKFunsTableViewCell * cell = [self.tableView cellForRowAtIndexPath:indexPath];
     self.currentSelectCell = cell;
     
     ZKTTVideo * videoModel = self.listArray[indexPath.section];
     NSString * videoLink = videoModel.videouri;
-    AVPlayerItem *item = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:videoLink]];
-    
-    ZKVideoPlayView * videoPlayView = [[ZKVideoPlayView alloc] init];
+    ZKPlayerView * videoPlayView = [[ZKPlayerView alloc] initWithStreamURL:videoLink];
     self.videoPlayView = videoPlayView;
     self.videoPlayView.frame = cell.videnPlayFrame;
     self.videoPlayView.delegate = self;
-    self.videoPlayView.playerItem = item;
-    
     [cell addSubview:videoPlayView];
 }
 
-#pragma mark - ZKVideoPlayViewDelegate
-- (void)openFullPlayWindow:(BOOL)full{ //是否全屏
-    __weak typeof(self)weakSelf = self;
-    if(full){
-        self.isFullWindow = full;
-        [self presentViewController:weakSelf.fullWindow animated:YES completion:^{
-            weakSelf.videoPlayView.frame = weakSelf.fullWindow.view.bounds;
-            [weakSelf.fullWindow.view addSubview:weakSelf.videoPlayView];
+#pragma mark -
+- (void)playerDidFinish {
+    if (self.videoPlayView.isFull) {
+        [self.fullWindow dismissViewControllerAnimated:YES completion:^{
+            
         }];
-    }else{
-        [weakSelf.fullWindow dismissViewControllerAnimated:YES completion:^{
-            weakSelf.isFullWindow = full;
-        }];
-        weakSelf.videoPlayView.frame = weakSelf.currentSelectCell.videnPlayFrame;
-        [weakSelf.currentSelectCell addSubview:weakSelf.videoPlayView];
     }
+    [self.videoPlayView resetPlayer];
+    self.videoPlayView = nil;
 }
 
-- (void)videoPlayFinish{
-    if (self.isFullWindow) {
-        [self.fullWindow dismissViewControllerAnimated:YES completion:nil];
-        self.isFullWindow = NO;
+- (void)openFullWindow:(BOOL)open {
+    __weak typeof(self)weakSelf = self;
+    if (open) {
+        [self presentViewController:self.fullWindow animated:YES completion:^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                weakSelf.videoPlayView.frame = weakSelf.fullWindow.view.bounds;
+                [weakSelf.fullWindow.view addSubview:weakSelf.videoPlayView];
+            });
+        }];
+    }else {
+        [self.fullWindow dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+        self.videoPlayView.frame = self.currentSelectCell.videnPlayFrame;
+        [self.currentSelectCell addSubview:self.videoPlayView];
     }
 }
 
@@ -231,7 +231,7 @@ static NSString * const cellIdentifider = @"ZKFunsTableViewCellID";
     if (!self.isFullWindow) {
         NSIndexPath * indexPath = [self.tableView indexPathForCell:self.currentSelectCell];
         if (![self.tableView.indexPathsForVisibleRows containsObject:indexPath]) {
-            [self.videoPlayView resetVideoPlay]; //移除
+            [self.videoPlayView resetPlayer]; //移除
             self.videoPlayView = nil;
         }
     }

@@ -31,7 +31,7 @@
 - (void)setVideoComment:(ZKTTVideoComment *)videoComment {
     _videoComment = videoComment;
     NSString * headURL = videoComment.user.profile_image;
-    [self.userIcon sd_setImageWithURL:[NSURL URLWithString:headURL] placeholderImage:[UIImage imageNamed:@""] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+    [self.userIcon sd_setImageWithURL:[NSURL URLWithString:headURL] placeholderImage:nil completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         self.userIcon.layer.cornerRadius = I_W/2;
         self.userIcon.layer.masksToBounds = YES;
     }];
@@ -108,7 +108,7 @@
     if (!_supportButton) {
         _supportButton = [[UIButton alloc] init];
         [_supportButton addTarget:self action:@selector(supportUserComment) forControlEvents:UIControlEventTouchUpInside];
-        [_supportButton setBackgroundImage:[UIImage imageNamed:@"user_support"] forState:UIControlStateNormal];
+        [_supportButton setImage:[UIImage imageNamed:@"user_support"] forState:UIControlStateNormal];
         //_supportButton.hidden = YES; // 暂时隐藏掉,没有点赞的接口
     }
     return _supportButton;

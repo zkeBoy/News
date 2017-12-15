@@ -32,4 +32,5 @@
 #import "ZKWebViewController.h"
 #import <SDCycleScrollView.h>
 #import "ZKShareHelper.h"
+#import "UIImage+xxCategory.h"
 #endif /* PrefixHeader_h */

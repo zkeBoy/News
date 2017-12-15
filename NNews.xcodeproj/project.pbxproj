@@ -88,8 +88,6 @@
 		E244401D1FA9A15500E84C65 /* ZKHelperView.m in Sources */ = {isa = PBXBuildFile; fileRef = E244401C1FA9A15500E84C65 /* ZKHelperView.m */; };
 		E24440571FA9CFA300E84C65 /* ZKTTVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = E24440561FA9CFA300E84C65 /* ZKTTVideo.m */; };
 		E244405A1FA9CFC300E84C65 /* ZKTTVideoComment.m in Sources */ = {isa = PBXBuildFile; fileRef = E24440591FA9CFC300E84C65 /* ZKTTVideoComment.m */; };
-		E24440601FA9D2F600E84C65 /* ZKFunsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E244405F1FA9D2F600E84C65 /* ZKFunsTableViewCell.m */; };
-		E24440751FAAE95700E84C65 /* ZKVideoPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = E24440741FAAE95700E84C65 /* ZKVideoPlayView.m */; };
 		E244407B1FAC090B00E84C65 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E244407A1FAC090B00E84C65 /* NSString+Extension.m */; };
 		E245BF371FBAF43F00D85BF7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E245BF391FBAF43F00D85BF7 /* InfoPlist.strings */; };
 		E245BF401FBAF7BE00D85BF7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E245BF421FBAF7BE00D85BF7 /* Localizable.strings */; };
@@ -110,9 +108,20 @@
 		E285D1DB1FE3A09D0066532E /* 1.PNG in Resources */ = {isa = PBXBuildFile; fileRef = E285D1D61FE3A09D0066532E /* 1.PNG */; };
 		E285D1DC1FE3A09D0066532E /* 3.PNG in Resources */ = {isa = PBXBuildFile; fileRef = E285D1D71FE3A09D0066532E /* 3.PNG */; };
 		E285D1DD1FE3A09D0066532E /* 5.PNG in Resources */ = {isa = PBXBuildFile; fileRef = E285D1D81FE3A09D0066532E /* 5.PNG */; };
+		E285D1E31FE3AA7E0066532E /* ZKVideoPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = E285D1E11FE3AA7E0066532E /* ZKVideoPlayView.m */; };
+		E285D1E41FE3AA7E0066532E /* ZKFunsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E285D1E21FE3AA7E0066532E /* ZKFunsTableViewCell.m */; };
+		E285D1F41FE3AA890066532E /* bg_media_default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E285D1E71FE3AA890066532E /* bg_media_default.jpg */; };
+		E285D1F51FE3AA890066532E /* player_min_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E285D1E81FE3AA890066532E /* player_min_btn@2x.png */; };
+		E285D1F61FE3AA890066532E /* player_full_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E285D1E91FE3AA890066532E /* player_full_btn@2x.png */; };
+		E285D1F71FE3AA890066532E /* play_pause_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E285D1EA1FE3AA890066532E /* play_pause_btn@3x.png */; };
+		E285D1F81FE3AA890066532E /* play_play_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E285D1EB1FE3AA890066532E /* play_play_btn@3x.png */; };
+		E285D1F91FE3AA890066532E /* play_play_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E285D1EC1FE3AA890066532E /* play_play_btn@2x.png */; };
+		E285D1FA1FE3AA890066532E /* play_pause_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E285D1ED1FE3AA890066532E /* play_pause_btn@2x.png */; };
+		E285D1FB1FE3AA890066532E /* ZKPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E285D1EF1FE3AA890066532E /* ZKPlayerView.m */; };
+		E285D1FC1FE3AA890066532E /* ZKFullViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E285D1F31FE3AA890066532E /* ZKFullViewController.m */; };
+		E285D2021FE3B0AE0066532E /* UIImage+xxCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E285D2011FE3B0AE0066532E /* UIImage+xxCategory.m */; };
 		E2929A3D1FB6C47500EA33E9 /* UIView+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = E2929A3C1FB6C47500EA33E9 /* UIView+Animation.m */; };
 		E29C4AD01FE27D01008B0DEC /* ZKShareHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E29C4ACF1FE27D01008B0DEC /* ZKShareHelper.m */; };
-		E2A88A161FAC5DF500410CBA /* ZKFullViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A88A151FAC5DF500410CBA /* ZKFullViewController.m */; };
 		E2E8DF181FB40207008F8995 /* ZKPictureFullController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E8DF171FB40207008F8995 /* ZKPictureFullController.m */; };
 		E2F0636B1FB140F300BADD8A /* ZKDetailModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F0636A1FB140F300BADD8A /* ZKDetailModelManager.m */; };
 /* End PBXBuildFile section */
@@ -246,10 +255,6 @@
 		E24440561FA9CFA300E84C65 /* ZKTTVideo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKTTVideo.m; sourceTree = "<group>"; };
 		E24440581FA9CFC300E84C65 /* ZKTTVideoComment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKTTVideoComment.h; sourceTree = "<group>"; };
 		E24440591FA9CFC300E84C65 /* ZKTTVideoComment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKTTVideoComment.m; sourceTree = "<group>"; };
-		E244405E1FA9D2F600E84C65 /* ZKFunsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKFunsTableViewCell.h; sourceTree = "<group>"; };
-		E244405F1FA9D2F600E84C65 /* ZKFunsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKFunsTableViewCell.m; sourceTree = "<group>"; };
-		E24440731FAAE95700E84C65 /* ZKVideoPlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKVideoPlayView.h; sourceTree = "<group>"; };
-		E24440741FAAE95700E84C65 /* ZKVideoPlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKVideoPlayView.m; sourceTree = "<group>"; };
 		E24440791FAC090B00E84C65 /* NSString+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		E244407A1FAC090B00E84C65 /* NSString+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		E245BF381FBAF43F00D85BF7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -292,12 +297,27 @@
 		E285D1D61FE3A09D0066532E /* 1.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.PNG; sourceTree = "<group>"; };
 		E285D1D71FE3A09D0066532E /* 3.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.PNG; sourceTree = "<group>"; };
 		E285D1D81FE3A09D0066532E /* 5.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.PNG; sourceTree = "<group>"; };
+		E285D1DF1FE3AA7E0066532E /* ZKVideoPlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKVideoPlayView.h; sourceTree = "<group>"; };
+		E285D1E01FE3AA7E0066532E /* ZKFunsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKFunsTableViewCell.h; sourceTree = "<group>"; };
+		E285D1E11FE3AA7E0066532E /* ZKVideoPlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKVideoPlayView.m; sourceTree = "<group>"; };
+		E285D1E21FE3AA7E0066532E /* ZKFunsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKFunsTableViewCell.m; sourceTree = "<group>"; };
+		E285D1E71FE3AA890066532E /* bg_media_default.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_media_default.jpg; sourceTree = "<group>"; };
+		E285D1E81FE3AA890066532E /* player_min_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player_min_btn@2x.png"; sourceTree = "<group>"; };
+		E285D1E91FE3AA890066532E /* player_full_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player_full_btn@2x.png"; sourceTree = "<group>"; };
+		E285D1EA1FE3AA890066532E /* play_pause_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_pause_btn@3x.png"; sourceTree = "<group>"; };
+		E285D1EB1FE3AA890066532E /* play_play_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_play_btn@3x.png"; sourceTree = "<group>"; };
+		E285D1EC1FE3AA890066532E /* play_play_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_play_btn@2x.png"; sourceTree = "<group>"; };
+		E285D1ED1FE3AA890066532E /* play_pause_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_pause_btn@2x.png"; sourceTree = "<group>"; };
+		E285D1EF1FE3AA890066532E /* ZKPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKPlayerView.m; sourceTree = "<group>"; };
+		E285D1F01FE3AA890066532E /* ZKPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKPlayerView.h; sourceTree = "<group>"; };
+		E285D1F21FE3AA890066532E /* ZKFullViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKFullViewController.h; sourceTree = "<group>"; };
+		E285D1F31FE3AA890066532E /* ZKFullViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKFullViewController.m; sourceTree = "<group>"; };
+		E285D2001FE3B0AD0066532E /* UIImage+xxCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+xxCategory.h"; sourceTree = "<group>"; };
+		E285D2011FE3B0AE0066532E /* UIImage+xxCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+xxCategory.m"; sourceTree = "<group>"; };
 		E2929A3B1FB6C47500EA33E9 /* UIView+Animation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Animation.h"; sourceTree = "<group>"; };
 		E2929A3C1FB6C47500EA33E9 /* UIView+Animation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Animation.m"; sourceTree = "<group>"; };
 		E29C4ACE1FE27D01008B0DEC /* ZKShareHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKShareHelper.h; sourceTree = "<group>"; };
 		E29C4ACF1FE27D01008B0DEC /* ZKShareHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKShareHelper.m; sourceTree = "<group>"; };
-		E2A88A141FAC5DF500410CBA /* ZKFullViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKFullViewController.h; sourceTree = "<group>"; };
-		E2A88A151FAC5DF500410CBA /* ZKFullViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKFullViewController.m; sourceTree = "<group>"; };
 		E2E8DF161FB40207008F8995 /* ZKPictureFullController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKPictureFullController.h; sourceTree = "<group>"; };
 		E2E8DF171FB40207008F8995 /* ZKPictureFullController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKPictureFullController.m; sourceTree = "<group>"; };
 		E2F063691FB140F300BADD8A /* ZKDetailModelManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKDetailModelManager.h; sourceTree = "<group>"; };
@@ -679,9 +699,8 @@
 			children = (
 				E2443FF41FA8701300E84C65 /* ZKFunsViewController.h */,
 				E2443FF51FA8701300E84C65 /* ZKFunsViewController.m */,
-				E2A88A141FAC5DF500410CBA /* ZKFullViewController.h */,
-				E2A88A151FAC5DF500410CBA /* ZKFullViewController.m */,
-				E24440531FA9C5F600E84C65 /* View */,
+				E285D1E51FE3AA890066532E /* VideoPlay */,
+				E285D1DE1FE3AA7E0066532E /* View */,
 				E24440541FA9C5F600E84C65 /* Model */,
 			);
 			path = "趣事";
@@ -717,19 +736,10 @@
 				E244407A1FAC090B00E84C65 /* NSString+Extension.m */,
 				E2929A3B1FB6C47500EA33E9 /* UIView+Animation.h */,
 				E2929A3C1FB6C47500EA33E9 /* UIView+Animation.m */,
+				E285D2001FE3B0AD0066532E /* UIImage+xxCategory.h */,
+				E285D2011FE3B0AE0066532E /* UIImage+xxCategory.m */,
 			);
 			path = Category;
-			sourceTree = "<group>";
-		};
-		E24440531FA9C5F600E84C65 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				E244405E1FA9D2F600E84C65 /* ZKFunsTableViewCell.h */,
-				E244405F1FA9D2F600E84C65 /* ZKFunsTableViewCell.m */,
-				E24440731FAAE95700E84C65 /* ZKVideoPlayView.h */,
-				E24440741FAAE95700E84C65 /* ZKVideoPlayView.m */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		E24440541FA9C5F600E84C65 /* Model */ = {
@@ -819,6 +829,59 @@
 			path = screenshot;
 			sourceTree = "<group>";
 		};
+		E285D1DE1FE3AA7E0066532E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E285D1DF1FE3AA7E0066532E /* ZKVideoPlayView.h */,
+				E285D1E01FE3AA7E0066532E /* ZKFunsTableViewCell.h */,
+				E285D1E11FE3AA7E0066532E /* ZKVideoPlayView.m */,
+				E285D1E21FE3AA7E0066532E /* ZKFunsTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E285D1E51FE3AA890066532E /* VideoPlay */ = {
+			isa = PBXGroup;
+			children = (
+				E285D1E61FE3AA890066532E /* Resources */,
+				E285D1EE1FE3AA890066532E /* View */,
+				E285D1F11FE3AA890066532E /* FullWindow */,
+			);
+			path = VideoPlay;
+			sourceTree = "<group>";
+		};
+		E285D1E61FE3AA890066532E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E285D1E71FE3AA890066532E /* bg_media_default.jpg */,
+				E285D1ED1FE3AA890066532E /* play_pause_btn@2x.png */,
+				E285D1EA1FE3AA890066532E /* play_pause_btn@3x.png */,
+				E285D1EC1FE3AA890066532E /* play_play_btn@2x.png */,
+				E285D1EB1FE3AA890066532E /* play_play_btn@3x.png */,
+				E285D1E91FE3AA890066532E /* player_full_btn@2x.png */,
+				E285D1E81FE3AA890066532E /* player_min_btn@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E285D1EE1FE3AA890066532E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E285D1F01FE3AA890066532E /* ZKPlayerView.h */,
+				E285D1EF1FE3AA890066532E /* ZKPlayerView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E285D1F11FE3AA890066532E /* FullWindow */ = {
+			isa = PBXGroup;
+			children = (
+				E285D1F21FE3AA890066532E /* ZKFullViewController.h */,
+				E285D1F31FE3AA890066532E /* ZKFullViewController.m */,
+			);
+			path = FullWindow;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -895,7 +958,10 @@
 				E23D67E01FDBE49C0080C548 /* clear_to_overcast@2x.png in Resources */,
 				E285D1DB1FE3A09D0066532E /* 1.PNG in Resources */,
 				E23D67EE1FDBE49C0080C548 /* bg_snow_day.jpg in Resources */,
+				E285D1F51FE3AA890066532E /* player_min_btn@2x.png in Resources */,
 				E245BF371FBAF43F00D85BF7 /* InfoPlist.strings in Resources */,
+				E285D1F61FE3AA890066532E /* player_full_btn@2x.png in Resources */,
+				E285D1F81FE3AA890066532E /* play_play_btn@3x.png in Resources */,
 				E23D67EB1FDBE49C0080C548 /* bg_na.jpg in Resources */,
 				E23D67ED1FDBE49C0080C548 /* bg_rain_night.jpg in Resources */,
 				E23D67DF1FDBE49C0080C548 /* shadey.png in Resources */,
@@ -907,6 +973,7 @@
 				E23D67E71FDBE49C0080C548 /* shadey@2x.png in Resources */,
 				E23D67DC1FDBE49C0080C548 /* cloudy_becoming_fine@2x.png in Resources */,
 				E23D67F51FDBE49C0080C548 /* bg_rain_day.jpg in Resources */,
+				E285D1F71FE3AA890066532E /* play_pause_btn@3x.png in Resources */,
 				E23D67D91FDBE49C0080C548 /* cloudy_to_overcast@2x.png in Resources */,
 				E285D1DA1FE3A09D0066532E /* 2.PNG in Resources */,
 				E23D67E31FDBE49C0080C548 /* cloudy.png in Resources */,
@@ -919,6 +986,8 @@
 				E2443FBD1FA86C6E00E84C65 /* Main.storyboard in Resources */,
 				E285D1DD1FE3A09D0066532E /* 5.PNG in Resources */,
 				E23D67F41FDBE49C0080C548 /* bg_snow_night.jpg in Resources */,
+				E285D1F91FE3AA890066532E /* play_play_btn@2x.png in Resources */,
+				E285D1FA1FE3AA890066532E /* play_pause_btn@2x.png in Resources */,
 				E23D67E51FDBE49C0080C548 /* cloudy_becoming_fine.png in Resources */,
 				E23D67F71FDBE49C0080C548 /* cityGroups.plist in Resources */,
 				E23D67D61FDBE49C0080C548 /* cloudy_to_overcast.png in Resources */,
@@ -926,6 +995,7 @@
 				E23D67F01FDBE49C0080C548 /* bg_fog.jpg in Resources */,
 				E285D1D91FE3A09D0066532E /* 4.PNG in Resources */,
 				E23D67DD1FDBE49C0080C548 /* little_snow@2x.png in Resources */,
+				E285D1F41FE3AA890066532E /* bg_media_default.jpg in Resources */,
 				E23D67DB1FDBE49C0080C548 /* clear.png in Resources */,
 				E23D67F21FDBE49C0080C548 /* bg_sunny_night.jpg in Resources */,
 			);
@@ -994,7 +1064,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E223DD051FB2AC2800126A88 /* ZKPictureViewController.m in Sources */,
-				E24440751FAAE95700E84C65 /* ZKVideoPlayView.m in Sources */,
 				E2778F621FC820D40064DA01 /* ZKAboutViewController.m in Sources */,
 				E244401D1FA9A15500E84C65 /* ZKHelperView.m in Sources */,
 				E23D67971FDBDE800080C548 /* ZKBaseNetWork.m in Sources */,
@@ -1003,6 +1072,7 @@
 				E23D67F81FDBE49C0080C548 /* ZKCityViewController.m in Sources */,
 				E2F0636B1FB140F300BADD8A /* ZKDetailModelManager.m in Sources */,
 				E23D67FA1FDBE49C0080C548 /* ZKWeatherModel.m in Sources */,
+				E285D2021FE3B0AE0066532E /* UIImage+xxCategory.m in Sources */,
 				E23D67D51FDBE49C0080C548 /* ZKWeatherController.m in Sources */,
 				E2257EDE1FAD61D6006C14C4 /* ZKDetailViewController.m in Sources */,
 				E2257EE31FAD6308006C14C4 /* ZKDetailHeaderView.m in Sources */,
@@ -1010,13 +1080,16 @@
 				E23D678F1FDBDE800080C548 /* ZKNewsDetailModel.m in Sources */,
 				E2778F641FC820D40064DA01 /* ZKSettingModel.m in Sources */,
 				E2778F631FC820D40064DA01 /* ZKFeedBackViewController.m in Sources */,
+				E285D1FC1FE3AA890066532E /* ZKFullViewController.m in Sources */,
 				E23D67991FDBDE800080C548 /* ZKHomeViewController.m in Sources */,
 				E2778F651FC820D40064DA01 /* ZKSettingViewCell.m in Sources */,
+				E285D1E31FE3AA7E0066532E /* ZKVideoPlayView.m in Sources */,
 				E2719DA51FCD5DEA0033D968 /* ZKLoginViewController.m in Sources */,
 				E2443FF61FA8701300E84C65 /* ZKFunsViewController.m in Sources */,
 				E23D67921FDBDE800080C548 /* ZKWebViewController.m in Sources */,
 				E23D67FC1FDBE49C0080C548 /* ZKWeatherItem.m in Sources */,
 				E23D67931FDBDE800080C548 /* ZKPictureDetailViewController.m in Sources */,
+				E285D1E41FE3AA7E0066532E /* ZKFunsTableViewCell.m in Sources */,
 				E2929A3D1FB6C47500EA33E9 /* UIView+Animation.m in Sources */,
 				E244405A1FA9CFC300E84C65 /* ZKTTVideoComment.m in Sources */,
 				E23D67FD1FDBE49C0080C548 /* ZKWeatherBottom.m in Sources */,
@@ -1028,6 +1101,7 @@
 				E23D67951FDBDE800080C548 /* ZKPictureBottomView.m in Sources */,
 				E2719DFC1FCE61BD0033D968 /* ZKBmobManager.m in Sources */,
 				E23D679D1FDBDE800080C548 /* ZKHomeImgsCell.m in Sources */,
+				E285D1FB1FE3AA890066532E /* ZKPlayerView.m in Sources */,
 				E2443FBA1FA86C6E00E84C65 /* ViewController.m in Sources */,
 				E2443FC51FA86C6E00E84C65 /* main.m in Sources */,
 				E23D67981FDBDE800080C548 /* ZKHomeNetWork.m in Sources */,
@@ -1048,10 +1122,8 @@
 				E23D67FB1FDBE49C0080C548 /* ZKWeatherHeader.m in Sources */,
 				E23D679A1FDBDE800080C548 /* ZKHomeBigImgCell.m in Sources */,
 				E23D679C1FDBDE800080C548 /* ZKHomeTextCell.m in Sources */,
-				E2A88A161FAC5DF500410CBA /* ZKFullViewController.m in Sources */,
 				E2443FEA1FA86D4400E84C65 /* ZKTabBarViewController.m in Sources */,
 				E2257EE61FAD6980006C14C4 /* ZKDetailTableViewCell.m in Sources */,
-				E24440601FA9D2F600E84C65 /* ZKFunsTableViewCell.m in Sources */,
 				E223DD101FB2AF3500126A88 /* ZKTTPicture.m in Sources */,
 				E23D67901FDBDE800080C548 /* ZKBannerModel.m in Sources */,
 				E24440571FA9CFA300E84C65 /* ZKTTVideo.m in Sources */,

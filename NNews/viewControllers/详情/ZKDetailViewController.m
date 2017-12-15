@@ -63,9 +63,7 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
 }
 
 - (void)loadNewListData{ //加载最新的消息
-    if (self.listArray.count) {
-        [self.listArray removeAllObjects];
-    }
+    
     NSMutableDictionary * para = [NSMutableDictionary dictionary];
     NSString * urlString = @"http://api.budejie.com/api/api_open.php";
     if (_type == typeVideo) {
@@ -80,13 +78,17 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
         para[@"hot"] = @"1";
     }
     [ZKDetailModelManager detailWithURLString:urlString andPara:para success:^(id responsder) {
-        if (responsder) {
+        if (responsder[@"hot"]) {
+            if (self.listArray.count) {
+                [self.listArray removeAllObjects];
+            }
             // 最热评论
             NSArray * hot = [ZKTTVideoComment mj_objectArrayWithKeyValuesArray:responsder[@"hot"]];
             [self.listArray addObjectsFromArray:hot];
             self.page = 1;
             [self.tableView reloadData];
             [self.tableView.mj_header endRefreshing];
+            [self.tableView.mj_footer resetNoMoreData];
         }
     } failure:^(NSError * error) {
         [self.tableView.mj_header endRefreshing];
@@ -94,7 +96,6 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
 }
 
 - (void)refreshLoadMoreListData{ //上拉加载更多的信息
-    self.page ++;
     NSMutableDictionary * para = [NSMutableDictionary dictionary];
     NSString * urlString = @"http://api.budejie.com/api/api_open.php";
     if (_type == typeVideo) {
@@ -118,6 +119,7 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
             if (array.count) {
                 NSArray * newComments = [ZKTTVideoComment mj_objectArrayWithKeyValuesArray:array];
                 [self.listArray addObjectsFromArray:newComments];
+                self.page ++;
             }
             [self.tableView reloadData];
             [self.tableView.mj_footer endRefreshing];

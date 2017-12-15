@@ -23,8 +23,13 @@
 @end
 
 static NSString * const videoPlayerStatus = @"status";
+static NSString * const loadedTimeRanges = @"loadedTimeRanges"; //缓存长度
 
 @implementation ZKVideoPlayView
+
+- (void)addNotification {
+    
+}
 
 - (void)addTapGestureRecognizer{
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] init];
@@ -102,17 +107,25 @@ static NSString * const videoPlayerStatus = @"status";
     _playerItem = playerItem;
     [self.videoPlayer replaceCurrentItemWithPlayerItem:playerItem];
     [self.videoPlayer addObserver:self forKeyPath:videoPlayerStatus options:NSKeyValueObservingOptionNew context:nil];
+    [self.videoPlayer addObserver:self forKeyPath:loadedTimeRanges options:NSKeyValueObservingOptionNew context:nil];
     [self.videoPlayer play];
 }
 
 //监听播放器的状态变化
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+    AVPlayerItem *item = (AVPlayerItem *)object;
     if ([keyPath isEqualToString:videoPlayerStatus]) {
-        AVPlayerItem *item = (AVPlayerItem *)object;
         if (item.status == AVPlayerItemStatusReadyToPlay) { //开始播放
             [self stoploadAnimation]; //隐藏 loadView
             [self fireTimer];         //开启视频进度计时器
         }
+    }else if ([keyPath isEqualToString:loadedTimeRanges]) {
+        NSArray * arr = item.loadedTimeRanges;
+        CMTimeRange timeRange = [arr.firstObject CMTimeRangeValue];
+        float start = CMTimeGetSeconds(timeRange.start);
+        float duration = CMTimeGetSeconds(timeRange.duration);
+        NSTimeInterval totalBuffer = start + duration;//缓冲总长度
+        NSLog(@"当前缓冲时间：%f",totalBuffer);
     }
 }
 
@@ -194,6 +207,7 @@ static NSString * const videoPlayerStatus = @"status";
 - (void)clearPlayer{
     if (self.videoPlayer&&self.videoPlayerLayer) {
         [self.videoPlayer removeObserver:self forKeyPath:videoPlayerStatus]; //移除KVO
+        [self.videoPlayer removeObserver:self forKeyPath:loadedTimeRanges];
         [self.videoPlayerLayer removeFromSuperlayer];
         [self.videoPlayer replaceCurrentItemWithPlayerItem:nil];
         self.videoPlayer = nil;
@@ -215,7 +229,7 @@ static NSString * const videoPlayerStatus = @"status";
 - (UIImageView *)backgroundView {
     if (!_backgroundView) {
         _backgroundView = [[UIImageView alloc] initWithFrame:CGRectZero];
-        _backgroundView.image = [UIImage imageNamed:@"bg_media_default"];
+        _backgroundView.image = [UIImage imageNamed:@"bg_media_default.jpg"];
         _backgroundView.backgroundColor = [UIColor clearColor];
     }
     return _backgroundView;
