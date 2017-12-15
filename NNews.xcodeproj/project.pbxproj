@@ -105,6 +105,11 @@
 		E2778F651FC820D40064DA01 /* ZKSettingViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2778F5F1FC820D40064DA01 /* ZKSettingViewCell.m */; };
 		E2778F661FC820D40064DA01 /* ZKSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2778F611FC820D40064DA01 /* ZKSettingsViewController.m */; };
 		E27DD1111FD13712003BA461 /* ZKSwitchViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E27DD1101FD13712003BA461 /* ZKSwitchViewCell.m */; };
+		E285D1CF1FE39D9D0066532E /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E285D1CA1FE39D9D0066532E /* 1.jpeg */; };
+		E285D1D01FE39D9D0066532E /* 4.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E285D1CB1FE39D9D0066532E /* 4.jpeg */; };
+		E285D1D11FE39D9D0066532E /* 5.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E285D1CC1FE39D9D0066532E /* 5.jpeg */; };
+		E285D1D21FE39D9D0066532E /* 2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E285D1CD1FE39D9D0066532E /* 2.jpeg */; };
+		E285D1D31FE39D9D0066532E /* 3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E285D1CE1FE39D9D0066532E /* 3.jpeg */; };
 		E2929A3D1FB6C47500EA33E9 /* UIView+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = E2929A3C1FB6C47500EA33E9 /* UIView+Animation.m */; };
 		E29C4AD01FE27D01008B0DEC /* ZKShareHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E29C4ACF1FE27D01008B0DEC /* ZKShareHelper.m */; };
 		E2A88A161FAC5DF500410CBA /* ZKFullViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A88A151FAC5DF500410CBA /* ZKFullViewController.m */; };
@@ -282,6 +287,11 @@
 		E2778F611FC820D40064DA01 /* ZKSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKSettingsViewController.m; sourceTree = "<group>"; };
 		E27DD10F1FD13712003BA461 /* ZKSwitchViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKSwitchViewCell.h; sourceTree = "<group>"; };
 		E27DD1101FD13712003BA461 /* ZKSwitchViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKSwitchViewCell.m; sourceTree = "<group>"; };
+		E285D1CA1FE39D9D0066532E /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
+		E285D1CB1FE39D9D0066532E /* 4.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpeg; sourceTree = "<group>"; };
+		E285D1CC1FE39D9D0066532E /* 5.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpeg; sourceTree = "<group>"; };
+		E285D1CD1FE39D9D0066532E /* 2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpeg; sourceTree = "<group>"; };
+		E285D1CE1FE39D9D0066532E /* 3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpeg; sourceTree = "<group>"; };
 		E2929A3B1FB6C47500EA33E9 /* UIView+Animation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Animation.h"; sourceTree = "<group>"; };
 		E2929A3C1FB6C47500EA33E9 /* UIView+Animation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Animation.m"; sourceTree = "<group>"; };
 		E29C4ACE1FE27D01008B0DEC /* ZKShareHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKShareHelper.h; sourceTree = "<group>"; };
@@ -584,6 +594,7 @@
 		E2443FA91FA86C6D00E84C65 = {
 			isa = PBXGroup;
 			children = (
+				E285D1C91FE39D9D0066532E /* screenshot */,
 				E2443FB41FA86C6E00E84C65 /* NNews */,
 				E2443FB31FA86C6E00E84C65 /* Products */,
 				6FDCC559E467A86B3FF06CAB /* Pods */,
@@ -796,6 +807,18 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E285D1C91FE39D9D0066532E /* screenshot */ = {
+			isa = PBXGroup;
+			children = (
+				E285D1CA1FE39D9D0066532E /* 1.jpeg */,
+				E285D1CB1FE39D9D0066532E /* 4.jpeg */,
+				E285D1CC1FE39D9D0066532E /* 5.jpeg */,
+				E285D1CD1FE39D9D0066532E /* 2.jpeg */,
+				E285D1CE1FE39D9D0066532E /* 3.jpeg */,
+			);
+			path = screenshot;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -861,6 +884,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E285D1D21FE39D9D0066532E /* 2.jpeg in Resources */,
 				E23D67E81FDBE49C0080C548 /* clear@2x.png in Resources */,
 				E2443FC21FA86C6E00E84C65 /* LaunchScreen.storyboard in Resources */,
 				E23D67F11FDBE49C0080C548 /* bg_night_rain.jpg in Resources */,
@@ -869,14 +893,17 @@
 				E23D67DE1FDBE49C0080C548 /* overcast_to_clear.png in Resources */,
 				E23D67E11FDBE49C0080C548 /* little_snow.png in Resources */,
 				E23D67E91FDBE49C0080C548 /* rain_litter@2x.png in Resources */,
+				E285D1D31FE39D9D0066532E /* 3.jpeg in Resources */,
 				E23D67E01FDBE49C0080C548 /* clear_to_overcast@2x.png in Resources */,
 				E23D67EE1FDBE49C0080C548 /* bg_snow_day.jpg in Resources */,
 				E245BF371FBAF43F00D85BF7 /* InfoPlist.strings in Resources */,
+				E285D1D01FE39D9D0066532E /* 4.jpeg in Resources */,
 				E23D67EB1FDBE49C0080C548 /* bg_na.jpg in Resources */,
 				E23D67ED1FDBE49C0080C548 /* bg_rain_night.jpg in Resources */,
 				E23D67DF1FDBE49C0080C548 /* shadey.png in Resources */,
 				E23D67EA1FDBE49C0080C548 /* bg_fog_night.jpg in Resources */,
 				E23D67E61FDBE49C0080C548 /* overcast_to_clear@2x.png in Resources */,
+				E285D1D11FE39D9D0066532E /* 5.jpeg in Resources */,
 				E23D67F61FDBE49C0080C548 /* bg_haze.jpg in Resources */,
 				E23D67F31FDBE49C0080C548 /* bg_sunny_day.jpg in Resources */,
 				E23D67E71FDBE49C0080C548 /* shadey@2x.png in Resources */,
@@ -896,6 +923,7 @@
 				E23D67F71FDBE49C0080C548 /* cityGroups.plist in Resources */,
 				E23D67D61FDBE49C0080C548 /* cloudy_to_overcast.png in Resources */,
 				E23D67DA1FDBE49C0080C548 /* rain_litter.png in Resources */,
+				E285D1CF1FE39D9D0066532E /* 1.jpeg in Resources */,
 				E23D67F01FDBE49C0080C548 /* bg_fog.jpg in Resources */,
 				E23D67DD1FDBE49C0080C548 /* little_snow@2x.png in Resources */,
 				E23D67DB1FDBE49C0080C548 /* clear.png in Resources */,
