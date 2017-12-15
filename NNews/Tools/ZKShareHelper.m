@@ -30,7 +30,15 @@
 
 + (void)shareWithType:(ZKShareHelperShareType)type andPresenController:(UIViewController *)viewController andItems:(NSArray *)items completionHandler:(shareCompletionHandler)complete{
     if (type==ZKShareHelperShareTypeDefault) {
-        UIActivityViewController * shareMoreVC = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
+        NSMutableArray * arr = [NSMutableArray array];
+        for (id obj in items) {
+            if ([obj isKindOfClass:[NSString class]]) {
+                [arr addObject:[NSURL URLWithString:obj]];
+            }else {
+                [arr addObject:obj];
+            }
+        }
+        UIActivityViewController * shareMoreVC = [[UIActivityViewController alloc] initWithActivityItems:arr applicationActivities:nil];
         //忽略的列表
         //shareMoreVC.excludedActivityTypes = @[];
         [viewController presentViewController:shareMoreVC animated:YES completion:nil];

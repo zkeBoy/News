@@ -171,7 +171,7 @@
 
 - (void)shareAction:(UIButton *)btn {
     NSInteger tag = btn.tag;
-    NSString * link = _videoModel.videouri;
+    NSURL * link = [NSURL URLWithString:_videoModel.videouri];
     UIImage * image = self.coverImage.image;
     [ZKShareHelper shareWithType:tag andPresenController:[ZKToolManager shareManager].currentViewController andItems:@[link, image] completionHandler:^(BOOL completion) {
         
