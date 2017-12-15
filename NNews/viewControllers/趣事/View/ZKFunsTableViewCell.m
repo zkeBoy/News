@@ -126,6 +126,7 @@
 - (UIButton *)shareButton {
     if (!_shareButton) {
         _shareButton = [[UIButton alloc] init];
+        _shareButton.tag = shareStationTypeDefault;
         [_shareButton setImage:[UIImage imageNamed:@"icon_share"] forState:UIControlStateNormal];
         [_shareButton setImage:[UIImage imageNamed:@"icon_share_click"] forState:UIControlStateHighlighted];
         [_shareButton addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -133,6 +134,35 @@
     return _shareButton;
 }
 
+- (UIButton *)shareQQ {
+    if (!_shareQQ) {
+        _shareQQ = [[UIButton alloc] init];
+        _shareQQ.tag = shareStationTypeQQ;
+        [_shareQQ setImage:[UIImage imageNamed:@"icon_QQ"] forState:UIControlStateNormal];
+        [_shareQQ addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _shareQQ;
+}
+
+- (UIButton *)shareWeChat {
+    if (!_shareWeChat) {
+        _shareWeChat = [[UIButton alloc] init];
+        _shareWeChat.tag = shareStationTypeWechat;
+        [_shareWeChat setImage:[UIImage imageNamed:@"icon_wechat"] forState:UIControlStateNormal];
+        [_shareWeChat addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _shareWeChat;
+}
+
+- (UIButton *)shareSina {
+    if (!_shareSina) {
+        _shareSina = [[UIButton alloc] init];
+        _shareSina.tag = shareStationTypeSina;
+        [_shareSina setImage:[UIImage imageNamed:@"icon_sina"] forState:UIControlStateNormal];
+        [_shareSina addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _shareSina;
+}
 - (void)touchUpInSideCoverImage{
     if ([self.delegate respondsToSelector:@selector(clickVideoPlay:)]) {
         [self.delegate clickVideoPlay:self.indexPath];
@@ -140,7 +170,12 @@
 }
 
 - (void)shareAction:(UIButton *)btn {
-    
+    NSInteger tag = btn.tag;
+    NSString * link = _videoModel.videouri;
+    UIImage * image = self.coverImage.image;
+    [ZKShareHelper shareWithType:tag andPresenController:[ZKToolManager shareManager].currentViewController andItems:@[link, image] completionHandler:^(BOOL completion) {
+        
+    }];
 }
 
 #pragma mark -
@@ -200,6 +235,27 @@
         make.right.equalTo(self.contentView).offset(-Margin);
         make.width.height.equalTo(@40);
         make.bottom.equalTo(self.contentView).offset(0);
+    }];
+    
+    [self.contentView addSubview:self.shareSina];
+    [self.shareSina mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.height.equalTo(@23);
+        make.bottom.equalTo(self.contentView).offset(-8);
+        make.right.equalTo(self.shareButton.mas_left).offset(-Margin*2);
+    }];
+    
+    [self.contentView addSubview:self.shareWeChat];
+    [self.shareWeChat mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.height.equalTo(@23);
+        make.bottom.equalTo(self.contentView).offset(-8);
+        make.right.equalTo(self.shareSina.mas_left).offset(-Margin*2);
+    }];
+    
+    [self.contentView addSubview:self.shareQQ];
+    [self.shareQQ mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.height.equalTo(@23);
+        make.bottom.equalTo(self.contentView).offset(-8);
+        make.right.equalTo(self.shareWeChat.mas_left).offset(-Margin*2);
     }];
 }
 

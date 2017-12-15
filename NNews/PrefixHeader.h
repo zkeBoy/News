@@ -31,4 +31,5 @@
 #import "ZKHomeNetWork.h"
 #import "ZKWebViewController.h"
 #import <SDCycleScrollView.h>
+#import "ZKShareHelper.h"
 #endif /* PrefixHeader_h */

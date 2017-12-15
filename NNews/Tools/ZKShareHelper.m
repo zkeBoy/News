@@ -19,20 +19,20 @@
     return helper;
 }
 
-+ (void)shareWithType:(ZKShareHelperShareType)type andPresenController:(UIViewController *)viewController andFilePath:(NSString *)path completionHandler:(completionHandler)complete{
++ (void)shareWithType:(ZKShareHelperShareType)type andPresenController:(UIViewController *)viewController andFilePath:(NSString *)path completionHandler:(shareCompletionHandler)complete{
     [self shareWithType:type andPresenController:viewController andURL:[NSURL URLWithString:path] completionHandler:complete];
 }
 
-+ (void)shareWithType:(ZKShareHelperShareType)type andPresenController:(UIViewController *)viewController andURL:(NSURL *)url completionHandler:(completionHandler)complete{
++ (void)shareWithType:(ZKShareHelperShareType)type andPresenController:(UIViewController *)viewController andURL:(NSURL *)url completionHandler:(shareCompletionHandler)complete{
     [self shareWithType:type andPresenController:viewController andItems:@[url] completionHandler:complete];
 }
 
 
-+ (void)shareWithType:(ZKShareHelperShareType)type andPresenController:(UIViewController *)viewController andItems:(NSArray *)items completionHandler:(completionHandler)complete{
++ (void)shareWithType:(ZKShareHelperShareType)type andPresenController:(UIViewController *)viewController andItems:(NSArray *)items completionHandler:(shareCompletionHandler)complete{
     if (type==ZKShareHelperShareTypeDefault) {
         UIActivityViewController * shareMoreVC = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
         //忽略的列表
-        shareMoreVC.excludedActivityTypes = @[];
+        //shareMoreVC.excludedActivityTypes = @[];
         [viewController presentViewController:shareMoreVC animated:YES completion:nil];
         [shareMoreVC setCompletionWithItemsHandler:^(UIActivityType  _Nullable activityType, BOOL completed, NSArray * _Nullable returnedItems, NSError * _Nullable activityError) {
             if (completed&&complete) {
@@ -53,15 +53,16 @@
         }
     }
     [shareVC setCompletionHandler:^(SLComposeViewControllerResult result) {
-        if (result == SLComposeViewControllerResultDone) {
-            NSLog(@"点击了发送");
-            
-        }else if (result == SLComposeViewControllerResultCancelled){
-            NSLog(@"点击了取消");
-            
+        if (complete) {
+            if (result == SLComposeViewControllerResultDone) {
+                NSLog(@"点击了发送");
+                complete (YES);
+            }else if (result == SLComposeViewControllerResultCancelled){
+                NSLog(@"点击了取消");
+                complete (NO);
+            }
         }
     }];
-    
     @try{
         [viewController presentViewController:shareVC animated:YES completion:nil];
     } @catch(NSException *exception) {

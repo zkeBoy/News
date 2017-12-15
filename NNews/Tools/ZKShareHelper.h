@@ -21,16 +21,16 @@ typedef NS_ENUM(NSInteger, ZKShareHelperShareType) {
  判断是否确认分享
  @param completion YES:确定分享, NO:取消分享
  */
-typedef void(^completionHandler)(BOOL completion);
+typedef void(^shareCompletionHandler)(BOOL completion);
 
 typedef void(^permissionBlock)(ZKShareHelperShareType type);
 
 @interface ZKShareHelper : NSObject
 
-+ (void)shareWithType:(ZKShareHelperShareType)type andPresenController:(UIViewController *)viewController andFilePath:(NSString *)path completionHandler:(completionHandler)complete;
++ (void)shareWithType:(ZKShareHelperShareType)type andPresenController:(UIViewController *)viewController andFilePath:(NSString *)path completionHandler:(shareCompletionHandler)complete;
 
-+ (void)shareWithType:(ZKShareHelperShareType)type andPresenController:(UIViewController *)viewController andURL:(NSURL *)url completionHandler:(completionHandler)complete;
++ (void)shareWithType:(ZKShareHelperShareType)type andPresenController:(UIViewController *)viewController andURL:(NSURL *)url completionHandler:(shareCompletionHandler)complete;
 
-+ (void)shareWithType:(ZKShareHelperShareType)type andPresenController:(UIViewController *)viewController andItems:(NSArray *)items completionHandler:(completionHandler)complete;
++ (void)shareWithType:(ZKShareHelperShareType)type andPresenController:(UIViewController *)viewController andItems:(NSArray *)items completionHandler:(shareCompletionHandler)complete;
 
 @end
