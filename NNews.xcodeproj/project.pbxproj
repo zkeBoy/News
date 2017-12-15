@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		BE1351E9BEB79286081471DB /* libPods-NNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 450F700E5C37477FC145B41A /* libPods-NNews.a */; };
 		E2056B671FD7D8BF00CC4CFB /* ZKRefreshGiftHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E2056B661FD7D8BF00CC4CFB /* ZKRefreshGiftHeader.m */; };
+		E20F02A11FE39992004DB954 /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E20F029C1FE39992004DB954 /* 1.jpeg */; };
+		E20F02A21FE39992004DB954 /* 4.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E20F029D1FE39992004DB954 /* 4.jpeg */; };
+		E20F02A31FE39992004DB954 /* 5.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E20F029E1FE39992004DB954 /* 5.jpeg */; };
+		E20F02A41FE39992004DB954 /* 2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E20F029F1FE39992004DB954 /* 2.jpeg */; };
+		E20F02A51FE39992004DB954 /* 3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E20F02A01FE39992004DB954 /* 3.jpeg */; };
 		E223DD011FB2A0F700126A88 /* ZKTTVideoUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E223DD001FB2A0F700126A88 /* ZKTTVideoUser.m */; };
 		E223DD051FB2AC2800126A88 /* ZKPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E223DD041FB2AC2800126A88 /* ZKPictureViewController.m */; };
 		E223DD0A1FB2AEA700126A88 /* ZKPictureTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E223DD091FB2AEA700126A88 /* ZKPictureTableViewCell.m */; };
@@ -118,6 +123,11 @@
 		DB3DA298AE23B0C5F601BC3E /* Pods-NNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-NNews/Pods-NNews.release.xcconfig"; sourceTree = "<group>"; };
 		E2056B651FD7D8BF00CC4CFB /* ZKRefreshGiftHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKRefreshGiftHeader.h; sourceTree = "<group>"; };
 		E2056B661FD7D8BF00CC4CFB /* ZKRefreshGiftHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKRefreshGiftHeader.m; sourceTree = "<group>"; };
+		E20F029C1FE39992004DB954 /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
+		E20F029D1FE39992004DB954 /* 4.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpeg; sourceTree = "<group>"; };
+		E20F029E1FE39992004DB954 /* 5.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpeg; sourceTree = "<group>"; };
+		E20F029F1FE39992004DB954 /* 2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpeg; sourceTree = "<group>"; };
+		E20F02A01FE39992004DB954 /* 3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpeg; sourceTree = "<group>"; };
 		E223DCFF1FB2A0F700126A88 /* ZKTTVideoUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKTTVideoUser.h; sourceTree = "<group>"; };
 		E223DD001FB2A0F700126A88 /* ZKTTVideoUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKTTVideoUser.m; sourceTree = "<group>"; };
 		E223DD031FB2AC2800126A88 /* ZKPictureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKPictureViewController.h; sourceTree = "<group>"; };
@@ -323,6 +333,18 @@
 				450F700E5C37477FC145B41A /* libPods-NNews.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E20F029B1FE39992004DB954 /* Screen Shot */ = {
+			isa = PBXGroup;
+			children = (
+				E20F029C1FE39992004DB954 /* 1.jpeg */,
+				E20F029D1FE39992004DB954 /* 4.jpeg */,
+				E20F029E1FE39992004DB954 /* 5.jpeg */,
+				E20F029F1FE39992004DB954 /* 2.jpeg */,
+				E20F02A01FE39992004DB954 /* 3.jpeg */,
+			);
+			path = "Screen Shot";
 			sourceTree = "<group>";
 		};
 		E223DD021FB2ABB800126A88 /* 趣图 */ = {
@@ -584,6 +606,7 @@
 		E2443FA91FA86C6D00E84C65 = {
 			isa = PBXGroup;
 			children = (
+				E20F029B1FE39992004DB954 /* Screen Shot */,
 				E2443FB41FA86C6E00E84C65 /* NNews */,
 				E2443FB31FA86C6E00E84C65 /* Products */,
 				6FDCC559E467A86B3FF06CAB /* Pods */,
@@ -861,6 +884,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E20F02A41FE39992004DB954 /* 2.jpeg in Resources */,
 				E23D67E81FDBE49C0080C548 /* clear@2x.png in Resources */,
 				E2443FC21FA86C6E00E84C65 /* LaunchScreen.storyboard in Resources */,
 				E23D67F11FDBE49C0080C548 /* bg_night_rain.jpg in Resources */,
@@ -869,14 +893,17 @@
 				E23D67DE1FDBE49C0080C548 /* overcast_to_clear.png in Resources */,
 				E23D67E11FDBE49C0080C548 /* little_snow.png in Resources */,
 				E23D67E91FDBE49C0080C548 /* rain_litter@2x.png in Resources */,
+				E20F02A51FE39992004DB954 /* 3.jpeg in Resources */,
 				E23D67E01FDBE49C0080C548 /* clear_to_overcast@2x.png in Resources */,
 				E23D67EE1FDBE49C0080C548 /* bg_snow_day.jpg in Resources */,
 				E245BF371FBAF43F00D85BF7 /* InfoPlist.strings in Resources */,
+				E20F02A21FE39992004DB954 /* 4.jpeg in Resources */,
 				E23D67EB1FDBE49C0080C548 /* bg_na.jpg in Resources */,
 				E23D67ED1FDBE49C0080C548 /* bg_rain_night.jpg in Resources */,
 				E23D67DF1FDBE49C0080C548 /* shadey.png in Resources */,
 				E23D67EA1FDBE49C0080C548 /* bg_fog_night.jpg in Resources */,
 				E23D67E61FDBE49C0080C548 /* overcast_to_clear@2x.png in Resources */,
+				E20F02A31FE39992004DB954 /* 5.jpeg in Resources */,
 				E23D67F61FDBE49C0080C548 /* bg_haze.jpg in Resources */,
 				E23D67F31FDBE49C0080C548 /* bg_sunny_day.jpg in Resources */,
 				E23D67E71FDBE49C0080C548 /* shadey@2x.png in Resources */,
@@ -896,6 +923,7 @@
 				E23D67F71FDBE49C0080C548 /* cityGroups.plist in Resources */,
 				E23D67D61FDBE49C0080C548 /* cloudy_to_overcast.png in Resources */,
 				E23D67DA1FDBE49C0080C548 /* rain_litter.png in Resources */,
+				E20F02A11FE39992004DB954 /* 1.jpeg in Resources */,
 				E23D67F01FDBE49C0080C548 /* bg_fog.jpg in Resources */,
 				E23D67DD1FDBE49C0080C548 /* little_snow@2x.png in Resources */,
 				E23D67DB1FDBE49C0080C548 /* clear.png in Resources */,
