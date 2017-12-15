@@ -46,7 +46,7 @@ CGFloat const cellTopCommentTopLabelHeight = 16;
         _cellHeight += 0.5*cellMargin+ 0.5*cellMargin +cellBottomBarHeight;
     }
     */
-    return _cellHeight;
+    return _cellHeight+40;
 }
 
 @end

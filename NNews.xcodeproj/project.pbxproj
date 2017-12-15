@@ -106,6 +106,7 @@
 		E2778F661FC820D40064DA01 /* ZKSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2778F611FC820D40064DA01 /* ZKSettingsViewController.m */; };
 		E27DD1111FD13712003BA461 /* ZKSwitchViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E27DD1101FD13712003BA461 /* ZKSwitchViewCell.m */; };
 		E2929A3D1FB6C47500EA33E9 /* UIView+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = E2929A3C1FB6C47500EA33E9 /* UIView+Animation.m */; };
+		E29C4AD01FE27D01008B0DEC /* ZKShareHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E29C4ACF1FE27D01008B0DEC /* ZKShareHelper.m */; };
 		E2A88A161FAC5DF500410CBA /* ZKFullViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A88A151FAC5DF500410CBA /* ZKFullViewController.m */; };
 		E2E8DF181FB40207008F8995 /* ZKPictureFullController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E8DF171FB40207008F8995 /* ZKPictureFullController.m */; };
 		E2F0636B1FB140F300BADD8A /* ZKDetailModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F0636A1FB140F300BADD8A /* ZKDetailModelManager.m */; };
@@ -283,6 +284,8 @@
 		E27DD1101FD13712003BA461 /* ZKSwitchViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKSwitchViewCell.m; sourceTree = "<group>"; };
 		E2929A3B1FB6C47500EA33E9 /* UIView+Animation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Animation.h"; sourceTree = "<group>"; };
 		E2929A3C1FB6C47500EA33E9 /* UIView+Animation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Animation.m"; sourceTree = "<group>"; };
+		E29C4ACE1FE27D01008B0DEC /* ZKShareHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKShareHelper.h; sourceTree = "<group>"; };
+		E29C4ACF1FE27D01008B0DEC /* ZKShareHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKShareHelper.m; sourceTree = "<group>"; };
 		E2A88A141FAC5DF500410CBA /* ZKFullViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKFullViewController.h; sourceTree = "<group>"; };
 		E2A88A151FAC5DF500410CBA /* ZKFullViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKFullViewController.m; sourceTree = "<group>"; };
 		E2E8DF161FB40207008F8995 /* ZKPictureFullController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKPictureFullController.h; sourceTree = "<group>"; };
@@ -680,6 +683,8 @@
 				E2056B661FD7D8BF00CC4CFB /* ZKRefreshGiftHeader.m */,
 				E2778F501FC820A80064DA01 /* ZKToolManager.h */,
 				E2778F511FC820A80064DA01 /* ZKToolManager.m */,
+				E29C4ACE1FE27D01008B0DEC /* ZKShareHelper.h */,
+				E29C4ACF1FE27D01008B0DEC /* ZKShareHelper.m */,
 				E24440021FA879BF00E84C65 /* ZKNetWorkManager.h */,
 				E24440031FA879BF00E84C65 /* ZKNetWorkManager.m */,
 				E244401B1FA9A15500E84C65 /* ZKHelperView.h */,
@@ -998,6 +1003,7 @@
 				E2443FBA1FA86C6E00E84C65 /* ViewController.m in Sources */,
 				E2443FC51FA86C6E00E84C65 /* main.m in Sources */,
 				E23D67981FDBDE800080C548 /* ZKHomeNetWork.m in Sources */,
+				E29C4AD01FE27D01008B0DEC /* ZKShareHelper.m in Sources */,
 				E2719DFB1FCE61BD0033D968 /* ZKUser.m in Sources */,
 				E23D67961FDBDE800080C548 /* ZKPictureContentView.m in Sources */,
 				E223DD0A1FB2AEA700126A88 /* ZKPictureTableViewCell.m in Sources */,

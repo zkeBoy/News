@@ -123,10 +123,24 @@
     return _loadingView;
 }
 
+- (UIButton *)shareButton {
+    if (!_shareButton) {
+        _shareButton = [[UIButton alloc] init];
+        [_shareButton setImage:[UIImage imageNamed:@"icon_share"] forState:UIControlStateNormal];
+        [_shareButton setImage:[UIImage imageNamed:@"icon_share_click"] forState:UIControlStateHighlighted];
+        [_shareButton addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _shareButton;
+}
+
 - (void)touchUpInSideCoverImage{
     if ([self.delegate respondsToSelector:@selector(clickVideoPlay:)]) {
         [self.delegate clickVideoPlay:self.indexPath];
     }
+}
+
+- (void)shareAction:(UIButton *)btn {
+    
 }
 
 #pragma mark -
@@ -134,7 +148,8 @@
 - (void)setUI{
     [self.contentView addSubview:self.mainView];
     [self.mainView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.contentView);
+        make.left.top.right.equalTo(self.contentView);
+        make.bottom.equalTo(self.contentView).offset(-40);
     }];
     
     [self.mainView addSubview:self.userIcon];
@@ -178,6 +193,13 @@
     [self.loadingView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self.coverImage);
         make.width.height.equalTo(self.loadingView);
+    }];
+    
+    [self.contentView addSubview:self.shareButton];
+    [self.shareButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.contentView).offset(-Margin);
+        make.width.height.equalTo(@40);
+        make.bottom.equalTo(self.contentView).offset(0);
     }];
 }
 

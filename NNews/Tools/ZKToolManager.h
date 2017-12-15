@@ -10,7 +10,7 @@
 
 typedef void(^clipBlock)(UIImage *);
 
-@interface ZKToolManager : NSObject <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface ZKToolManager : NSObject <UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property (nonatomic, strong) UIImagePickerController * pickerVC;
 @property (nonatomic,   copy) clipBlock photoAlubmBlock;
 
@@ -30,5 +30,6 @@ typedef void(^clipBlock)(UIImage *);
 
 - (void)clipPhotoalbumImage:(void(^)(UIImage *image))completeBlock;
 
+- (UIViewController *)currentViewController;
 @end
 
