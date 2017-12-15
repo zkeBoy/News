@@ -34,5 +34,6 @@ typedef enum : NSUInteger {
 @protocol ZKPlayerViewDelegate <NSObject>
 @required
 - (void)playerDidFinish; //完成播放
+@optional
 - (void)openFullWindow:(BOOL)open; //是否全屏
 @end

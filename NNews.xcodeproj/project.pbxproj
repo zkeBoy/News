@@ -108,7 +108,6 @@
 		E285D1DB1FE3A09D0066532E /* 1.PNG in Resources */ = {isa = PBXBuildFile; fileRef = E285D1D61FE3A09D0066532E /* 1.PNG */; };
 		E285D1DC1FE3A09D0066532E /* 3.PNG in Resources */ = {isa = PBXBuildFile; fileRef = E285D1D71FE3A09D0066532E /* 3.PNG */; };
 		E285D1DD1FE3A09D0066532E /* 5.PNG in Resources */ = {isa = PBXBuildFile; fileRef = E285D1D81FE3A09D0066532E /* 5.PNG */; };
-		E285D1E31FE3AA7E0066532E /* ZKVideoPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = E285D1E11FE3AA7E0066532E /* ZKVideoPlayView.m */; };
 		E285D1E41FE3AA7E0066532E /* ZKFunsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E285D1E21FE3AA7E0066532E /* ZKFunsTableViewCell.m */; };
 		E285D1F41FE3AA890066532E /* bg_media_default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E285D1E71FE3AA890066532E /* bg_media_default.jpg */; };
 		E285D1F51FE3AA890066532E /* player_min_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E285D1E81FE3AA890066532E /* player_min_btn@2x.png */; };
@@ -297,9 +296,7 @@
 		E285D1D61FE3A09D0066532E /* 1.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.PNG; sourceTree = "<group>"; };
 		E285D1D71FE3A09D0066532E /* 3.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.PNG; sourceTree = "<group>"; };
 		E285D1D81FE3A09D0066532E /* 5.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.PNG; sourceTree = "<group>"; };
-		E285D1DF1FE3AA7E0066532E /* ZKVideoPlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKVideoPlayView.h; sourceTree = "<group>"; };
 		E285D1E01FE3AA7E0066532E /* ZKFunsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKFunsTableViewCell.h; sourceTree = "<group>"; };
-		E285D1E11FE3AA7E0066532E /* ZKVideoPlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKVideoPlayView.m; sourceTree = "<group>"; };
 		E285D1E21FE3AA7E0066532E /* ZKFunsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKFunsTableViewCell.m; sourceTree = "<group>"; };
 		E285D1E71FE3AA890066532E /* bg_media_default.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_media_default.jpg; sourceTree = "<group>"; };
 		E285D1E81FE3AA890066532E /* player_min_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player_min_btn@2x.png"; sourceTree = "<group>"; };
@@ -832,9 +829,7 @@
 		E285D1DE1FE3AA7E0066532E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E285D1DF1FE3AA7E0066532E /* ZKVideoPlayView.h */,
 				E285D1E01FE3AA7E0066532E /* ZKFunsTableViewCell.h */,
-				E285D1E11FE3AA7E0066532E /* ZKVideoPlayView.m */,
 				E285D1E21FE3AA7E0066532E /* ZKFunsTableViewCell.m */,
 			);
 			path = View;
@@ -1083,7 +1078,6 @@
 				E285D1FC1FE3AA890066532E /* ZKFullViewController.m in Sources */,
 				E23D67991FDBDE800080C548 /* ZKHomeViewController.m in Sources */,
 				E2778F651FC820D40064DA01 /* ZKSettingViewCell.m in Sources */,
-				E285D1E31FE3AA7E0066532E /* ZKVideoPlayView.m in Sources */,
 				E2719DA51FCD5DEA0033D968 /* ZKLoginViewController.m in Sources */,
 				E2443FF61FA8701300E84C65 /* ZKFunsViewController.m in Sources */,
 				E23D67921FDBDE800080C548 /* ZKWebViewController.m in Sources */,

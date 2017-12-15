@@ -12,14 +12,14 @@
 #import "ZKDetailModelManager.h"
 #import "ZKFullViewController.h"
 #import "ZKPictureFullController.h"
-#import "ZKVideoPlayView.h"
+#import "ZKPlayerView.h"
 
 
-@interface ZKDetailViewController ()<UITableViewDataSource, UITableViewDelegate, ZKDetailHeaderViewDelegate, ZKVideoPlayViewDelegate>
+@interface ZKDetailViewController ()<UITableViewDataSource, UITableViewDelegate, ZKDetailHeaderViewDelegate, ZKPlayerViewDelegate>
 @property (nonatomic, strong) UITableView          * tableView;
 @property (nonatomic, strong) NSMutableArray       * listArray; //评论数据
 @property (nonatomic, strong) ZKDetailHeaderView   * headerView;
-@property (nonatomic, strong) ZKVideoPlayView      * videoPlayView;
+@property (nonatomic, strong) ZKPlayerView         * videoPlayView;
 @property (nonatomic, assign) BOOL                   isVideoFullWindow;
 @property (nonatomic, strong) ZKFullViewController * videoFullWindow;
 @property (nonatomic, assign) CGRect                 headerFrame;
@@ -154,11 +154,9 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
 #pragma mark - ZKDetailHeaderViewDelegate
 - (void)startPlayVideo:(NSString *)videoLink {
     CGRect frame = self.headerFrame;
-    AVPlayerItem * item = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:videoLink]];
-    ZKVideoPlayView * videoPlayView = [[ZKVideoPlayView alloc] init];
+    ZKPlayerView * videoPlayView = [[ZKPlayerView alloc] initWithStreamURL:videoLink];
     self.videoPlayView = videoPlayView;
     self.videoPlayView.frame = frame;
-    self.videoPlayView.playerItem = item;
     self.videoPlayView.delegate = self;
     self.tableView.tableHeaderView = self.videoPlayView;
 }
@@ -170,10 +168,10 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
 }
 
 #pragma mark - ZKVidepPlayViewDelegate
-- (void)openFullPlayWindow:(BOOL)full {
+- (void)openFullWindow:(BOOL)open{
     __weak typeof(self)weakSelf = self;
-    if (full) {
-        self.isVideoFullWindow = full;
+    if (open) {
+        self.isVideoFullWindow = open;
         [self presentViewController:weakSelf.videoFullWindow animated:YES completion:^{
             weakSelf.videoPlayView.frame = weakSelf.videoFullWindow.view.frame;
             [weakSelf.videoFullWindow.view addSubview:weakSelf.videoPlayView];
@@ -189,14 +187,14 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
     }
 }
 
-- (void)videoPlayFinish {
+- (void)playerDidFinish {
     if (self.isVideoFullWindow) {
         [self.videoFullWindow dismissViewControllerAnimated:YES completion:^{
            
         }];
     }
     if (self.videoPlayView) {
-        [self.videoPlayView resetVideoPlay];
+        [self.videoPlayView resetPlayer];
         self.videoPlayView = nil;
     }
     self.headerView.frame = self.headerFrame;
@@ -253,7 +251,7 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
 #pragma mark - Private Method
 - (void)backAction {
     if (self.videoPlayView) {
-        [self.videoPlayView resetVideoPlay];
+        [self.videoPlayView resetPlayer];
         self.videoPlayView = nil;
     }
     [self.navigationController popViewControllerAnimated:YES];

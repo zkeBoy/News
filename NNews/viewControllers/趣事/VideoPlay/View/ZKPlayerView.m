@@ -65,7 +65,6 @@ static NSString * const playerStatus = @"status";
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:self.streamUrl]];
     [self.player replaceCurrentItemWithPlayerItem:playerItem];
     [self.player addObserver:self forKeyPath:playerStatus options:NSKeyValueObservingOptionNew context:nil];
-    [self.player play];
 }
 
 #pragma mark - 监听Player的播放状态
@@ -73,6 +72,7 @@ static NSString * const playerStatus = @"status";
     if ([keyPath isEqualToString:playerStatus]) {
         AVPlayerItem *item = (AVPlayerItem *)object;
         if (item.status == AVPlayerItemStatusReadyToPlay) { //开始播放
+            [self.player play];
             [self hiddenLoading]; //隐藏 loadView
             self.bottomBar.hidden = YES;
             [self fireTimer];     //开启视频进度计时器
