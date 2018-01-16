@@ -32,4 +32,5 @@ typedef NS_ENUM(NSInteger, shareStationType) {
 @property (nonatomic, strong) UIButton                       * shareQQ;
 @property (nonatomic, strong) UIButton                       * shareWeChat;
 @property (nonatomic, strong) UIButton                       * shareSina;
+@property (nonatomic, strong) UIButton                       * shareCollection;
 @end

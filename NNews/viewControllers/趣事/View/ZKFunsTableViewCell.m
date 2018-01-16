@@ -25,13 +25,9 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        
+        [self setUI];
     }
     return self;
-}
-
-- (void)layoutSubviews {
-    [self setUI];
 }
 
 - (void)setVideoModel:(ZKTTVideo *)videoModel{
@@ -134,6 +130,15 @@
     return _shareButton;
 }
 
+- (UIButton *)shareCollection {
+    if (!_shareCollection) {
+        _shareCollection = [[UIButton alloc] init];
+        [_shareCollection setImage:[UIImage imageNamed:@"icon_Shouji"] forState:UIControlStateNormal];
+        [_shareCollection addTarget:self action:@selector(collectionAction:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _shareCollection;
+}
+
 - (UIButton *)shareQQ {
     if (!_shareQQ) {
         _shareQQ = [[UIButton alloc] init];
@@ -176,6 +181,11 @@
     [ZKShareHelper shareWithType:tag andPresenController:[ZKToolManager shareManager].currentViewController andItems:@[link, image] completionHandler:^(BOOL completion) {
         
     }];
+}
+
+- (void)collectionAction:(UIButton *)btn {
+    NSString * urlString = _videoModel.videouri;
+    [ZKCollectionManager saveURL:urlString];
 }
 
 #pragma mark -
@@ -237,13 +247,14 @@
         make.bottom.equalTo(self.contentView).offset(0);
     }];
     
-    [self.contentView addSubview:self.shareSina];
-    [self.shareSina mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.contentView addSubview:self.shareCollection];
+    [self.shareCollection mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.height.equalTo(@23);
         make.bottom.equalTo(self.contentView).offset(-8);
         make.right.equalTo(self.shareButton.mas_left).offset(-Margin*2);
     }];
     
+    /*
     [self.contentView addSubview:self.shareWeChat];
     [self.shareWeChat mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.height.equalTo(@23);
@@ -257,6 +268,7 @@
         make.bottom.equalTo(self.contentView).offset(-8);
         make.right.equalTo(self.shareWeChat.mas_left).offset(-Margin*2);
     }];
+     */
 }
 
 - (CGRect)videnPlayFrame{

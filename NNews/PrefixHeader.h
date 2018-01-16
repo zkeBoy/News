@@ -33,4 +33,5 @@
 #import <SDCycleScrollView.h>
 #import "ZKShareHelper.h"
 #import "UIImage+xxCategory.h"
+#import "ZKCollectionManager.h"
 #endif /* PrefixHeader_h */
