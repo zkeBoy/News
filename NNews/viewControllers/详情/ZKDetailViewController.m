@@ -51,14 +51,15 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
 - (void)setType:(detailType)type {
     _type = type;
     if (type == typeVideo) {
-        self.headerView.type = typeVideo;
+        self.headerView = [[ZKDetailHeaderView alloc] initWithFrame:CGRectMake(0, 0, D_WIDTH, self.videoModel.cellHeight) withType:typeVideo];
         self.headerView.videoModel = self.videoModel;
-        self.headerFrame = self.headerView.frame = CGRectMake(0, 0, D_WIDTH, self.videoModel.cellHeight);
+        self.headerFrame =  CGRectMake(0, 0, D_WIDTH, self.videoModel.cellHeight);
     }else if (type == typePicture) {
-        self.headerView.type = typePicture;
+        self.headerView = [[ZKDetailHeaderView alloc] initWithFrame:CGRectMake(0, 0, D_WIDTH, self.pictureModel.cellHeight) withType:typePicture];
         self.headerView.pictureModel = self.pictureModel;
-        self.headerFrame = self.headerView.frame = CGRectMake(0, 0, D_WIDTH, self.pictureModel.cellHeight);
+        self.headerFrame  = CGRectMake(0, 0, D_WIDTH, self.pictureModel.cellHeight);
     }
+    self.headerView.delegate = self;
     self.tableView.tableHeaderView = self.headerView;
 }
 
@@ -153,12 +154,12 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
 
 #pragma mark - ZKDetailHeaderViewDelegate
 - (void)startPlayVideo:(NSString *)videoLink {
-    CGRect frame = self.headerFrame;
+    CGRect frame = self.headerView.coverFrame;
     ZKPlayerView * videoPlayView = [[ZKPlayerView alloc] initWithStreamURL:videoLink];
     self.videoPlayView = videoPlayView;
     self.videoPlayView.frame = frame;
     self.videoPlayView.delegate = self;
-    self.tableView.tableHeaderView = self.videoPlayView;
+    [self.headerView addSubview:videoPlayView];
 }
 
 - (void)seeBigPicture:(ZKTTPicture *)pictureModel {
@@ -179,8 +180,8 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
     }else {
         [self.videoFullWindow dismissViewControllerAnimated:YES completion:^{
             dispatch_async(dispatch_get_main_queue(), ^{
-                weakSelf.videoPlayView.frame = weakSelf.headerFrame;
-                weakSelf.tableView.tableHeaderView = weakSelf.videoPlayView;
+                weakSelf.videoPlayView.frame = weakSelf.headerView.coverFrame;
+                [weakSelf.headerView addSubview:weakSelf.videoPlayView];
             });
             weakSelf.isVideoFullWindow = NO;
         }];
@@ -222,15 +223,6 @@ static NSString * const cellPictureIdentifider = @"pictureDetailCellID";
         }];
     }
     return _tableView;
-}
-
-- (ZKDetailHeaderView *)headerView {
-    if (!_headerView) {
-        _headerView = [[ZKDetailHeaderView alloc] init];
-        _headerView.backgroundColor = [UIColor whiteColor];
-        _headerView.delegate = self;
-    }
-    return _headerView;
 }
 
 - (ZKFullViewController *)videoFullWindow {

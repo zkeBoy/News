@@ -23,6 +23,7 @@ typedef NS_ENUM(NSInteger, detailType) {
 @property (nonatomic, weak)   id <ZKDetailHeaderViewDelegate> delegate;
 @property (nonatomic, assign) CGRect       coverFrame;
 @property (nonatomic, strong) ZKTTPicture * pictureModel;
+- (instancetype)initWithFrame:(CGRect)frame withType:(detailType)type;
 @end
 
 @protocol ZKDetailHeaderViewDelegate <NSObject>

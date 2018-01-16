@@ -11,7 +11,9 @@
 static NSString * const cellIdentifider = @"identifider";
 
 @interface ZKCityViewController ()
-@property (nonatomic, strong) NSMutableArray * listArray;
+@property (nonatomic, strong) NSMutableArray     * listArray;
+@property (nonatomic, strong) UISearchBar        * searchBar;
+@property (nonatomic, strong) UISearchController * searchController;
 
 @end
 
@@ -24,6 +26,7 @@ static NSString * const cellIdentifider = @"identifider";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellIdentifider];
 }
 

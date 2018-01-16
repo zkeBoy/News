@@ -139,7 +139,7 @@
  */
 
 /*
- "<NSExtension: 0x174174340> {id = com.tencent.xin.sharetimeline}", //微信
+ "<NSExtension: 0x174174340> {id = com.tencent.xin.sharetimeline}",  //微信
  "<NSExtension: 0x174173d40> {id = com.tencent.mqq.ShareExtension}", //QQ
  "<NSExtension: 0x1741738c0> {id = com.apple.share.SinaWeibo.post}", //微博
  */

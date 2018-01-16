@@ -29,10 +29,11 @@
 
 @implementation ZKDetailHeaderView
 
-- (instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame withType:(detailType)type {
     self = [super initWithFrame:frame];
     if (self) {
-        
+        _type = type;
+        [self setUI];
     }
     return self;
 }
@@ -43,7 +44,6 @@
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    [self setUI];
 }
 
 - (void)setVideoModel:(ZKTTVideo *)videoModel {
@@ -122,9 +122,10 @@
     if (self.type==typeVideo) {
         [self addSubview:self.coverImage];
         [self.coverImage mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self).offset(Margin);
             make.top.equalTo(self.timeTitle.mas_bottom).offset(Margin);
-            make.bottom.right.equalTo(self).offset(-Margin);
+            make.centerX.equalTo(self);
+            make.width.mas_equalTo(D_WIDTH-2*Margin);
+            make.bottom.equalTo(self);
         }];
         
         [self.coverImage addSubview:self.loadIngView];
@@ -135,9 +136,10 @@
     }else if (self.type==typePicture){
         [self addSubview:self.pictureView];
         [self.pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self).offset(Margin);
             make.top.equalTo(self.timeTitle.mas_bottom).offset(Margin);
-            make.bottom.right.equalTo(self).offset(0);
+            make.centerX.equalTo(self);
+            make.width.mas_equalTo(D_WIDTH-2*Margin);
+            make.bottom.equalTo(self);
         }];
         
         [self.pictureView addSubview:self.moreInfoBtn];
@@ -178,7 +180,6 @@
 - (UIImageView *)userIcon {
     if (!_userIcon) {
         _userIcon = [[UIImageView alloc] init];
-        _userIcon.backgroundColor = [UIColor clearColor];
     }
     return _userIcon;
 }
