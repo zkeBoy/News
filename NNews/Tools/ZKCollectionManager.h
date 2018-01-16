@@ -12,6 +12,6 @@
 
 + (void)saveURL:(NSString *)urlString;
 + (void)deleteURL:(NSString *)urlString;
++ (void)deleteWithItem:(NSInteger)item;
 + (NSArray *)getAllURLStrings;
-
 @end

@@ -81,6 +81,18 @@ static NSString * const cellIdentifider = @"ZKCollectionViewCell";
     [self presentViewController:alertVC animated:YES completion:nil];
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    // 删除模型
+    [ZKCollectionManager deleteWithItem:indexPath.row];
+    // 刷新
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return @"删除";
+}
+
+
 - (void)playVideoWithLink:(NSString *)link {
     [self.playView resetPlayer];
     

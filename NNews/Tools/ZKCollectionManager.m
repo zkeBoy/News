@@ -31,6 +31,14 @@ static NSString * const saveURLKey = @"saveURLString";
     [userDefaults setObject:[arr mutableCopy] forKey:saveURLKey];
 }
 
++ (void)deleteWithItem:(NSInteger)item {
+    NSMutableArray * arr = [NSMutableArray arrayWithArray:[self getAllURLStrings]];
+    if (arr.count&&item<arr.count) {
+        [arr removeObjectAtIndex:item];
+    }
+    [userDefaults setObject:[arr mutableCopy] forKey:saveURLKey];
+}
+
 + (NSArray *)getAllURLStrings {
     NSArray * arr = [userDefaults objectForKey:saveURLKey];
     return arr;
