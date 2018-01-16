@@ -1319,6 +1319,7 @@
 			baseConfigurationReference = 801ABD53072112AB10E53CF7 /* Pods-NNews.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5VMH39C98C;
 				GCC_PREFIX_HEADER = "$(PROJECT_NAME)/PrefixHeader.h";
@@ -1336,6 +1337,7 @@
 			baseConfigurationReference = DB3DA298AE23B0C5F601BC3E /* Pods-NNews.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5VMH39C98C;
 				GCC_PREFIX_HEADER = "$(PROJECT_NAME)/PrefixHeader.h";
