@@ -94,6 +94,8 @@
 		E251AFAE1FB599C000303EC9 /* ZKMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E251AFAD1FB599C000303EC9 /* ZKMapManager.m */; };
 		E26CB996200DE70C00899590 /* ZKCollectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E26CB995200DE70C00899590 /* ZKCollectionManager.m */; };
 		E26CB99A200DE9B500899590 /* ZKCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = E26CB999200DE9B500899590 /* ZKCollectionController.m */; };
+		E26CB99F200DED6300899590 /* ZKCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E26CB99D200DED6300899590 /* ZKCollectionViewCell.m */; };
+		E26CB9A0200DED6300899590 /* ZKCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E26CB99E200DED6300899590 /* ZKCollectionViewCell.xib */; };
 		E2719DA51FCD5DEA0033D968 /* ZKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2719DA41FCD5DEA0033D968 /* ZKLoginViewController.m */; };
 		E2719DA81FCD5DFA0033D968 /* ZKRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2719DA71FCD5DFA0033D968 /* ZKRegisterViewController.m */; };
 		E2719DFB1FCE61BD0033D968 /* ZKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E2719DF71FCE61BC0033D968 /* ZKUser.m */; };
@@ -275,6 +277,9 @@
 		E26CB995200DE70C00899590 /* ZKCollectionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKCollectionManager.m; sourceTree = "<group>"; };
 		E26CB998200DE9B500899590 /* ZKCollectionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKCollectionController.h; sourceTree = "<group>"; };
 		E26CB999200DE9B500899590 /* ZKCollectionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKCollectionController.m; sourceTree = "<group>"; };
+		E26CB99C200DED6300899590 /* ZKCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKCollectionViewCell.h; sourceTree = "<group>"; };
+		E26CB99D200DED6300899590 /* ZKCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKCollectionViewCell.m; sourceTree = "<group>"; };
+		E26CB99E200DED6300899590 /* ZKCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZKCollectionViewCell.xib; sourceTree = "<group>"; };
 		E2719DA31FCD5DEA0033D968 /* ZKLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKLoginViewController.h; sourceTree = "<group>"; };
 		E2719DA41FCD5DEA0033D968 /* ZKLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKLoginViewController.m; sourceTree = "<group>"; };
 		E2719DA61FCD5DFA0033D968 /* ZKRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZKRegisterViewController.h; sourceTree = "<group>"; };
@@ -765,8 +770,19 @@
 			children = (
 				E26CB998200DE9B500899590 /* ZKCollectionController.h */,
 				E26CB999200DE9B500899590 /* ZKCollectionController.m */,
+				E26CB99B200DED4A00899590 /* View */,
 			);
 			path = Collection;
+			sourceTree = "<group>";
+		};
+		E26CB99B200DED4A00899590 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E26CB99C200DED6300899590 /* ZKCollectionViewCell.h */,
+				E26CB99D200DED6300899590 /* ZKCollectionViewCell.m */,
+				E26CB99E200DED6300899590 /* ZKCollectionViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E2719DA21FCD5DDA0033D968 /* Login */ = {
@@ -1005,6 +1021,7 @@
 				E23D67F71FDBE49C0080C548 /* cityGroups.plist in Resources */,
 				E23D67D61FDBE49C0080C548 /* cloudy_to_overcast.png in Resources */,
 				E23D67DA1FDBE49C0080C548 /* rain_litter.png in Resources */,
+				E26CB9A0200DED6300899590 /* ZKCollectionViewCell.xib in Resources */,
 				E23D67F01FDBE49C0080C548 /* bg_fog.jpg in Resources */,
 				E285D1D91FE3A09D0066532E /* 4.PNG in Resources */,
 				E23D67DD1FDBE49C0080C548 /* little_snow@2x.png in Resources */,
@@ -1131,6 +1148,7 @@
 				E2778F661FC820D40064DA01 /* ZKSettingsViewController.m in Sources */,
 				E23D679B1FDBDE800080C548 /* ZKHomeDefaultCell.m in Sources */,
 				E23D67941FDBDE800080C548 /* ZKPictureModel.m in Sources */,
+				E26CB99F200DED6300899590 /* ZKCollectionViewCell.m in Sources */,
 				E2056B671FD7D8BF00CC4CFB /* ZKRefreshGiftHeader.m in Sources */,
 				E23D67911FDBDE800080C548 /* ZKHomeViewModel.m in Sources */,
 				E23D67FB1FDBE49C0080C548 /* ZKWeatherHeader.m in Sources */,
