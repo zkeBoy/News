@@ -60,6 +60,7 @@ static NSString * const playerStatus = @"status";
 - (void)setUpPlayer {
     self.player = [[AVPlayer alloc] init];
     self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.player];
+    self.playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
     [self.coverImage.layer addSublayer:self.playerLayer];
     
     AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:self.streamUrl]];

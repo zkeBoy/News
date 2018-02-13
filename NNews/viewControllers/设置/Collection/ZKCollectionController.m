@@ -92,7 +92,6 @@ static NSString * const cellIdentifider = @"ZKCollectionViewCell";
     return @"删除";
 }
 
-
 - (void)playVideoWithLink:(NSString *)link {
     [self.playView resetPlayer];
     
@@ -103,6 +102,7 @@ static NSString * const cellIdentifider = @"ZKCollectionViewCell";
     [self.view addSubview:self.playView];
 }
 
+#pragma mark - ZKPlayerViewDelegate
 - (void)playerDidFinish {
     [self.playView resetPlayer];
 }
